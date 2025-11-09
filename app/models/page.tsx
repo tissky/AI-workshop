@@ -1,11 +1,10 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
+import ModelsFilter from "@/components/ModelsFilter";
+
+export const revalidate = 3600;
+export const dynamic = "force-static";
 
 export default function ModelsPage() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-
   const modelCategories = [
     { id: "all", name: "全部模型" },
     { id: "image", name: "图像处理" },
@@ -24,10 +23,6 @@ export default function ModelsPage() {
     { id: 7, name: "情感分析模型", category: "text", accuracy: "93%", uses: "40K+", desc: "精准识别文本情感倾向" },
     { id: 8, name: "音频降噪模型", category: "audio", accuracy: "95%", uses: "25K+", desc: "高质量音频降噪处理" }
   ];
-
-  const filteredModels = selectedCategory === "all" 
-    ? models 
-    : models.filter(model => model.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
@@ -69,50 +64,7 @@ export default function ModelsPage() {
           </div>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap gap-4 mb-8">
-          {modelCategories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-2 rounded-full transition-all ${
-                selectedCategory === category.id
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-50'
-              }`}
-            >
-              {category.name}
-            </button>
-          ))}
-        </div>
-
-        {/* Models Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredModels.map((model) => (
-            <div key={model.id} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all group border border-gray-100">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold">
-                  AI
-                </div>
-                <span className="text-xs text-green-600 bg-green-50 px-2 py-1 rounded-full">
-                  {model.accuracy}
-                </span>
-              </div>
-              
-              <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                {model.name}
-              </h3>
-              <p className="text-gray-600 text-sm mb-4">{model.desc}</p>
-              
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-500">使用量: {model.uses}</span>
-                <button className="text-blue-600 hover:text-blue-700 font-medium">
-                  使用 →
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+        <ModelsFilter modelCategories={modelCategories} models={models} />
 
         {/* Call to Action */}
         <div className="mt-16 text-center">
