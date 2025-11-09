@@ -1,6 +1,3 @@
-"use client";
-
-import { useParams } from "next/navigation";
 import Link from "next/link";
 
 interface ToolDetail {
@@ -13,9 +10,12 @@ interface ToolDetail {
   steps: string[];
 }
 
-export default function ToolDetailPage() {
-  const params = useParams();
-  const toolId = params.id as string;
+export default async function ToolDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id: toolId } = await params;
 
   const toolDetails: Record<string, ToolDetail> = {
     "background-replace": {

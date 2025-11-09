@@ -1,8 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import QRModal from "@/components/QRModal";
+import dynamic from "next/dynamic";
 import { useState } from "react";
+
+const QRModal = dynamic(() => import("@/components/QRModal"), {
+  ssr: false,
+  loading: () => null
+});
 
 export default function Home() {
   const [showQRModal, setShowQRModal] = useState(false);
