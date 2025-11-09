@@ -1,0 +1,22 @@
+
+> ai-workshop@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.4.7
+   - Local:        http://localhost:3000
+   - Network:      http://10.10.1.193:3000
+
+ ✓ Starting...
+ ✓ Ready in 1518ms
+ ○ Compiling / ...
+ ✓ Compiled / in 5.3s (637 modules)
+ ⨯ [TypeError: Cannot convert argument to a ByteString because the character at index 227 has a value of 25105 which is greater than 255.] {
+  digest: '1087124157'
+}
+ GET / 200 in 6203ms
+ ○ Compiling /tools ...
+ ✓ Compiled /tools in 705ms (627 modules)
+ GET /tools 200 in 993ms
+ ✓ Compiled /tools/[id] in 347ms (621 modules)
+ GET /tools/background-replace 200 in 1071ms
+[?25h
