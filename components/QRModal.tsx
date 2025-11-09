@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import { images } from "@/lib/media";
 
 interface QRModalProps {
   isOpen?: boolean;
@@ -52,10 +54,13 @@ export default function QRModal({ isOpen = false, onClose }: QRModalProps) {
             <div className="text-center">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">扫码联系我们</h3>
               <div className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-200">
-                <img
-                  src="/images/qr.png"
+                <Image
+                  src={images.qr}
                   alt="联系我们二维码"
                   className="w-full max-w-[280px] mx-auto h-auto"
+                  width={280}
+                  height={280}
+                  placeholder="blur"
                 />
               </div>
               <p className="text-gray-600 mt-6 text-sm">

@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image, { StaticImageData } from "next/image";
 
 interface CarouselItem {
   id: string;
-  image: string;
+  image: string | StaticImageData;
   title: string;
   description: string;
 }
@@ -59,10 +60,14 @@ export default function ImageCarousel({
               index === currentIndex ? "opacity-100" : "opacity-0"
             }`}
           >
-            <img
+            <Image
               src={item.image}
               alt={item.title}
-              className="w-full h-full object-contain bg-gradient-to-br from-gray-50 to-white"
+              className="object-contain bg-gradient-to-br from-gray-50 to-white"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+              placeholder={typeof item.image !== "string" ? "blur" : undefined}
+              priority={index === 0}
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent p-6 md:p-8">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
@@ -139,16 +144,18 @@ export default function ImageCarousel({
             <button
               key={item.id}
               onClick={() => goToSlide(index)}
-              className={`flex-shrink-0 w-24 h-16 md:w-32 md:h-20 rounded-lg overflow-hidden border-2 transition-all ${
+              className={`relative flex-shrink-0 w-24 h-16 md:w-32 md:h-20 rounded-lg overflow-hidden border-2 transition-all ${
                 index === currentIndex
                   ? "border-blue-500 ring-2 ring-blue-200"
                   : "border-gray-200 hover:border-gray-300"
               }`}
             >
-              <img
+              <Image
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover"
+                className="object-cover"
+                fill
+                sizes="(max-width: 768px) 96px, 128px"
               />
             </button>
           ))}
