@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 import Card from "@/components/Card";
 import Badge from "@/components/Badge";
-import ToolsHero from "@/components/ToolsHero";
 import ToolsCTA from "@/components/ToolsCTA";
 import { generateToolListSchema } from "@/lib/seo";
 import StructuredData from "@/components/StructuredData";
@@ -25,9 +24,15 @@ export const metadata: Metadata = {
 };
 
 export default function ToolsPage() {
-  const hiddenUrl = "https://oooooooooooooo.xiangmuchan.cn/update-history.php";
+  const hiddenUrl = "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=";
 
   const stats = [
+    { label: "AI工具", value: "30+" },
+    { label: "专业模型", value: "800+" },
+    { label: "服务用户", value: "100万+" },
+    { label: "日处理量", value: "500万+" }
+  ];
+
     { label: "AI工具", value: "30+", description: "专业工具" },
     { label: "专业模型", value: "800+", description: "训练模型" },
     { label: "服务用户", value: "100万+", description: "活跃用户" },
@@ -140,12 +145,53 @@ export default function ToolsPage() {
       <div className="min-h-screen bg-background">
         {/* Breadcrumb Navigation */}
         <div className="border-b border-border bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <Breadcrumb items={[
+              { label: "首页", href: "/" },
+              { label: "AI工具", href: "/tools" }
+            ]} />
           <div className="container-max py-4">
             <Breadcrumb />
           </div>
         </div>
 
         {/* Hero Section */}
+        <section className="py-16 sm:py-20 bg-muted border-b border-border">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6">
+                全方位<span className="text-accent">AI工具</span>平台
+              </h1>
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
+                从图片处理到视频编辑，从文案创作到AI模型，我们提供一站式AI创意解决方案
+              </p>
+            </div>
+            
+            {/* Stats */}
+            <div 
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto"
+              role="list"
+              aria-label="平台统计数据"
+            >
+              {stats.map((stat, index) => (
+                <Card 
+                  key={index} 
+                  className="text-center"
+                  as="article"
+                  role="listitem"
+                >
+                  <div 
+                    className="text-3xl sm:text-4xl font-bold text-accent mb-2"
+                    aria-label={`${stat.label}: ${stat.value}`}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className="text-sm font-medium text-foreground">
+                    {stat.label}
+                  </div>
+                </Card>
+              ))}
+            </div>
         <ToolsHero
           title={
             <>
@@ -182,10 +228,10 @@ export default function ToolsPage() {
               </Card>
             ))}
           </div>
-        </ToolsHero>
+        </section>
 
         {/* Tools Categories */}
-        <div className="container-max py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="space-y-16 sm:space-y-20">
             {toolCategories.map((category) => (
               <section 
@@ -197,7 +243,7 @@ export default function ToolsPage() {
                   <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
                     <div className="flex items-center gap-4">
                       <div 
-                        className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center text-3xl shadow-sm"
+                        className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center text-3xl"
                         aria-hidden="true"
                       >
                         {category.icon}
@@ -312,18 +358,18 @@ export default function ToolsPage() {
           </section>
         </div>
         <section 
-          className="relative py-16 sm:py-20 lg:py-24 mt-12 sm:mt-16"
+          className="relative py-16 sm:py-20 lg:py-24 border-t border-border"
           aria-labelledby="cta-heading"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-accent/90 to-accent" />
-          <div className="relative container-max text-center">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 
               id="cta-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 text-balance"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
             >
               需要更多功能？
             </h2>
-            <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto text-pretty">
+            <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
               我们持续更新工具库，为您带来更多AI能力
             </p>
             <ToolsCTA hiddenUrl={hiddenUrl} />

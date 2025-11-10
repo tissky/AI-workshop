@@ -2,6 +2,7 @@
 
 import { ButtonHTMLAttributes, forwardRef } from "react";
 
+export type ButtonVariant = "primary" | "secondary" | "outline";
 export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
 
@@ -42,7 +43,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const widthStyle = fullWidth ? "w-full" : "";
-
     const motionStyles = "transform hover:scale-[1.02] active:scale-[0.98]";
 
     return (

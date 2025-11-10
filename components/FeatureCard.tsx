@@ -18,10 +18,10 @@ export default function FeatureCard({
       <div className="text-4xl mb-4" aria-hidden="true">{icon}</div>
       <h3 className="text-xl font-semibold text-foreground mb-3">{title}</h3>
       <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{description}</p>
-      <ul className="space-y-2" aria-label="功能列表">
+      <ul className="space-y-2" role="list" aria-label="功能列表">
         {items.map((item, index) => (
-          <li key={index} className="text-muted-foreground text-sm flex items-center">
-            <span className="w-1.5 h-1.5 bg-foreground rounded-full mr-3 flex-shrink-0" aria-hidden="true"></span>
+          <li key={index} className="text-muted-foreground text-sm flex items-center" role="listitem">
+            <span className="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0" aria-hidden="true"></span>
             {item}
           </li>
         ))}
