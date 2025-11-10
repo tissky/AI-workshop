@@ -6,6 +6,12 @@ import { getAllToolIds, getToolDetail } from "@/lib/tools";
 export const revalidate = 3600;
 export const dynamic = "force-static";
 
+export default async function ToolDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id: toolId } = await params;
 export async function generateStaticParams() {
   return getAllToolIds().map((id) => ({
     id: id,

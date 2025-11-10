@@ -1,3 +1,16 @@
+"use client";
+
+import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const ImageCarousel = dynamic(() => import("@/components/ImageCarousel"), {
+  ssr: false,
+  loading: () => (
+    <div className="relative h-96 md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-50 to-white flex items-center justify-center">
+      <div className="text-gray-400">加载中...</div>
+    </div>
+  )
+});
 import ImageCarousel from "@/components/ImageCarousel";
 import Image from "next/image";
 import Link from "next/link";

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
+import { useState } from "react";
 import ToolsCTA from "@/components/ToolsCTA";
 import StructuredData from "@/components/StructuredData";
 import { generateToolListSchema } from "@/lib/seo";
@@ -6,6 +8,11 @@ import { toolCategories } from "@/lib/tools";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
+
+const QRModal = dynamic(() => import("@/components/QRModal"), {
+  ssr: false,
+  loading: () => null
+});
 
 export default function ToolsPage() {
   const hiddenUrl = "https://oooooooooooooo.xiangmuchan.cn/update-history.php";
