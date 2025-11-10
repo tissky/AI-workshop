@@ -23,18 +23,6 @@ export default async function ToolDetailPage({ params }: ToolDetailPageProps) {
   const { id } = await params;
   const tool = getToolDetail(id);
   
-  const softwareAppSchema = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": tool.name,
-    "description": tool.description,
-    "applicationCategory": "BusinessApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "CNY"
-    }
-  };
   const softwareAppSchema = generateSoftwareApplicationSchema(tool);
 
   return (

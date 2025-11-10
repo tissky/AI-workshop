@@ -1,15 +1,13 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import ToolsCTA from "@/components/ToolsCTA";
 import StructuredData from "@/components/StructuredData";
-import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 import Card from "@/components/Card";
 import Badge from "@/components/Badge";
 import ToolsHero from "@/components/ToolsHero";
-import ToolsCTA from "@/components/ToolsCTA";
 import StatsGrid from "@/components/sections/StatsGrid";
 import { generateToolListSchema } from "@/lib/seo";
-import StructuredData from "@/components/StructuredData";
 import { toolCategories } from "@/lib/tools";
 
 export const revalidate = 3600;
@@ -30,10 +28,6 @@ export default function ToolsPage() {
   const hiddenUrl = "https://oooooooooooooo.xiangmuchan.cn/update-history.php";
 
   const stats = [
-    { label: "AI工具", value: "30+", description: "专业工具" },
-    { label: "专业模型", value: "800+", description: "训练模型" },
-    { label: "服务用户", value: "100万+", description: "活跃用户" },
-    { label: "日处理量", value: "500万+", description: "任务处理" }
     { label: "AI工具", value: "30+" },
     { label: "专业模型", value: "800+" },
     { label: "服务用户", value: "100万+" },
