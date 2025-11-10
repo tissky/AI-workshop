@@ -1,14 +1,15 @@
-import { Metadata } from "next";
-import { generateMetadataWithAlternates, HOME_DATA } from "@/lib/metadata";
-import HomeContent from "./page-content";
+"use client";
 
-export const metadata: Metadata = generateMetadataWithAlternates(
-  HOME_DATA.title,
-  HOME_DATA.description,
-  "/",
-  HOME_DATA.ogImage,
-  HOME_DATA.keywords
-);
+import Link from "next/link";
+import dynamic from "next/dynamic";
+import StructuredData from "@/components/StructuredData";
+import { useState } from "react";
+import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/seo";
+
+const QRModal = dynamic(() => import("@/components/QRModal"), {
+  ssr: false,
+  loading: () => null
+});
 
 export default function Home() {
   return <HomeContent />;

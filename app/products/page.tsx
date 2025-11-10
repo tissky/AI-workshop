@@ -1,14 +1,14 @@
-import { Metadata } from "next";
-import { generateMetadataWithAlternates, PRODUCTS_DATA } from "@/lib/metadata";
-import ProductsPageContent from "./page-content";
+"use client";
 
-export const metadata: Metadata = generateMetadataWithAlternates(
-  PRODUCTS_DATA.title,
-  PRODUCTS_DATA.description,
-  "/products",
-  PRODUCTS_DATA.ogImage,
-  PRODUCTS_DATA.keywords
-);
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import StructuredData from "@/components/StructuredData";
+import { generateProductListSchema } from "@/lib/seo";
+
+const ImageCarousel = dynamic(() => import("@/components/ImageCarousel"), {
+  ssr: false,
+  loading: () => <div className="w-full h-[400px] bg-gray-100 animate-pulse rounded-3xl" />
+});
 
 export default function ProductsPage() {
   return <ProductsPageContent />;

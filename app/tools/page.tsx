@@ -1,14 +1,15 @@
-import { Metadata } from "next";
-import { generateMetadataWithAlternates, TOOLS_DATA } from "@/lib/metadata";
-import ToolsPageContent from "./page-content";
+"use client";
 
-export const metadata: Metadata = generateMetadataWithAlternates(
-  TOOLS_DATA.title,
-  TOOLS_DATA.description,
-  "/tools",
-  TOOLS_DATA.ogImage,
-  TOOLS_DATA.keywords
-);
+import Link from "next/link";
+import dynamic from "next/dynamic";
+import StructuredData from "@/components/StructuredData";
+import { useState } from "react";
+import { generateToolListSchema } from "@/lib/seo";
+
+const QRModal = dynamic(() => import("@/components/QRModal"), {
+  ssr: false,
+  loading: () => null
+});
 
 export default function ToolsPage() {
   return <ToolsPageContent />;
