@@ -1,18 +1,12 @@
+"use client";
+
 import Link from "next/link";
-import ToolsCTA from "@/components/ToolsCTA";
+import QRModal from "@/components/QRModal";
+import { useState } from "react";
 
-export const revalidate = 3600;
-export const dynamic = "force-static";
-
-export default function ToolsPage() {
+export default function ToolsPageContent() {
+  const [showQRModal, setShowQRModal] = useState(false);
   const hiddenUrl = "https://oooooooooooooo.xiangmuchan.cn/update-history.php";
-
-  const stats = [
-    { label: "AI工具", value: "30+", color: "text-blue-600" },
-    { label: "专业模型", value: "800+", color: "text-purple-600" },
-    { label: "服务用户", value: "100万+", color: "text-green-600" },
-    { label: "日处理量", value: "500万+", color: "text-orange-600" }
-  ];
 
   const toolCategories = [
     {
@@ -95,9 +89,14 @@ export default function ToolsPage() {
     }
   ];
 
+  const stats = [
+    { label: "AI工具", value: "30+", color: "text-blue-600" },
+    { label: "专业模型", value: "800+", color: "text-purple-600" },
+    { label: "服务用户", value: "100万+", color: "text-green-600" },
+    { label: "日处理量", value: "500万+", color: "text-orange-600" }
+  ];
+
   return (
-    <>
-      <StructuredData data={toolListSchema} />
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
       <div className="bg-white shadow-sm">
@@ -212,13 +211,30 @@ export default function ToolsPage() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             需要更多功能？
           </h2>
-          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
             我们持续更新工具库，为您带来更多AI能力
           </p>
-          <ToolsCTA hiddenUrl={hiddenUrl} />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              onClick={() => window.open(hiddenUrl, '_blank')}
+              className="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl"
+            >
+              立即体验
+            </button>
+            <button 
+              onClick={() => setShowQRModal(true)}
+              className="border-2 border-white/40 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all backdrop-blur-sm"
+            >
+              联系我们
+            </button>
+          </div>
         </div>
       </section>
+
+      {/* QR Modal */}
+      {showQRModal && (
+        <QRModal onClose={() => setShowQRModal(false)} />
+      )}
     </div>
-    </>
   );
 }

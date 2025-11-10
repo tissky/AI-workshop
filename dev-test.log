@@ -1,0 +1,31 @@
+
+> ai-workshop@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.4.7
+   - Local:        http://localhost:3000
+   - Network:      http://10.10.1.193:3000
+
+ ✓ Starting...
+ ✓ Ready in 1499ms
+ ○ Compiling / ...
+ ✓ Compiled / in 5.1s (637 modules)
+ ⨯ [TypeError: Cannot convert argument to a ByteString because the character at index 227 has a value of 25105 which is greater than 255.] {
+  digest: '1087124157'
+}
+ GET / 200 in 5985ms
+ ○ Compiling /products ...
+ ✓ Compiled /products in 1510ms (629 modules)
+ ⨯ [TypeError: Cannot convert argument to a ByteString because the character at index 227 has a value of 25105 which is greater than 255.] {
+  digest: '1087124157'
+}
+ GET /products 200 in 2045ms
+ ✓ Compiled /tools in 309ms (623 modules)
+ GET /tools 200 in 486ms
+ ✓ Compiled /models in 262ms (631 modules)
+ GET /models 200 in 399ms
+ ✓ Compiled /company in 268ms (639 modules)
+ GET /company 200 in 407ms
+ ✓ Compiled /technology in 307ms (647 modules)
+ GET /technology 200 in 442ms
+[?25h
