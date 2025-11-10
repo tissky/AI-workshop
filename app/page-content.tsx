@@ -65,6 +65,9 @@ export default function HomeContent() {
               AI创意工坊
             </Link>
             <div className="hidden md:flex items-center space-x-8">
+              <Link href="#products" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">产品</Link>
+              <Link href="/tools" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">AI工具</Link>
+              <Link href="/models" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">模型库</Link>
               <Link href="#products" className="link-base text-sm font-medium">产品</Link>
               <Link href="/tools" className="link-base text-sm font-medium">AI工具</Link>
               <Link href="/models" className="link-base text-sm font-medium">模型库</Link>

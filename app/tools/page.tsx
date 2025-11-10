@@ -1,5 +1,14 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import ToolsCTA from "@/components/ToolsCTA";
+import StructuredData from "@/components/StructuredData";
+import Breadcrumb from "@/components/Breadcrumb";
+import Card from "@/components/Card";
+import Badge from "@/components/Badge";
+import ToolsHero from "@/components/ToolsHero";
+import StatsGrid from "@/components/sections/StatsGrid";
+import { generateToolListSchema } from "@/lib/seo";
+import { toolCategories } from "@/lib/tools";
 import Badge from "@/components/Badge";
 import StatsGrid from "@/components/ui/StatsGrid";
 import StructuredData from "@/components/StructuredData";
