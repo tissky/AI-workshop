@@ -17,12 +17,12 @@ export default function HomeContent() {
               AI创意工坊
             </Link>
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="#products" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">产品</Link>
-              <Link href="/tools" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">AI工具</Link>
-              <Link href="/models" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">模型库</Link>
+              <Link href="#products" className="link-base text-sm font-medium">产品</Link>
+              <Link href="/tools" className="link-base text-sm font-medium">AI工具</Link>
+              <Link href="/models" className="link-base text-sm font-medium">模型库</Link>
               <button 
                 onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
-                className="bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors"
+                className="bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 active:bg-blue-800"
                 title="即刻体验AI创意工坊"
               >
                 即刻体验
@@ -48,14 +48,14 @@ export default function HomeContent() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
-                className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-all transform hover:scale-105"
+                className="btn-primary text-lg"
                 title="即刻体验AI创意工坊"
               >
                 即刻体验
               </button>
               <button 
                 onClick={() => setShowQRModal(true)}
-                className="border border-gray-300 text-gray-700 px-8 py-3 rounded-full text-lg font-medium hover:border-gray-400 transition-all"
+                className="btn-outline text-lg"
                 title="了解更多关于AI创意工坊"
               >
                 了解更多
@@ -152,10 +152,10 @@ export default function HomeContent() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Feature 1 - 图片处理 */}
-            <div className="group bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-blue-200 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
+            <div className="group bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 ease-apple border-2 border-transparent hover:border-blue-200 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700 ease-apple"></div>
               <div className="relative z-10">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300 ease-apple">
                   <span className="text-3xl">🎨</span>
                 </div>
                 <div className="flex items-center gap-3 mb-4">
@@ -167,7 +167,7 @@ export default function HomeContent() {
                 </p>
                 <div className="flex items-center text-blue-600 text-sm font-medium">
                   <span>查看详情</span>
-                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200 ease-apple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
@@ -175,10 +175,10 @@ export default function HomeContent() {
             </div>
 
             {/* Feature 2 - 视频处理 */}
-            <div className="group bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-purple-200 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-100 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
+            <div className="group bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 ease-apple border-2 border-transparent hover:border-purple-200 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-100 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700 ease-apple"></div>
               <div className="relative z-10">
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300 ease-apple">
                   <span className="text-3xl">🎬</span>
                 </div>
                 <div className="flex items-center gap-3 mb-4">
@@ -190,7 +190,7 @@ export default function HomeContent() {
                 </p>
                 <div className="flex items-center text-purple-600 text-sm font-medium">
                   <span>查看详情</span>
-                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200 ease-apple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
@@ -198,10 +198,10 @@ export default function HomeContent() {
             </div>
 
             {/* Feature 3 - 文案创作 */}
-            <div className="group bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-green-200 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-green-100 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
+            <div className="group bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 ease-apple border-2 border-transparent hover:border-green-200 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-green-100 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700 ease-apple"></div>
               <div className="relative z-10">
-                <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300 ease-apple">
                   <span className="text-3xl">✍️</span>
                 </div>
                 <div className="flex items-center gap-3 mb-4">
@@ -213,7 +213,7 @@ export default function HomeContent() {
                 </p>
                 <div className="flex items-center text-green-600 text-sm font-medium">
                   <span>查看详情</span>
-                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200 ease-apple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
@@ -221,10 +221,10 @@ export default function HomeContent() {
             </div>
 
             {/* Feature 4 - AI模型 */}
-            <div className="group bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-orange-200 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
+            <div className="group bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 ease-apple border-2 border-transparent hover:border-orange-200 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700 ease-apple"></div>
               <div className="relative z-10">
-                <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300 ease-apple">
                   <span className="text-3xl">🤖</span>
                 </div>
                 <div className="flex items-center gap-3 mb-4">
@@ -236,7 +236,7 @@ export default function HomeContent() {
                 </p>
                 <div className="flex items-center text-orange-600 text-sm font-medium">
                   <span>查看详情</span>
-                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200 ease-apple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
@@ -246,22 +246,22 @@ export default function HomeContent() {
 
           {/* Additional Features Row */}
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center hover:from-blue-100 hover:to-blue-200 transition-all">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center hover:from-blue-100 hover:to-blue-200 transition-all duration-200 ease-apple">
               <div className="text-4xl mb-3">💡</div>
               <h4 className="font-semibold text-gray-900 mb-2">创意工具</h4>
               <p className="text-sm text-gray-600">激发无限创意</p>
             </div>
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 text-center hover:from-purple-100 hover:to-purple-200 transition-all">
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 text-center hover:from-purple-100 hover:to-purple-200 transition-all duration-200 ease-apple">
               <div className="text-4xl mb-3">⚡</div>
               <h4 className="font-semibold text-gray-900 mb-2">高效快速</h4>
               <p className="text-sm text-gray-600">秒级完成处理</p>
             </div>
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 text-center hover:from-green-100 hover:to-green-200 transition-all">
+            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 text-center hover:from-green-100 hover:to-green-200 transition-all duration-200 ease-apple">
               <div className="text-4xl mb-3">🎯</div>
               <h4 className="font-semibold text-gray-900 mb-2">精准智能</h4>
               <p className="text-sm text-gray-600">AI驱动精准</p>
             </div>
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-6 text-center hover:from-orange-100 hover:to-orange-200 transition-all">
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-6 text-center hover:from-orange-100 hover:to-orange-200 transition-all duration-200 ease-apple">
               <div className="text-4xl mb-3">🏆</div>
               <h4 className="font-semibold text-gray-900 mb-2">专业品质</h4>
               <p className="text-sm text-gray-600">专业级效果</p>
@@ -280,7 +280,7 @@ export default function HomeContent() {
           </p>
           <Link 
             href="/models"
-            className="inline-block bg-gray-800 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-900 transition-all transform hover:scale-105"
+            className="inline-block bg-gray-800 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-900 transition-all duration-200 ease-apple transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 shadow-lg hover:shadow-xl"
             title="探索AI模型库"
           >
             探索模型库
@@ -298,7 +298,7 @@ export default function HomeContent() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
-              className="bg-white text-indigo-600 px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-100 transition-all transform hover:scale-105"
+              className="bg-white text-indigo-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 ease-apple transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 shadow-lg hover:shadow-xl"
               title="即刻体验AI创意工坊"
             >
               即刻体验
@@ -315,46 +315,46 @@ export default function HomeContent() {
             <div>
               <h4 className="font-semibold text-gray-900 mb-4">产品</h4>
               <ul className="space-y-3">
-                <li><Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors">我有产品</Link></li>
-                <li><Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors">图片焕新</Link></li>
-                <li><Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors">AI视频生成</Link></li>
-                <li><Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors">对标图文</Link></li>
+                <li><Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">我有产品</Link></li>
+                <li><Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">图片焕新</Link></li>
+                <li><Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">AI视频生成</Link></li>
+                <li><Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">对标图文</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-gray-900 mb-4">AI工具</h4>
               <ul className="space-y-3">
-                <li><Link href="/tools" className="text-gray-600 hover:text-gray-900 transition-colors">图片处理</Link></li>
-                <li><Link href="/tools" className="text-gray-600 hover:text-gray-900 transition-colors">视频处理</Link></li>
-                <li><Link href="/tools" className="text-gray-600 hover:text-gray-900 transition-colors">文案创作</Link></li>
-                <li><Link href="/tools" className="text-gray-600 hover:text-gray-900 transition-colors">创意工具</Link></li>
+                <li><Link href="/tools" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">图片处理</Link></li>
+                <li><Link href="/tools" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">视频处理</Link></li>
+                <li><Link href="/tools" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">文案创作</Link></li>
+                <li><Link href="/tools" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">创意工具</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-gray-900 mb-4">技术</h4>
               <ul className="space-y-3">
-                <li><Link href="/technology" className="text-gray-600 hover:text-gray-900 transition-colors">核心技术</Link></li>
-                <li><Link href="/technology" className="text-gray-600 hover:text-gray-900 transition-colors">技术栈</Link></li>
-                <li><Link href="/technology" className="text-gray-600 hover:text-gray-900 transition-colors">性能指标</Link></li>
-                <li><Link href="/technology" className="text-gray-600 hover:text-gray-900 transition-colors">模型库</Link></li>
+                <li><Link href="/technology" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">核心技术</Link></li>
+                <li><Link href="/technology" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">技术栈</Link></li>
+                <li><Link href="/technology" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">性能指标</Link></li>
+                <li><Link href="/technology" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">模型库</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-gray-900 mb-4">支持</h4>
               <ul className="space-y-3">
-                <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">帮助中心</Link></li>
-                <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">技术支持</Link></li>
-                <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">用户反馈</Link></li>
-                <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">联系我们</Link></li>
+                <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">帮助中心</Link></li>
+                <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">技术支持</Link></li>
+                <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">用户反馈</Link></li>
+                <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">联系我们</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-gray-900 mb-4">公司</h4>
               <ul className="space-y-3">
-                <li><Link href="/company" className="text-gray-600 hover:text-gray-900 transition-colors">关于我们</Link></li>
-                <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">商务合作</Link></li>
-                <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">隐私政策</Link></li>
-                <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">服务条款</Link></li>
+                <li><Link href="/company" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">关于我们</Link></li>
+                <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">商务合作</Link></li>
+                <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">隐私政策</Link></li>
+                <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm">服务条款</Link></li>
               </ul>
             </div>
           </div>

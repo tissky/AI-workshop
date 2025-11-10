@@ -80,7 +80,7 @@ export default function QRModal({ isOpen = false, onClose }: QRModalProps) {
         <button
           ref={triggerRef}
           onClick={openModal}
-          className="border-2 border-white/40 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-white/10 transition-all backdrop-blur-sm"
+          className="border-2 border-white/40 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-white/10 transition-all duration-200 ease-apple backdrop-blur-sm transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
         >
           联系我们
         </button>
@@ -110,7 +110,7 @@ export default function QRModal({ isOpen = false, onClose }: QRModalProps) {
               ref={closeButtonRef}
               onClick={closeModal}
               aria-label="关闭对话框"
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm active:text-gray-800"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

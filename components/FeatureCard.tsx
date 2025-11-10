@@ -19,7 +19,7 @@ export default function FeatureCard({
     <article className={`${gradient 
       ? 'bg-gradient-to-br from-white to-gray-50' 
       : 'bg-white'
-    } p-6 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 border border-gray-100`}>
+    } card-elevated border border-gray-100`}>
       <div className="text-4xl mb-4" aria-hidden="true">{icon}</div>
       <h3 className="text-xl font-semibold text-gray-900 mb-3">{title}</h3>
       <p className="text-gray-600 text-sm mb-4">{description}</p>
