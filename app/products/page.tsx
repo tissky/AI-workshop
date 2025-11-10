@@ -220,7 +220,7 @@ export default function ProductsPage() {
           {/* Main Product Categories */}
           <section className="mb-24 md:mb-32">
             <div className="text-center mb-12 md:mb-16">
-              <Badge variant="primary" size="lg" className="mb-4">
+              <Badge variant="accent" size="lg" className="mb-4">
                 核心产品
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -268,7 +268,7 @@ export default function ProductsPage() {
           {/* Additional Features Grid */}
           <section className="mb-24 md:mb-32">
             <div className="text-center mb-12 md:mb-16">
-              <Badge variant="info" size="lg" className="mb-4">
+              <Badge variant="accent" size="lg" className="mb-4">
                 扩展功能
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
