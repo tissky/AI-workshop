@@ -264,6 +264,7 @@ export default function ToolsPage() {
                   <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
                     <div className="flex items-center gap-4">
                       <div 
+                        className="w-14 h-14 rounded-xl bg-accent-muted flex items-center justify-center text-3xl shadow-sm"
                         className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center text-3xl"
                         aria-hidden="true"
                       >
