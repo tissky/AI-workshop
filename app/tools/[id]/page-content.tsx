@@ -133,8 +133,8 @@ export default function ToolDetailPageContent({ toolId }: Props) {
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-center justify-between">
-            <Link href="/tools" className="text-blue-600 hover:text-blue-700 transition-colors">
-              ← 返回工具库
+            <Link href="/tools" className="link-accent inline-flex items-center gap-2">
+              <span>←</span> 返回工具库
             </Link>
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function ToolDetailPageContent({ toolId }: Props) {
               <div className="bg-white p-8 rounded-lg border-2 border-dashed border-gray-300 text-center">
                 <div className="text-gray-400 text-6xl mb-4">{tool.icon}</div>
                 <p className="text-gray-600">点击下方按钮体验{tool.name}</p>
-                <button className="mt-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all">
+                <button className="mt-4 btn-primary">
                   即刻体验
                 </button>
               </div>
@@ -216,10 +216,10 @@ export default function ToolDetailPageContent({ toolId }: Props) {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">开始使用{tool.name}</h2>
               <p className="text-gray-600 mb-6">注册免费账户，立即体验强大的AI功能</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all">
+                <button className="btn-primary">
                   即刻体验
                 </button>
-                <button className="border border-gray-300 text-gray-700 px-8 py-3 rounded-full hover:bg-gray-50 transition-all">
+                <button className="btn-outline">
                   查看价格
                 </button>
               </div>
