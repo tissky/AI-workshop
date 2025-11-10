@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "./ui/Button";
-import QRModal from "./QRModal";
+import QRModalWrapper from "./QRModalWrapper";
 
 interface HomeCTAProps {
   hiddenUrl: string;
@@ -18,7 +18,7 @@ export default function HomeCTA({ hiddenUrl }: HomeCTAProps) {
       >
         即刻体验
       </Button>
-      <QRModal />
+      <QRModalWrapper />
     </div>
   );
 }

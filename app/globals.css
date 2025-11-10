@@ -375,6 +375,62 @@ html {
   }
 }
 
+/* Page Transition Animations */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-0.25rem);
+  }
+}
+
+.page-transition-wrapper {
+  animation: page-enter var(--duration-medium) var(--ease-apple);
+}
+
+.page-transition-wrapper.transitioning {
+  animation: page-exit calc(var(--duration-medium) / 2) var(--ease-apple);
+}
+
+/* Disable page transitions for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .page-transition-wrapper {
+    animation: none !important;
+  }
+  
+  .page-transition-wrapper.transitioning {
+    animation: none !important;
+  }
+  
+  @keyframes page-enter {
+    from, to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  @keyframes page-exit {
+    from, to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
 /* Focus Ring - Accessible & Minimal */
 .focus-ring {
   outline: 2px solid var(--accent);
