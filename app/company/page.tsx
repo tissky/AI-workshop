@@ -1,3 +1,4 @@
+import CompanyPageContent from "./page-content";
 import CompanyContent from "./page-content";
 
 export const revalidate = 3600;

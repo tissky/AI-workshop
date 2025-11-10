@@ -1,4 +1,6 @@
 import Link from "next/link";
+import ToolsCTA from "@/components/ToolsCTA";
+import StructuredData from "@/components/StructuredData";
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 import Card from "@/components/Card";
@@ -113,6 +115,13 @@ export default function ToolsPage() {
     }
   ];
 
+  const toolListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "AI工具库",
+    "description": "探索30+专业AI工具，释放无限创意",
+    "numberOfItems": 30
+  };
   // Generate structured data for SEO
   const allTools = toolCategories.flatMap(category =>
     category.tools.map(tool => ({
@@ -209,6 +218,11 @@ export default function ToolsPage() {
                       {category.description}
                     </p>
                   </div>
+                  </div>
+                  <p className="text-muted-foreground text-base sm:text-lg">
+                    {category.description}
+                  </p>
+                </div>
 
                   {/* Tools Grid */}
                   <div 
@@ -297,6 +311,25 @@ export default function ToolsPage() {
             </div>
           </section>
         </div>
+        <section 
+          className="relative py-16 sm:py-20 lg:py-24 mt-12 sm:mt-16"
+          aria-labelledby="cta-heading"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-accent/90 to-accent" />
+          <div className="relative container-max text-center">
+            <h2 
+              id="cta-heading"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 text-balance"
+            >
+              需要更多功能？
+            </h2>
+            <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto text-pretty">
+              我们持续更新工具库，为您带来更多AI能力
+            </p>
+            <ToolsCTA hiddenUrl={hiddenUrl} />
+          </div>
+        </section>
+      </div>
     </>
   );
 }

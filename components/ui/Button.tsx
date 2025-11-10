@@ -32,6 +32,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       secondary: "bg-secondary text-secondary-foreground hover:bg-muted",
       outline: "border-2 border-border text-foreground hover:bg-muted hover:border-muted-foreground",
       ghost: "text-foreground bg-transparent hover:bg-muted"
+      ghost: "text-foreground hover:bg-muted"
     };
 
     const sizeStyles = {
