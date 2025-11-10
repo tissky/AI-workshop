@@ -1,9 +1,11 @@
 "use client";
 
 import ImageCarousel from "@/components/ImageCarousel";
+import Image from "next/image";
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
 import { generateProductListSchema } from "@/lib/seo";
+import { images } from "@/lib/media";
 
 export default function ProductsPage() {
   const productCategories = [
@@ -14,7 +16,7 @@ export default function ProductsPage() {
       items: [
         {
           id: "1",
-          image: "/images/我有产品.png",
+          image: images.myProduct,
           title: "我有产品",
           description: "智能产品图生成与优化，提升转化率"
         }
@@ -27,7 +29,7 @@ export default function ProductsPage() {
       items: [
         {
           id: "1",
-          image: "/images/图片焕新.png",
+          image: images.imageRefresh,
           title: "图片焕新",
           description: "高清修复、背景替换、细节增强"
         }
@@ -40,7 +42,7 @@ export default function ProductsPage() {
       items: [
         {
           id: "1",
-          image: "/images/AI视频生成.png",
+          image: images.aiVideoGeneration,
           title: "AI视频生成",
           description: "自动生成、剪辑、特效一站式解决方案"
         }
@@ -53,19 +55,19 @@ export default function ProductsPage() {
       items: [
         {
           id: "1",
-          image: "/images/对标图文.jpg",
+          image: images.benchmarkContent,
           title: "对标图文",
           description: "智能分析竞品，优化内容策略"
         },
         {
           id: "2",
-          image: "/images/同行分析.png",
+          image: images.peerAnalysis,
           title: "同行分析",
           description: "深度解析同行数据，找出差异化优势"
         },
         {
           id: "3",
-          image: "/images/同行观测.png",
+          image: images.peerObservation,
           title: "同行观测",
           description: "实时监控竞争对手动态"
         }
@@ -77,46 +79,46 @@ export default function ProductsPage() {
     {
       title: "AI 800+模型",
       description: "海量专业模型库",
-      image: "/images/AI 800.jpg",
+      image: images.ai800,
       gradient: "from-blue-500 to-cyan-500"
     },
     {
       title: "创意生成",
       description: "激发无限创意可能",
-      image: "/images/创意生成.jpg",
+      image: images.creativeGeneration,
       gradient: "from-purple-500 to-pink-500"
     },
     {
       title: "SOP模板",
       description: "95%全行业标准模板",
-      image: "/images/SOP模板.png",
+      image: images.sopTemplate,
       gradient: "from-green-500 to-emerald-500"
     },
     {
       title: "视频转图文",
       description: "智能提取精彩内容",
-      image: "/images/视频转图文.png",
+      image: images.videoToText,
       gradient: "from-orange-500 to-red-500"
     },
     {
       title: "提示词工具",
       description: "优化提示词效果",
-      image: "/images/提示词.png",
+      image: images.promptTool,
       gradient: "from-indigo-500 to-purple-500"
     },
     {
       title: "智能体",
       description: "AI助手一站式服务",
-      image: "/images/智能体.png",
+      image: images.agent,
       gradient: "from-pink-500 to-rose-500"
     }
   ];
 
   const socialPlatforms = [
-    { name: "抖音", image: "/images/抖音.jpg", color: "from-pink-500 to-purple-500" },
-    { name: "抖音热榜", image: "/images/抖音热榜.jpg", color: "from-red-500 to-orange-500" },
-    { name: "小红薯", image: "/images/小红薯.png", color: "from-red-400 to-pink-400" },
-    { name: "抖抖对标", image: "/images/抖抖对标.jpg", color: "from-purple-500 to-indigo-500" }
+    { name: "抖音", image: images.douyin, color: "from-pink-500 to-purple-500" },
+    { name: "抖音热榜", image: images.douyinHotList, color: "from-red-500 to-orange-500" },
+    { name: "小红薯", image: images.xiaohongshu, color: "from-red-400 to-pink-400" },
+    { name: "抖抖对标", image: images.douyinBenchmark, color: "from-purple-500 to-indigo-500" }
   ];
 
   const coreProducts = [
@@ -124,29 +126,36 @@ export default function ProductsPage() {
       name: "我有产品",
       description: "智能产品图生成与优化，提升转化率",
       url: "https://ai-creative-workshop.com/products#product",
-      image: "/images/我有产品.png"
+      image: images.myProduct
     },
     {
       name: "图片焕新",
       description: "高清修复、背景替换、细节增强",
       url: "https://ai-creative-workshop.com/products#image-refresh",
-      image: "/images/图片焕新.png"
+      image: images.imageRefresh
     },
     {
       name: "AI视频生成",
       description: "自动生成、剪辑、特效一站式解决方案",
       url: "https://ai-creative-workshop.com/products#video-ai",
-      image: "/images/AI视频生成.png"
+      image: images.aiVideoGeneration
     },
     {
       name: "对标图文",
       description: "智能分析竞品，优化内容策略",
       url: "https://ai-creative-workshop.com/products#benchmark",
-      image: "/images/对标图文.jpg"
+      image: images.benchmarkContent
     }
   ];
 
-  const productListSchema = generateProductListSchema(coreProducts);
+  const coreProductsForSchema = coreProducts.map(product => ({
+    name: product.name,
+    description: product.description,
+    url: product.url,
+    image: typeof product.image === 'string' ? product.image : product.image.src
+  }));
+
+  const productListSchema = generateProductListSchema(coreProductsForSchema);
 
   return (
     <>
@@ -227,10 +236,13 @@ export default function ProductsPage() {
                 key={index}
                 className="group relative h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer"
               >
-                <img
+                <Image
                   src={feature.image}
                   alt={feature.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  placeholder="blur"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                   <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -262,10 +274,13 @@ export default function ProductsPage() {
                 key={index}
                 className="group relative h-48 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer"
               >
-                <img
+                <Image
                   src={platform.image}
                   alt={platform.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
+                  placeholder="blur"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
                   <div className="absolute bottom-0 left-0 right-0 p-4">

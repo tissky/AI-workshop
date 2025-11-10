@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import QRModal from "@/components/QRModal";
 import StructuredData from "@/components/StructuredData";
 import { useState } from "react";
 import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/seo";
+import { images } from "@/lib/media";
 
 export default function Home() {
   const [showQRModal, setShowQRModal] = useState(false);
@@ -83,10 +85,15 @@ export default function Home() {
               </p>
             </div>
             <div className="relative max-w-3xl mx-auto flex justify-center">
-              <img
-                src="/images/我有产品.png"
+              <Image
+                src={images.myProduct}
                 alt="我有产品"
                 className="w-2/3 h-auto"
+                width={1303}
+                height={700}
+                sizes="(max-width: 768px) 100vw, 66vw"
+                placeholder="blur"
+                priority
               />
             </div>
           </div>
@@ -101,10 +108,14 @@ export default function Home() {
               </p>
             </div>
             <div className="relative max-w-3xl mx-auto flex justify-center">
-              <img
-                src="/images/图片焕新.png"
+              <Image
+                src={images.imageRefresh}
                 alt="图片焕新"
                 className="w-2/3 h-auto"
+                width={1160}
+                height={700}
+                sizes="(max-width: 768px) 100vw, 66vw"
+                placeholder="blur"
               />
             </div>
           </div>
@@ -119,10 +130,14 @@ export default function Home() {
               </p>
             </div>
             <div className="relative max-w-3xl mx-auto flex justify-center">
-              <img
-                src="/images/AI视频生成.png"
+              <Image
+                src={images.aiVideoGeneration}
                 alt="AI视频生成"
                 className="w-2/3 h-auto"
+                width={2025}
+                height={1150}
+                sizes="(max-width: 768px) 100vw, 66vw"
+                placeholder="blur"
               />
             </div>
           </div>
@@ -137,10 +152,14 @@ export default function Home() {
               </p>
             </div>
             <div className="relative max-w-3xl mx-auto flex justify-center">
-              <img
-                src="/images/对标图文.jpg"
+              <Image
+                src={images.benchmarkContent}
                 alt="对标图文"
                 className="w-2/3 h-auto"
+                width={800}
+                height={500}
+                sizes="(max-width: 768px) 100vw, 66vw"
+                placeholder="blur"
               />
             </div>
           </div>
