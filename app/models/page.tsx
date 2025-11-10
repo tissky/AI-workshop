@@ -48,65 +48,65 @@ export default function ModelsPage() {
   return (
     <>
       <StructuredData data={[datasetSchema, modelListSchema]} />
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">AI模型库</h1>
-              <p className="text-gray-600 mt-2">800+专业训练模型，覆盖各行各业应用场景</p>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        {/* Header */}
+        <div className="bg-white shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-3xl font-bold text-gray-900">AI模型库</h1>
+                <p className="text-gray-600 mt-2">800+专业训练模型，覆盖各行各业应用场景</p>
+              </div>
+              <Link href="/" className="text-blue-600 hover:text-blue-700 transition-colors">
+                ← 返回首页
+              </Link>
             </div>
-            <Link href="/" className="text-blue-600 hover:text-blue-700 transition-colors">
-              ← 返回首页
-            </Link>
           </div>
         </div>
-      </div>
 
-      {/* Stats Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mb-12">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold mb-2">800+</div>
-              <div className="text-white/90">训练模型</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">95%</div>
-              <div className="text-white/90">平均准确率</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">500K+</div>
-              <div className="text-white/90">用户使用</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">24/7</div>
-              <div className="text-white/90">在线服务</div>
+        {/* Stats Section */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mb-12">
+            <div className="grid md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div className="text-4xl font-bold mb-2">800+</div>
+                <div className="text-white/90">训练模型</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2">95%</div>
+                <div className="text-white/90">平均准确率</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2">500K+</div>
+                <div className="text-white/90">用户使用</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2">24/7</div>
+                <div className="text-white/90">在线服务</div>
+              </div>
             </div>
           </div>
-        </div>
 
         {/* Models Filter and Grid */}
         <ModelsFilter modelCategories={modelCategories} models={models} />
 
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">需要定制模型？</h2>
-          <p className="text-gray-600 mb-6">
-            我们提供专业的模型定制服务，根据您的业务需求训练专属AI模型
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all">
-              联系定制
-            </button>
-            <button className="border border-gray-300 text-gray-700 px-8 py-3 rounded-full hover:bg-gray-50 transition-all">
-              了解更多
-            </button>
+          {/* Call to Action */}
+          <div className="mt-16 text-center">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">需要定制模型？</h2>
+            <p className="text-gray-600 mb-6">
+              我们提供专业的模型定制服务，根据您的业务需求训练专属AI模型
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all">
+                联系定制
+              </button>
+              <button className="border border-gray-300 text-gray-700 px-8 py-3 rounded-full hover:bg-gray-50 transition-all">
+                了解更多
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 }

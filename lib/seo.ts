@@ -51,7 +51,7 @@ export function generateWebSiteSchema(): WithContext<WebSite> {
       '@type': 'SearchAction',
       target: `${SITE_CONFIG.url}/tools?q={search_term_string}`,
       'query-input': 'required name=search_term_string',
-    } as any,
+    } as any, // eslint-disable-line @typescript-eslint/no-explicit-any
   };
 }
 
