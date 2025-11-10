@@ -1,4 +1,6 @@
 import Link from "next/link";
+import ToolsCTA from "@/components/ToolsCTA";
+import StructuredData from "@/components/StructuredData";
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 import Card from "@/components/Card";
@@ -119,6 +121,13 @@ export default function ToolsPage() {
     }
   ];
 
+  const toolListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "AI工具库",
+    "description": "探索30+专业AI工具，释放无限创意",
+    "numberOfItems": 30
+  };
   // Generate structured data for SEO
   const allTools = toolCategories.flatMap(category =>
     category.tools.map(tool => ({
