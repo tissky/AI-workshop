@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface CarouselItem {
   id: string;
@@ -21,9 +21,11 @@ export default function ImageCarousel({
   interval = 5000
 }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!autoPlay || items.length <= 1) return;
+    if (!autoPlay || items.length <= 1 || isPaused) return;
 
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) =>
@@ -32,7 +34,7 @@ export default function ImageCarousel({
     }, interval);
 
     return () => clearInterval(timer);
-  }, [autoPlay, interval, items.length]);
+  }, [autoPlay, interval, items.length, isPaused]);
 
   const goToPrevious = () => {
     setCurrentIndex(currentIndex === 0 ? items.length - 1 : currentIndex - 1);
@@ -46,10 +48,34 @@ export default function ImageCarousel({
     setCurrentIndex(index);
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!carouselRef.current?.contains(document.activeElement)) return;
+      
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        goToPrevious();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        goToNext();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [currentIndex, items.length]);
+
   if (items.length === 0) return null;
 
   return (
-    <div className="relative w-full h-full group">
+    <div 
+      ref={carouselRef}
+      className="relative w-full h-full group"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+    >
       {/* Main Image Display */}
       <div className="relative h-96 md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
         {items.map((item, index) => (
@@ -78,7 +104,7 @@ export default function ImageCarousel({
         {/* Navigation Arrows */}
         <button
           onClick={goToPrevious}
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all opacity-0 group-hover:opacity-100"
+          className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
           aria-label="Previous image"
         >
           <svg
@@ -97,13 +123,13 @@ export default function ImageCarousel({
         </button>
         <button
           onClick={goToNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all opacity-0 group-hover:opacity-100"
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
           aria-label="Next image"
         >
           <svg
             className="w-6 h-6 text-gray-800"
             fill="none"
-            stroke="currentCurrent"
+            stroke="currentColor"
             viewBox="0 0 24 24"
           >
             <path
