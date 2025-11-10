@@ -2,6 +2,14 @@
 
 Comprehensive documentation for all components in the AI创意工坊 (AI Creative Workshop) platform.
 
+## 🎨 Design System
+
+We're building a new **Apple-style design system** to enhance the platform! Check out the comprehensive documentation:
+
+- **[Design System Overview](../design-system/README.md)** - Introduction and quick start
+- **[Task Manifest](../design-system/TASK_MANIFEST.md)** - Complete 21-task roadmap across 6 phases
+- **[Progress Tracker](../design-system/TASK_PROGRESS.md)** - Real-time status updates
+
 ## Overview
 
 This directory contains detailed documentation for each component, including:
