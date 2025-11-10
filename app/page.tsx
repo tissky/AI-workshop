@@ -2,12 +2,20 @@
 
 import Link from "next/link";
 import QRModal from "@/components/QRModal";
+import StructuredData from "@/components/StructuredData";
 import { useState } from "react";
+import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/seo";
 
 export default function Home() {
   const [showQRModal, setShowQRModal] = useState(false);
   const hiddenUrl = "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=";
+  
+  const organizationSchema = generateOrganizationSchema();
+  const websiteSchema = generateWebSiteSchema();
+  
   return (
+    <>
+      <StructuredData data={[organizationSchema, websiteSchema]} />
     <div className="bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-white/80 backdrop-blur-md border-b border-gray-200">
@@ -364,5 +372,6 @@ export default function Home() {
         <QRModal onClose={() => setShowQRModal(false)} />
       )}
     </div>
+    </>
   );
 }

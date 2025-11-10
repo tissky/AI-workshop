@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import StructuredData from "@/components/StructuredData";
 import { useState } from "react";
+import { generateDatasetSchema, generateModelListSchema } from "@/lib/seo";
 
 export default function ModelsPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -29,7 +31,28 @@ export default function ModelsPage() {
     ? models 
     : models.filter(model => model.category === selectedCategory);
 
+  const datasetSchema = generateDatasetSchema({
+    name: "AI创意工坊模型库",
+    description: "800+专业训练模型，覆盖图像处理、视频处理、文本生成、音频处理等多个领域",
+    models: models.map(m => ({
+      name: m.name,
+      description: m.desc,
+      accuracy: m.accuracy
+    }))
+  });
+
+  const modelListSchema = generateModelListSchema(
+    models.map(m => ({
+      name: m.name,
+      description: m.desc,
+      category: m.category,
+      accuracy: m.accuracy
+    }))
+  );
+
   return (
+    <>
+      <StructuredData data={[datasetSchema, modelListSchema]} />
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
       <div className="bg-white shadow-sm">
@@ -131,5 +154,6 @@ export default function ModelsPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
