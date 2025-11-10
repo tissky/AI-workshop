@@ -9,9 +9,6 @@ import Card from "@/components/Card";
 import Badge from "@/components/Badge";
 import Breadcrumb from "@/components/Breadcrumb";
 import StatsGrid from "@/components/ui/StatsGrid";
-import Breadcrumb from "@/components/Breadcrumb";
-import { images } from "@/lib/media";
-import { generateProductListSchema } from "@/lib/seo";
 import StructuredData from "@/components/StructuredData";
 import ProductCTA from "@/components/ProductCTA";
 
@@ -206,24 +203,6 @@ export default function ProductsPage() {
             </div>
           </div>
         </section>
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Breadcrumb */}
-      <div className="border-b border-border bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <Breadcrumb items={[
-            { label: "首页", href: "/" },
-            { label: "产品", href: "/products" }
-          ]} />
-        </div>
-      </div>
-
-      {/* Page Header */}
-      <div className="bg-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">产品中心</h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">探索我们的核心AI产品与服务</p>
-        </div>
-      </div>
 
         {/* Stats Section */}
         <section className="bg-muted py-12 md:py-16">
