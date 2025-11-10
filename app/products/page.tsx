@@ -5,6 +5,11 @@ import Image from "next/image";
 import { images } from "@/lib/media";
 import { generateProductListSchema } from "@/lib/seo";
 import ImageCarousel from "@/components/ImageCarousel";
+import ImageCarouselWrapper from "@/components/ImageCarouselWrapper";
+import Image from "next/image";
+import Button from "@/components/ui/Button";
+import { images } from "@/lib/media";
+import { generateProductListSchema } from "@/lib/seo";
 import StructuredData from "@/components/StructuredData";
 
 export default function ProductsPage() {
@@ -199,17 +204,26 @@ export default function ProductsPage() {
                         {category.description}
                       </p>
                       <div className="flex flex-col sm:flex-row gap-4">
-                        <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all">
+                        <Button 
+                          variant="primary"
+                          onClick={() => {}}
+                          aria-label={`体验${category.title}`}
+                          className="bg-gradient-to-r from-accent to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                        >
                           即刻体验
-                        </button>
-                        <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-50 transition-all">
-                          即刻体验
-                        </button>
+                        </Button>
+                        <Button 
+                          variant="outline"
+                          onClick={() => {}}
+                          aria-label={`了解${category.title}`}
+                        >
+                          了解更多
+                        </Button>
                       </div>
                     </div>
                   </div>
                   <div className="lg:w-1/2">
-                    <ImageCarousel
+                    <ImageCarouselWrapper
                       items={category.items}
                       autoPlay={true}
                       interval={4000}
@@ -303,12 +317,22 @@ export default function ProductsPage() {
             立即开始使用我们的AI工具，让创意无限延伸，让效率大幅提升
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
+            <Button 
+              variant="secondary"
+              onClick={() => {}}
+              aria-label="即刻体验AI创意工坊"
+              className="bg-white text-accent hover:bg-gray-100"
+            >
               即刻体验
-            </button>
-            <button className="border border-white/30 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white/10 transition-all">
+            </Button>
+            <Button 
+              variant="outline"
+              onClick={() => {}}
+              aria-label="联系销售团队"
+              className="border-white/30 text-white hover:bg-white/10"
+            >
               联系销售
-            </button>
+            </Button>
           </div>
         </section>
       </div>

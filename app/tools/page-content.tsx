@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import QRModal from "@/components/QRModal";
+import QRModalWrapper from "@/components/QRModalWrapper";
 import { useState } from "react";
 
 export default function ToolsPageContent() {
@@ -114,7 +114,7 @@ export default function ToolsPageContent() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-20 overflow-hidden" aria-label="工具库概览">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -140,9 +140,9 @@ export default function ToolsPageContent() {
 
       {/* Tools Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="space-y-20">
+        <div className="space-y-20" role="region" aria-label="AI工具分类">
           {toolCategories.map((category) => (
-            <section key={category.id} className="relative">
+            <section key={category.id} className="relative" aria-labelledby={`category-${category.id}`}>
               {/* Category Header */}
               <div className={`${category.bgColor} rounded-3xl p-8 mb-8`}>
                 <div className="flex flex-col md:flex-row md:items-center gap-6">
@@ -151,7 +151,7 @@ export default function ToolsPageContent() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-2">
-                      <h2 className="text-3xl font-bold text-gray-900">{category.name}</h2>
+                      <h2 id={`category-${category.id}`} className="text-3xl font-bold text-gray-900">{category.name}</h2>
                       <span className="px-4 py-1 bg-white rounded-full text-sm font-semibold text-gray-700 shadow-sm">
                         {category.count}
                       </span>
@@ -233,7 +233,7 @@ export default function ToolsPageContent() {
 
       {/* QR Modal */}
       {showQRModal && (
-        <QRModal onClose={() => setShowQRModal(false)} />
+        <QRModalWrapper isOpen={showQRModal} onClose={() => setShowQRModal(false)} />
       )}
     </div>
   );

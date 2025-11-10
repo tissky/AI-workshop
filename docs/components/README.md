@@ -12,7 +12,225 @@ This directory contains detailed documentation for each component, including:
 - **Performance Considerations**: Optimization tips and best practices
 - **Integration Tips**: How to use components with other parts of the app
 
+## Quick Reference
+
+| Component | Category | Status | Description |
+|-----------|----------|--------|-------------|
+| [Button](./Button.md) | UI Primitives | ✅ Ready | Versatile button with variants |
+| [AppLink](./AppLink.md) | UI Primitives | ✅ Ready | Styled Next.js Link wrapper |
+| [Badge](./Badge.md) | UI Primitives | ✅ Ready | Status indicators and labels |
+| [Card](./Card.md) | UI Primitives | ✅ Ready | Flexible content container |
+| [Tabs](./Tabs.md) | UI Primitives | ✅ Ready | Accessible tabbed interface |
+| [Hero](./Hero.md) | Hero & Marketing | ✅ Ready | Landing page hero section |
+| [StatsGrid](./StatsGrid.md) | Hero & Marketing | ✅ Ready | Metrics and statistics display |
+| [TestimonialCard](./TestimonialCard.md) | Hero & Marketing | ✅ Ready | Customer testimonials |
+| [Header](./Header.md) | Navigation & Layout | ✅ Ready | Sticky navigation bar |
+| [Footer](./Footer.md) | Navigation & Layout | ✅ Ready | Site-wide footer |
+| [SkipLink](./SkipLink.md) | Navigation & Layout | ✅ Ready | Accessibility skip link |
+| [ImageCarousel](./ImageCarousel.md) | Content Display | ✅ Ready | Image carousel with autoplay |
+| [FeatureCard](./FeatureCard.md) | Content Display | ✅ Ready | Feature presentation card |
+| [ToolCard](./ToolCard.md) | Content Display | ✅ Ready | AI tool display card |
+| [QRModal](./QRModal.md) | Modals & Overlays | ✅ Ready | QR code modal dialog |
+| [StructuredData](./StructuredData.md) | Utility | ✅ Ready | SEO structured data |
+
 ## Component Categories
+
+### UI Primitives
+
+#### [Button](./Button.md)
+Versatile button component with multiple variants and sizes.
+
+**Key Features:**
+- Four variants: primary, secondary, outline, ghost
+- Three sizes: sm, md, lg
+- Disabled state support
+- ForwardRef support
+- Full keyboard accessibility
+
+**Quick Start:**
+```tsx
+import Button from "@/components/ui/Button";
+
+<Button variant="primary" size="lg" onClick={handleClick}>
+  即刻体验
+</Button>
+```
+
+---
+
+#### [AppLink](./AppLink.md)
+Next.js Link wrapper with consistent styling and accessibility.
+
+**Key Features:**
+- Three variants: default, primary, muted
+- External link support with security
+- Optional underline
+- Keyboard navigation
+- Optimized prefetching
+
+**Quick Start:**
+```tsx
+import AppLink from "@/components/ui/AppLink";
+
+<AppLink href="/products" variant="primary">
+  查看产品
+</AppLink>
+```
+
+---
+
+#### [Badge](./Badge.md)
+Small status indicator for categories, counts, and labels.
+
+**Key Features:**
+- Six color variants
+- Three sizes
+- High contrast text
+- Non-interactive by design
+- Flexible content support
+
+**Quick Start:**
+```tsx
+import Badge from "@/components/ui/Badge";
+
+<Badge variant="primary" size="sm">
+  图片处理
+</Badge>
+```
+
+---
+
+#### [Card](./Card.md)
+Flexible container component for content grouping.
+
+**Key Features:**
+- Four variants: default, bordered, elevated, interactive
+- Four padding options
+- Hover effects
+- Shadow system
+- Rounded corners
+
+**Quick Start:**
+```tsx
+import Card from "@/components/ui/Card";
+
+<Card variant="elevated">
+  <h3>Card Title</h3>
+  <p>Card content</p>
+</Card>
+```
+
+---
+
+#### [Tabs](./Tabs.md)
+Accessible tabbed interface with keyboard navigation.
+
+**Key Features:**
+- Controlled and uncontrolled modes
+- Three variants: default, pills, underline
+- Full ARIA support
+- Keyboard navigation
+- Context-based state management
+
+**Quick Start:**
+```tsx
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/Tabs";
+
+<Tabs defaultValue="all">
+  <TabsList>
+    <TabsTrigger value="all">全部模型</TabsTrigger>
+    <TabsTrigger value="image">图像处理</TabsTrigger>
+  </TabsList>
+  <TabsContent value="all">Content for all</TabsContent>
+  <TabsContent value="image">Content for image</TabsContent>
+</Tabs>
+```
+
+---
+
+### Hero & Marketing
+
+#### [Hero](./Hero.md)
+High-impact section component for landing pages.
+
+**Key Features:**
+- Three variants: default, gradient, dark
+- Multiple alignment options
+- Built-in action support
+- Responsive typography
+- Apple-inspired design
+
+**Quick Start:**
+```tsx
+import Hero from "@/components/ui/Hero";
+import Button from "@/components/ui/Button";
+
+<Hero
+  title="AI创意工坊"
+  subtitle="释放无限创意可能"
+  description="集成30+专业AI工具"
+  actions={
+    <>
+      <Button variant="primary">即刻体验</Button>
+      <Button variant="outline">了解更多</Button>
+    </>
+  }
+/>
+```
+
+---
+
+#### [StatsGrid](./StatsGrid.md)
+Display key metrics and statistics in a grid layout.
+
+**Key Features:**
+- Three variants: default, gradient, cards
+- Flexible column layouts (2, 3, 4)
+- Icon support
+- Description support
+- Responsive design
+
+**Quick Start:**
+```tsx
+import StatsGrid from "@/components/ui/StatsGrid";
+
+<StatsGrid
+  stats={[
+    { label: "训练模型", value: "800+" },
+    { label: "平均准确率", value: "95%" },
+    { label: "用户使用", value: "500K+" },
+  ]}
+  columns={3}
+  variant="gradient"
+/>
+```
+
+---
+
+#### [TestimonialCard](./TestimonialCard.md)
+Display customer testimonials and reviews.
+
+**Key Features:**
+- Avatar support with fallback
+- Star rating display
+- Three variants
+- Role and company information
+- Quote styling
+
+**Quick Start:**
+```tsx
+import TestimonialCard from "@/components/ui/TestimonialCard";
+
+<TestimonialCard
+  quote="AI创意工坊彻底改变了我们的工作流程！"
+  author="张明"
+  role="产品经理"
+  company="科技公司"
+  rating={5}
+/>
+```
+
+---
 
 ### Navigation & Layout
 
@@ -350,6 +568,105 @@ export default function RootLayout({ children }) {
 }
 ```
 
+### Landing Page Pattern
+
+```tsx
+import Hero from "@/components/ui/Hero";
+import Button from "@/components/ui/Button";
+import StatsGrid from "@/components/ui/StatsGrid";
+import Card from "@/components/ui/Card";
+import TestimonialCard from "@/components/ui/TestimonialCard";
+
+export default function LandingPage() {
+  return (
+    <>
+      <Hero
+        title="AI创意工坊"
+        subtitle="释放无限创意可能"
+        description="集成30+专业AI工具，涵盖图片处理、视频编辑、文案创作等多个领域"
+        actions={
+          <>
+            <Button variant="primary" size="lg">即刻体验</Button>
+            <Button variant="outline" size="lg">了解更多</Button>
+          </>
+        }
+      />
+
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <StatsGrid
+            stats={[
+              { label: "训练模型", value: "800+" },
+              { label: "平均准确率", value: "95%" },
+              { label: "用户使用", value: "500K+" },
+              { label: "在线服务", value: "24/7" },
+            ]}
+          />
+        </div>
+      </section>
+
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12">客户评价</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <TestimonialCard
+              quote="AI创意工坊彻底改变了我们的工作流程！"
+              author="张明"
+              role="产品经理"
+              company="科技公司"
+              rating={5}
+            />
+            {/* More testimonials... */}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+```
+
+### Filter Page with Tabs
+
+```tsx
+"use client";
+
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/Tabs";
+import Card from "@/components/ui/Card";
+import Badge from "@/components/ui/Badge";
+
+export default function ModelsPage() {
+  const models = [
+    { id: 1, name: "图像增强", category: "image", accuracy: "98%" },
+    { id: 2, name: "背景移除", category: "image", accuracy: "99%" },
+  ];
+
+  return (
+    <Tabs defaultValue="all">
+      <TabsList className="mb-8">
+        <TabsTrigger value="all">全部模型</TabsTrigger>
+        <TabsTrigger value="image">图像处理</TabsTrigger>
+        <TabsTrigger value="video">视频处理</TabsTrigger>
+      </TabsList>
+
+      <TabsContent value="all">
+        <div className="grid md:grid-cols-3 gap-6">
+          {models.map((model) => (
+            <Card key={model.id} variant="elevated">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-semibold">{model.name}</h3>
+                <Badge variant="success" size="sm">{model.accuracy}</Badge>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </TabsContent>
+
+      {/* Other tab contents... */}
+    </Tabs>
+  );
+}
+```
+
 ### Features Section
 
 ```tsx
@@ -449,7 +766,20 @@ export default function Hero() {
 All components are written in TypeScript with exported interfaces:
 
 ```typescript
-// Component props
+// UI Primitives
+import { ButtonProps } from "@/components/ui/Button";
+import { AppLinkProps } from "@/components/ui/AppLink";
+import { BadgeProps } from "@/components/ui/Badge";
+import { CardProps } from "@/components/ui/Card";
+import { TabsProps, TabsListProps, TabsTriggerProps, TabsContentProps } from "@/components/ui/Tabs";
+import { HeroProps } from "@/components/ui/Hero";
+import { StatsGridProps, Stat } from "@/components/ui/StatsGrid";
+import { TestimonialCardProps } from "@/components/ui/TestimonialCard";
+
+// Or use bulk import
+import * as UI from "@/components/ui";
+
+// Specialized Components
 import { FeatureCardProps } from "@/components/FeatureCard";
 import { ToolCardProps } from "@/components/ToolCard";
 import { ImageCarouselProps, CarouselItem } from "@/components/ImageCarousel";
@@ -457,12 +787,23 @@ import { QRModalProps } from "@/components/QRModal";
 import { StructuredDataProps } from "@/components/StructuredData";
 
 // Usage with types
+const button: ButtonProps = {
+  variant: "primary",
+  size: "lg",
+  children: "即刻体验",
+};
+
+const stats: Stat[] = [
+  { label: "训练模型", value: "800+" },
+  { label: "平均准确率", value: "95%" },
+];
+
 const tool: ToolCardProps = {
   id: "ai-cutout",
   name: "智能抠图",
   description: "AI驱动的精准抠图工具",
   icon: "✂️",
-  gradientColor: "from-blue-500 to-cyan-500"
+  gradientColor: "from-blue-500 to-cyan-500",
 };
 ```
 

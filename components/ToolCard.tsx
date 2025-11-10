@@ -28,8 +28,8 @@ export default function ToolCard({
   const featureListId = `tool-features-${id}`;
   
   const cardContent = (
-    <article className={`bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all group ${className}`}>
-      <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${gradientColor} flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform`} aria-hidden="true">
+    <article className={`bg-white card-elevated group ${className}`}>
+      <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${gradientColor} flex items-center justify-center text-2xl mb-4 icon-scale`} aria-hidden="true">
         {icon}
       </div>
       {category && (
@@ -52,7 +52,7 @@ export default function ToolCard({
       {showLink && (
         <div className="flex items-center text-blue-600 text-sm font-medium">
           <span>立即使用</span>
-          <span className="ml-2 group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
+          <span className="ml-2 icon-slide" aria-hidden="true">→</span>
         </div>
       )}
     </article>

@@ -1,6 +1,6 @@
 "use client";
 
-import ImageCarousel from "@/components/ImageCarousel";
+import ImageCarouselWrapper from "@/components/ImageCarouselWrapper";
 import Link from "next/link";
 
 export default function ProductsPageContent() {
@@ -167,7 +167,7 @@ export default function ProductsPageContent() {
                     </div>
                   </div>
                   <div className="lg:w-1/2">
-                    <ImageCarousel
+                    <ImageCarouselWrapper
                       items={category.items}
                       autoPlay={true}
                       interval={4000}
