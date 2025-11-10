@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import Hero from "@/components/ui/Hero";
 import StatsGrid from "@/components/ui/StatsGrid";
 import FeatureCard from "@/components/FeatureCard";
 import QRModalWrapper from "@/components/QRModalWrapper";

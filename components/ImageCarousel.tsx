@@ -81,11 +81,6 @@ export default function ImageCarousel({
       {/* Main Image Display */}
       <div className="relative h-96 md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl" role="region" aria-live="polite">
         {items.map((item, index) => {
-          const isCurrentOrAdjacent = 
-            index === currentIndex || 
-            index === (currentIndex + 1) % items.length ||
-            index === (currentIndex - 1 + items.length) % items.length;
-          
           return (
             <div
               key={item.id}
