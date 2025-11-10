@@ -24,8 +24,8 @@ interface ModelsFilterProps {
 export default function ModelsFilter({ modelCategories, models }: ModelsFilterProps) {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const filteredModels = selectedCategory === "all"
-    ? models
+  const filteredModels = selectedCategory === "all" 
+    ? models 
     : models.filter(model => model.category === selectedCategory);
 
   return (
@@ -57,10 +57,12 @@ export default function ModelsFilter({ modelCategories, models }: ModelsFilterPr
                 {model.accuracy}
               </span>
             </div>
+            
             <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
               {model.name}
             </h3>
             <p className="text-gray-600 text-sm mb-4">{model.desc}</p>
+            
             <div className="flex items-center justify-between text-sm">
               <span className="text-gray-500">使用量: {model.uses}</span>
               <button className="text-blue-600 hover:text-blue-700 font-medium">

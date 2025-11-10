@@ -1,4 +1,7 @@
 import Link from "next/link";
+import HomeNav from "@/components/HomeNav";
+import HomeHero from "@/components/HomeHero";
+import HomeCTA from "@/components/HomeCTA";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import Image from "next/image";

@@ -1,7 +1,5 @@
 import Link from "next/link";
-import StructuredData from "@/components/StructuredData";
-import { generateSoftwareApplicationSchema } from "@/lib/seo";
-import { getAllToolIds, getToolDetail } from "@/lib/tools";
+import { getToolDetail, getAllToolIds } from "@/lib/tools";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
@@ -13,22 +11,21 @@ export default async function ToolDetailPage({
 }) {
   const { id: toolId } = await params;
 export async function generateStaticParams() {
-  return getAllToolIds().map((id) => ({
+  const toolIds = getAllToolIds();
+  return toolIds.map((id) => ({
     id: id,
   }));
 }
 
-export default async function ToolDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id: toolId } = await params;
-  const tool = getToolDetail(toolId);
+interface ToolDetailPageProps {
+  params: Promise<{
+    id: string;
+  }>;
+}
 
-  const softwareAppSchema = generateSoftwareApplicationSchema({
-    name: tool.name,
-    description: tool.description,
-    category: tool.category,
-    features: tool.features,
-    url: `https://ai-creative-workshop.com/tools/${toolId}`
-  });
+export default async function ToolDetailPage({ params }: ToolDetailPageProps) {
+  const { id } = await params;
+  const tool = getToolDetail(id);
 
   return (
     <>

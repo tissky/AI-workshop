@@ -1,4 +1,8 @@
 import Link from "next/link";
+import ModelsFilter from "@/components/ModelsFilter";
+
+export const revalidate = 3600;
+export const dynamic = "force-static";
 import ModelFilter from "@/components/ModelFilter";
 
 export default function ModelsPage() {
@@ -118,6 +122,11 @@ export default function ModelsPage() {
             </div>
           </div>
 
+        <ModelsFilter modelCategories={modelCategories} models={models} />
+
+        {/* Call to Action */}
+        <div className="mt-16 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">需要定制模型？</h2>
         <ModelFilter categories={modelCategories} models={models} />
 
         <div className="mt-16 text-center">

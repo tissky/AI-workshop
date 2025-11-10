@@ -16,6 +16,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { images } from "@/lib/media";
 
+export const revalidate = 3600;
+export const dynamic = "force-static";
+
 export default function ProductsPage() {
   const productCategories = [
     {
