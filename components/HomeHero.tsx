@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Hero, { HeroCTA } from "./sections/Hero";
+import Hero from "./ui/Hero";
+import Button from "./ui/Button";
 import QRModal from "./QRModal";
 
 interface HomeHeroProps {
@@ -19,30 +20,33 @@ export default function HomeHero({
 }: HomeHeroProps) {
   const [showQRModal, setShowQRModal] = useState(false);
 
-  const ctas: HeroCTA[] = [
-    {
-      label: "即刻体验",
-      onClick: () => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer'),
-      variant: "primary",
-      ariaLabel: "即刻体验AI创意工坊"
-    },
-    {
-      label: "了解更多",
-      onClick: () => setShowQRModal(true),
-      variant: "outline",
-      ariaLabel: "了解更多关于AI创意工坊"
-    }
-  ];
-
   return (
     <>
       <Hero
         title={title}
         subtitle={subtitle}
         description={description}
-        ctas={ctas}
-        alignment="center"
-        background="gradient"
+        variant="gradient"
+        align="center"
+        actions={
+          <>
+            <Button
+              size="lg"
+              onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
+              aria-label="即刻体验AI创意工坊"
+            >
+              即刻体验
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setShowQRModal(true)}
+              aria-label="了解更多关于AI创意工坊"
+            >
+              了解更多
+            </Button>
+          </>
+        }
       />
 
       {showQRModal && (

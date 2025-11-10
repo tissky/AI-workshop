@@ -5,8 +5,8 @@ import { images } from "@/lib/media";
 import { generateProductListSchema } from "@/lib/seo";
 import ImageCarouselWrapper from "@/components/ImageCarouselWrapper";
 import Button from "@/components/ui/Button";
-import Card from "@/components/Card";
-import Badge from "@/components/Badge";
+import Card from "@/components/ui/Card";
+import Badge from "@/components/ui/Badge";
 import Breadcrumb from "@/components/Breadcrumb";
 import StatsGrid from "@/components/ui/StatsGrid";
 import StructuredData from "@/components/StructuredData";
@@ -220,7 +220,7 @@ export default function ProductsPage() {
           {/* Main Product Categories */}
           <section className="mb-24 md:mb-32">
             <div className="text-center mb-12 md:mb-16">
-              <Badge variant="accent" size="lg" className="mb-4">
+              <Badge variant="primary" size="lg" className="mb-4">
                 核心产品
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -235,8 +235,9 @@ export default function ProductsPage() {
               {productCategories.map((category, categoryIndex) => (
                 <div key={category.id} id={category.id} className="scroll-mt-20">
                   <Card 
-                    as="article"
-                    className="shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 md:p-12 overflow-hidden"
+                    variant="elevated"
+                    padding="lg"
+                    className="overflow-hidden"
                   >
                     <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
                       {/* Content */}
@@ -283,9 +284,9 @@ export default function ProductsPage() {
               {additionalFeatures.map((feature, index) => (
                 <Card
                   key={index}
-                  as="article"
-                  hover
-                  className="overflow-hidden group relative p-0"
+                  variant="interactive"
+                  padding="none"
+                  className="overflow-hidden group relative"
                   role="article"
                 >
                   <div className="relative h-64">
@@ -330,9 +331,9 @@ export default function ProductsPage() {
               {socialPlatforms.map((platform, index) => (
                 <Card
                   key={index}
-                  as="article"
-                  hover
-                  className="overflow-hidden group relative p-0"
+                  variant="interactive"
+                  padding="none"
+                  className="overflow-hidden group relative"
                   role="article"
                 >
                   <div className="relative h-48">
@@ -358,7 +359,7 @@ export default function ProductsPage() {
 
           {/* CTA Section */}
           <section>
-            <Card className="text-center shadow-lg p-8 md:p-12">
+            <Card variant="elevated" padding="lg" className="text-center">
               <div className="max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                   准备好体验AI创意工坊了吗？
