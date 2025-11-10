@@ -205,22 +205,22 @@ export default function HomeContent() {
 
           {/* Additional Features Row */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            <Card variant="bordered" padding="md" className="text-center bg-background hover:bg-accent-muted transition-colors">
+            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
               <div className="text-3xl md:text-4xl mb-3" aria-hidden="true">💡</div>
               <h3 className="font-semibold text-foreground mb-2">创意工具</h3>
               <p className="text-sm text-muted-foreground">激发无限创意</p>
             </Card>
-            <Card variant="bordered" padding="md" className="text-center bg-background hover:bg-accent-muted transition-colors">
+            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
               <div className="text-3xl md:text-4xl mb-3" aria-hidden="true">⚡</div>
               <h3 className="font-semibold text-foreground mb-2">高效快速</h3>
               <p className="text-sm text-muted-foreground">秒级完成处理</p>
             </Card>
-            <Card variant="bordered" padding="md" className="text-center bg-background hover:bg-accent-muted transition-colors">
+            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
               <div className="text-3xl md:text-4xl mb-3" aria-hidden="true">🎯</div>
               <h3 className="font-semibold text-foreground mb-2">精准智能</h3>
               <p className="text-sm text-muted-foreground">AI驱动精准</p>
             </Card>
-            <Card variant="bordered" padding="md" className="text-center bg-background hover:bg-accent-muted transition-colors">
+            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
               <div className="text-3xl md:text-4xl mb-3" aria-hidden="true">🏆</div>
               <h3 className="font-semibold text-foreground mb-2">专业品质</h3>
               <p className="text-sm text-muted-foreground">专业级效果</p>

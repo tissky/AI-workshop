@@ -148,41 +148,9 @@ export default function ImageCarousel({
               <p className="text-muted-foreground text-sm md:text-base">
                 {item.description}
               </p>
-      <div className="relative h-96 md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl" role="region" aria-live="polite">
-        {items.map((item, index) => {
-          const isCurrentOrAdjacent = 
-            index === currentIndex || 
-            index === (currentIndex + 1) % items.length ||
-            index === (currentIndex - 1 + items.length) % items.length;
-          
-          return (
-            <div
-              key={item.id}
-              className={`absolute inset-0 transition-opacity duration-500 ${
-                index === currentIndex ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <Image
-                src={item.image}
-                alt={item.title}
-                className="object-contain bg-gradient-to-br from-gray-50 to-white"
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
-                placeholder={typeof item.image !== "string" ? "blur" : undefined}
-                priority={index === 0}
-                loading={index === 0 ? undefined : "lazy"}
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent p-6 md:p-8">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-white/90 text-sm md:text-base">
-                  {item.description}
-                </p>
-              </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
 
         {/* Navigation Arrows */}
         {items.length > 1 && (
