@@ -37,9 +37,11 @@ export default function ToolsPage() {
       id: "image",
       name: "图片处理",
       description: "专业的图片处理AI工具，让每张图片都完美呈现",
-      icon: "🎨",
-      color: "from-blue-500 to-cyan-500",
-      bgColor: "bg-blue-50",
+      icon: (
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+      ),
       count: "6大功能",
       tools: [
         { id: "background-replace", name: "背景替换", desc: "一键替换图片背景，支持多种场景", hot: true },
@@ -54,9 +56,11 @@ export default function ToolsPage() {
       id: "video",
       name: "视频处理",
       description: "强大的视频编辑AI工具，轻松制作专业视频",
-      icon: "🎬",
-      color: "from-purple-500 to-pink-500",
-      bgColor: "bg-purple-50",
+      icon: (
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+      ),
       count: "4大功能",
       tools: [
         { id: "video-watermark", name: "视频去水印", desc: "专业去除视频水印，不留痕迹", hot: true },
@@ -69,9 +73,11 @@ export default function ToolsPage() {
       id: "text",
       name: "文案创作",
       description: "AI驱动的文案生成工具，释放无限创意灵感",
-      icon: "✍️",
-      color: "from-green-500 to-emerald-500",
-      bgColor: "bg-green-50",
+      icon: (
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+        </svg>
+      ),
       count: "4大功能",
       tools: [
         { id: "text-generation", name: "文案生成", desc: "为你的产品生成19种不同风格的文案", hot: true },
@@ -84,9 +90,11 @@ export default function ToolsPage() {
       id: "ai-models",
       name: "AI模型",
       description: "800+专业训练模型，即用即取的高效工具",
-      icon: "🤖",
-      color: "from-orange-500 to-red-500",
-      bgColor: "bg-orange-50",
+      icon: (
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+        </svg>
+      ),
       count: "800+模型",
       tools: [
         { id: "ai减视频", name: "AI减视频工具", desc: "智能移除视频背景，专业级效果", hot: true },
@@ -99,9 +107,11 @@ export default function ToolsPage() {
       id: "creative",
       name: "创意工具",
       description: "激发创意的AI工具集合，让想象成为现实",
-      icon: "✨",
-      color: "from-indigo-500 to-purple-500",
-      bgColor: "bg-indigo-50",
+      icon: (
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        </svg>
+      ),
       count: "5大功能",
       tools: [
         { id: "quote-image", name: "一句话配图", desc: "一句话生成一张图，无修改图片分布元素", hot: true },
@@ -135,7 +145,6 @@ export default function ToolsPage() {
               { label: "首页", href: "/" },
               { label: "AI工具", href: "/tools" }
             ]} />
-            <Breadcrumb />
           </div>
         </div>
 
@@ -192,7 +201,7 @@ export default function ToolsPage() {
                     <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
                       <div className="flex items-center gap-4">
                         <div
-                          className="w-14 h-14 rounded-xl bg-accent text-accent-foreground flex items-center justify-center text-3xl shadow-card"
+                          className="w-14 h-14 rounded-xl bg-accent-muted text-accent flex items-center justify-center p-2.5 shadow-card"
                           aria-hidden="true"
                         >
                           {category.icon}
@@ -208,96 +217,39 @@ export default function ToolsPage() {
                             {category.count}
                           </Badge>
                         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <div className="space-y-16 sm:space-y-20">
-            {toolCategories.map((category) => (
-              <section 
-                key={category.id} 
-                aria-labelledby={`category-${category.id}`}
-              >
-                {/* Category Header */}
-                <div className="mb-8">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
-                    <div className="flex items-center gap-4">
-                      <div 
-                        className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center text-3xl"
-                        aria-hidden="true"
-                      >
-                        {category.icon}
                       </div>
-                      <div>
-                        <h2 
-                          id={`category-${category.id}`}
-                          className="text-2xl sm:text-3xl font-bold text-foreground"
-                        >
-                          {category.name}
-                        </h2>
-                        <Badge variant="default" size="sm" className="mt-2">
-                          {category.count}
-                        </Badge>
-                      </div>
+                      <p className="text-muted-foreground text-base sm:text-lg">
+                        {category.description}
+                      </p>
                     </div>
-                    <p className="text-muted-foreground text-base sm:text-lg">
-                      {category.description}
-                    </p>
                   </div>
-                </div>
 
-                {/* Tools Grid */}
-                <div 
-                  className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
-                  role="list"
-                  aria-label={`${category.name}工具列表`}
-                >
-                  {category.tools.map((tool) => (
-                    <Link
-                      key={tool.id}
-                      href={`/tools/${tool.id}`}
-                      className="group block"
-                      aria-label={`查看${tool.name}详情`}
-                    >
-                      <Card 
-                        hover
-                        as="article"
-                        className="h-full relative group-hover:border-accent transition-colors duration-300"
-                        role="listitem"
+                  {/* Tools Grid */}
+                  <div 
+                    className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+                    role="list"
+                    aria-label={`${category.name}工具列表`}
+                  >
+                    {category.tools.map((tool) => (
+                      <Link
+                        key={tool.id}
+                        href={`/tools/${tool.id}`}
+                        className="group block"
+                        aria-label={`查看${tool.name}详情`}
                       >
-                        {/* Hot Badge */}
-                        {tool.hot && (
-                          <Badge 
-                            variant="hot" 
-                            size="sm" 
-                            className="absolute top-4 right-4"
-                          >
-                            🔥 热门
-                          </Badge>
-                        )}
-                        
-                        <div className="space-y-3">
-                          <h3 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors pr-8">
-                            {tool.name}
-                          </h3>
-                          <p className="text-muted-foreground text-sm leading-relaxed">
-                            {tool.desc}
-                          </p>
-                          <div className="flex items-center text-accent text-sm font-medium pt-2">
-                            <span className="group-hover:translate-x-1 transition-transform duration-200">
-                              开始使用
-                            </span>
-                            <svg 
-                              className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" 
-                              fill="none" 
-                              stroke="currentColor" 
-                              viewBox="0 0 24 24"
-                              aria-hidden="true"
+                        <Card 
+                          hover
+                          as="article"
+                          className="h-full relative group-hover:border-accent transition-colors duration-300"
+                          role="listitem"
+                        >
+                          {/* Hot Badge */}
+                          {tool.hot && (
+                            <Badge 
+                              variant="hot" 
+                              size="sm" 
+                              className="absolute top-4 right-4"
                             >
-                              <path 
-                                strokeLinecap="round" 
-                                strokeLinejoin="round" 
-                                strokeWidth={2} 
-                                d="M9 5l7 7-7 7" 
-                              />
-                            </svg>
                               🔥 热门
                             </Badge>
                           )}
@@ -326,69 +278,38 @@ export default function ToolsPage() {
                                   strokeWidth={2} 
                                   d="M9 5l7 7-7 7" 
                                 />
-                                </svg>
-                                </div>
-                                </div>
-                                </Card>
-                                </Link>
-                                ))}
-                                </div>
-                                </article>
-                                ))}
-                                </div>
-                                </div>
-                                </section>
-                                </div>
                               </svg>
                             </div>
                           </div>
-                        </div>
-                      </Card>
-                    </Link>
-                  ))}
-                </div>
-              </section>
-            ))}
+                        </Card>
+                      </Link>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
 
         {/* CTA Section */}
         <section 
-          className="relative py-16 sm:py-20 lg:py-24 border-t border-border"
+          className="relative py-16 sm:py-20 lg:py-24 mt-12 sm:mt-16"
           aria-labelledby="cta-heading"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-accent/90 to-accent" />
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="absolute inset-0 bg-muted" />
+          <div className="relative container-max text-center">
             <h2 
               id="cta-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance"
             >
               需要更多功能？
             </h2>
-            <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto text-pretty">
               我们持续更新工具库，为您带来更多AI能力
             </p>
             <ToolsCTA hiddenUrl={hiddenUrl} />
           </div>
         </section>
-          <section 
-            className="relative py-16 sm:py-20 lg:py-24 mt-12 sm:mt-16"
-            aria-labelledby="cta-heading"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-accent/90 to-accent" />
-            <div className="relative container-max text-center">
-              <h2 
-                id="cta-heading"
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 text-balance"
-              >
-                需要更多功能？
-              </h2>
-              <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto text-pretty">
-                我们持续更新工具库，为您带来更多AI能力
-              </p>
-              <ToolsCTA hiddenUrl={hiddenUrl} />
-            </div>
-          </section>
       </div>
     </>
   );
