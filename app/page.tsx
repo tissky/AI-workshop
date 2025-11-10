@@ -2,9 +2,17 @@ import Link from "next/link";
 import HomeNav from "@/components/HomeNav";
 import HomeHero from "@/components/HomeHero";
 import HomeCTA from "@/components/HomeCTA";
+import dynamic from "next/dynamic";
+import { useState } from "react";
+import Image from "next/image";
+import QRModal from "@/components/QRModal";
+import { useState } from "react";
+import { images } from "@/lib/media";
 
-export const revalidate = 3600;
-export const dynamic = "force-static";
+const QRModal = dynamic(() => import("@/components/QRModal"), {
+  ssr: false,
+  loading: () => null
+});
 
 export default function Home() {
   const hiddenUrl = "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=";

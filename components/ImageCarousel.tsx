@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Image, { StaticImageData } from "next/image";
 
 interface CarouselItem {
@@ -182,11 +182,10 @@ export default function ImageCarousel({
             >
               <Image
                 src={item.image}
-                alt=""
+                alt={item.title}
                 className="object-cover"
                 fill
                 sizes="(max-width: 768px) 96px, 128px"
-                aria-hidden="true"
               />
             </button>
           ))}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { images } from "@/lib/media";
