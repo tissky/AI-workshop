@@ -753,6 +753,9 @@ html {
   .icon-scale:hover,
   .icon-slide:hover {
     transform: none;
+  }
+}
+
 /* Skeleton Loading - Apple-Inspired Minimal Shimmer */
 @keyframes shimmer {
   0% {
