@@ -33,16 +33,9 @@ export const metadata: Metadata = {
 };
 
 export default function ToolsPage() {
-  const stats = [
   const hiddenUrl = "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=";
 
   const stats = [
-    { label: "AI工具", value: "30+" },
-    { label: "专业模型", value: "800+" },
-    { label: "服务用户", value: "100万+" },
-    { label: "日处理量", value: "500万+" }
-  ];
-
     { label: "AI工具", value: "30+", description: "专业工具" },
     { label: "专业模型", value: "800+", description: "训练模型" },
     { label: "服务用户", value: "100万+", description: "活跃用户" },
@@ -207,60 +200,10 @@ export default function ToolsPage() {
                 </Card>
               ))}
             </div>
-        <ToolsHero
-          title={
-            <>
-              全方位<span className="text-accent">AI工具</span>平台
-            </>
-          }
-          description="从图片处理到视频编辑，从文案创作到AI模型，我们提供一站式AI创意解决方案"
-        >
-          {/* Stats Grid */}
-          <div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto"
-            role="list"
-            aria-label="平台统计数据"
-          >
-            {stats.map((stat, index) => (
-              <Card 
-                key={index} 
-                className="text-center"
-                as="article"
-                role="listitem"
-              >
-                <div 
-                  className="text-3xl sm:text-4xl font-bold text-accent mb-2"
-                  aria-label={`${stat.label}: ${stat.value}`}
-                >
-                  {stat.value}
-                </div>
-                <div className="text-sm font-medium text-foreground mb-1">
-                  {stat.label}
-                </div>
-                <div className="text-xs text-muted-foreground">
-                  {stat.description}
-                </div>
-              </Card>
-            ))}
           </div>
         </section>
 
         {/* Tools Categories */}
-        <section className="py-16 md:py-20">
-          <div className="container-max">
-            <div className="space-y-16 md:space-y-20">
-              {toolCategories.map((category) => (
-                <article 
-                  key={category.id} 
-                  aria-labelledby={`category-${category.id}`}
-                >
-                  {/* Category Header */}
-                  <div className="mb-8">
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
-                      <div className="flex items-center gap-4">
-                        <div 
-                          className="w-14 h-14 rounded-xl bg-accent text-accent-foreground flex items-center justify-center text-3xl shadow-card"
-                          aria-hidden="true"
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="space-y-16 sm:space-y-20">
             {toolCategories.map((category) => (
@@ -273,7 +216,6 @@ export default function ToolsPage() {
                   <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
                     <div className="flex items-center gap-4">
                       <div 
-                        className="w-14 h-14 rounded-xl bg-accent-muted flex items-center justify-center text-3xl shadow-sm"
                         className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center text-3xl"
                         aria-hidden="true"
                       >
@@ -284,29 +226,17 @@ export default function ToolsPage() {
                           id={`category-${category.id}`}
                           className="text-2xl sm:text-3xl font-bold text-foreground"
                         >
-                          {category.icon}
-                        </div>
-                        <div>
-                          <h2 
-                            id={`category-${category.id}`}
-                            className="text-2xl sm:text-3xl font-bold text-foreground"
-                          >
-                            {category.name}
-                          </h2>
-                          <Badge variant="default" size="sm" className="mt-2">
-                            {category.count}
-                          </Badge>
-                        </div>
+                          {category.name}
+                        </h2>
+                        <Badge variant="default" size="sm" className="mt-2">
+                          {category.count}
+                        </Badge>
                       </div>
                     </div>
                     <p className="text-muted-foreground text-base sm:text-lg">
                       {category.description}
                     </p>
                   </div>
-                  </div>
-                  <p className="text-muted-foreground text-base sm:text-lg">
-                    {category.description}
-                  </p>
                 </div>
 
                   {/* Tools Grid */}
@@ -322,8 +252,6 @@ export default function ToolsPage() {
                         className="group block"
                         aria-label={`查看${tool.name}详情`}
                       >
-                        <article 
-                          className="h-full relative bg-background border border-border rounded-xl p-6 shadow-card hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer group-hover:border-accent"
                         <Card 
                           hover
                           as="article"
@@ -368,7 +296,7 @@ export default function ToolsPage() {
                               </svg>
                             </div>
                           </div>
-                        </article>
+                        </Card>
                       </Link>
                     ))}
                   </div>

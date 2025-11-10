@@ -1,11 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import QRModalWrapper from "@/components/QRModalWrapper";
-import HomeHero from "@/components/HomeHero";
-import Button from "@/components/ui/Button";
 import { useState } from "react";
-import Hero from "@/components/ui/Hero";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import StatsGrid from "@/components/ui/StatsGrid";
@@ -26,65 +21,6 @@ export default function HomeContent() {
   return (
     <div className="bg-background">
       {/* Hero Section */}
-      <Hero
-        title="AI创意工坊"
-        subtitle="释放无限创意可能"
-        description="集成30+专业AI工具，涵盖图片处理、视频编辑、文案创作等多个领域"
-        variant="default"
-        align="center"
-        aria-label="主要内容"
-        actions={
-          <>
-            <Button
-              size="lg"
-              onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
-              aria-label="即刻体验AI创意工坊"
-            >
-              即刻体验
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => setShowQRModal(true)}
-              aria-label="了解更多关于AI创意工坊"
-            >
-              了解更多
-            </Button>
-          </>
-        }
-      />
-  return (
-    <div className="bg-white">
-      {/* Hero Section */}
-      <section className="py-20 sm:py-32 bg-gradient-to-b from-gray-50 to-white" aria-label="主要内容">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-white/80 backdrop-blur-md border-b border-gray-200">
-        <div className="max-w-[980px] mx-auto h-full px-4">
-          <div className="flex items-center justify-between h-full">
-            <Link href="/" className="text-xl font-semibold text-gray-900">
-              AI创意工坊
-            </Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="#products" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">产品</Link>
-              <Link href="/tools" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">AI工具</Link>
-              <Link href="/models" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">模型库</Link>
-              <Link href="#products" className="link-base text-sm font-medium">产品</Link>
-              <Link href="/tools" className="link-base text-sm font-medium">AI工具</Link>
-              <Link href="/models" className="link-base text-sm font-medium">模型库</Link>
-              <Button 
-                size="sm"
-                onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
-                aria-label="即刻体验AI创意工坊"
-                className="bg-accent text-white hover:opacity-90"
-              >
-                即刻体验
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section - iPhone Style */}
       <section className="pt-32 pb-24 bg-gradient-to-b from-gray-50 to-white" aria-label="主要内容">
         <div className="max-w-[980px] mx-auto px-4">
           <div className="text-center">
@@ -99,16 +35,16 @@ export default function HomeContent() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
+                size="lg"
                 onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
-                className="text-lg"
                 aria-label="即刻体验AI创意工坊"
               >
                 即刻体验
               </Button>
               <Button 
                 variant="outline"
+                size="lg"
                 onClick={() => setShowQRModal(true)}
-                className="text-lg"
                 aria-label="了解更多关于AI创意工坊"
               >
                 了解更多
@@ -287,21 +223,6 @@ export default function HomeContent() {
               探索模型库
             </Button>
           </div>
-      {/* AI 800 Models - Apple Watch Style */}
-      <section className="py-32 bg-gradient-to-b from-gray-100 to-gray-200 text-gray-800">
-        <div className="max-w-[980px] mx-auto px-4 text-center">
-          <h2 className="text-6xl font-bold mb-8">800+</h2>
-          <h3 className="text-3xl font-medium mb-6">专业训练模型</h3>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-            涵盖图像处理、自然语言处理、音频处理、视频分析等多个领域
-          </p>
-          <Button
-            onClick={() => window.location.href = '/models'}
-            aria-label="探索AI模型库"
-            className="bg-gray-800 text-white hover:bg-gray-900"
-          >
-            探索模型库
-          </Button>
         </div>
       </section>
 
@@ -316,7 +237,6 @@ export default function HomeContent() {
             立即体验强大的AI工具，让创意无限延伸
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
             <Button 
               variant="secondary"
               size="lg"
@@ -330,16 +250,11 @@ export default function HomeContent() {
               variant="outline"
               size="lg"
               onClick={() => setShowQRModal(true)}
-              aria-label="查看更多信息"
+              aria-label="联系我们"
               className="border-background text-background hover:bg-background hover:text-foreground"
             >
-              了解更多
+              联系我们
             </Button>
-              className="bg-white text-accent hover:bg-gray-100 text-lg"
-            >
-              即刻体验
-            </Button>
-            <QRModalWrapper />
           </div>
         </div>
       </section>
