@@ -174,6 +174,41 @@ export default function ToolsPage() {
                 从图片处理到视频编辑，从文案创作到AI模型，我们提供一站式AI创意解决方案
               </p>
             </div>
+        <ToolsHero
+          title={
+            <>
+              全方位<span className="text-accent">AI工具</span>平台
+            </>
+          }
+          description="从图片处理到视频编辑，从文案创作到AI模型，我们提供一站式AI创意解决方案"
+        >
+          {/* Stats Grid */}
+          <div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto"
+            role="list"
+            aria-label="平台统计数据"
+          >
+            {stats.map((stat, index) => (
+              <Card 
+                key={index} 
+                className="text-center"
+                as="article"
+                role="listitem"
+              >
+                <div 
+                  className="text-3xl sm:text-4xl font-bold text-accent mb-2"
+                  aria-label={`${stat.label}: ${stat.value}`}
+                >
+                  {stat.value}
+                </div>
+                <div className="text-sm font-medium text-foreground mb-1">
+                  {stat.label}
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  {stat.description}
+                </div>
+              </Card>
+            ))}
             
             {/* Stats */}
             <div 
@@ -201,7 +236,7 @@ export default function ToolsPage() {
               ))}
             </div>
           </div>
-        </section>
+        </ToolsHero>
 
         {/* Tools Categories */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

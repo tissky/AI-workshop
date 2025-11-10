@@ -21,6 +21,33 @@ export default function HomeContent() {
   return (
     <div className="bg-background">
       {/* Hero Section */}
+      <Hero
+        title="AI创意工坊"
+        subtitle="释放无限创意可能"
+        description="集成30+专业AI工具，涵盖图片处理、视频编辑、文案创作等多个领域"
+        variant="default"
+        align="center"
+        aria-label="主要内容"
+        actions={
+          <>
+            <Button
+              size="lg"
+              onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
+              aria-label="即刻体验AI创意工坊"
+            >
+              即刻体验
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setShowQRModal(true)}
+              aria-label="了解更多关于AI创意工坊"
+            >
+              了解更多
+            </Button>
+          </>
+        }
+      />
       <section className="pt-32 pb-24 bg-gradient-to-b from-gray-50 to-white" aria-label="主要内容">
         <div className="max-w-[980px] mx-auto px-4">
           <div className="text-center">
@@ -253,6 +280,7 @@ export default function HomeContent() {
               aria-label="联系我们"
               className="border-background text-background hover:bg-background hover:text-foreground"
             >
+              了解更多
               联系我们
             </Button>
           </div>
