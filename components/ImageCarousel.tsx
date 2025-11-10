@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image, { StaticImageData } from "next/image";
 
 interface CarouselItem {
@@ -37,13 +37,13 @@ export default function ImageCarousel({
     return () => clearInterval(timer);
   }, [autoPlay, interval, items.length, isPaused]);
 
-  const goToPrevious = () => {
+  const goToPrevious = useCallback(() => {
     setCurrentIndex(currentIndex === 0 ? items.length - 1 : currentIndex - 1);
-  };
+  }, [currentIndex, items.length]);
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     setCurrentIndex(currentIndex === items.length - 1 ? 0 : currentIndex + 1);
-  };
+  }, [currentIndex, items.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -64,7 +64,7 @@ export default function ImageCarousel({
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [currentIndex, items.length]);
+  }, [currentIndex, items.length, goToPrevious, goToNext]);
 
   if (items.length === 0) return null;
 

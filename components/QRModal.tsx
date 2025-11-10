@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { images } from "@/lib/media";
 
@@ -16,13 +16,13 @@ export default function QRModal({ isOpen = false, onClose }: QRModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const openModal = () => setInternalOpen(true);
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setInternalOpen(false);
     if (onClose) onClose();
     if (triggerRef.current) {
       triggerRef.current.focus();
     }
-  };
+  }, [onClose]);
 
   const shouldShow = isOpen || internalOpen;
 
@@ -65,7 +65,7 @@ export default function QRModal({ isOpen = false, onClose }: QRModalProps) {
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [shouldShow]);
+  }, [shouldShow, closeModal]);
 
   const handleBackdropKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
