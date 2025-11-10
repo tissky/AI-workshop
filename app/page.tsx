@@ -8,9 +8,9 @@ export default function Home() {
   const [showQRModal, setShowQRModal] = useState(false);
   const hiddenUrl = "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=";
   return (
-    <div className="bg-white">
+    <>
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-white/80 backdrop-blur-md border-b border-gray-200">
+      <nav aria-label="主导航" className="fixed top-0 left-0 right-0 z-50 h-16 bg-white/80 backdrop-blur-md border-b border-gray-200">
         <div className="max-w-[980px] mx-auto h-full px-4">
           <div className="flex items-center justify-between h-full">
             <Link href="/" className="text-xl font-semibold text-gray-900">
@@ -22,6 +22,7 @@ export default function Home() {
               <Link href="/models" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">模型库</Link>
               <button 
                 onClick={() => window.open(atob(hiddenUrl), '_blank')}
+                aria-label="即刻体验AI创意工坊"
                 className="bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors"
               >
                 即刻体验
@@ -31,8 +32,9 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - iPhone Style */}
-      <section className="pt-32 pb-24 bg-gradient-to-b from-gray-50 to-white">
+      <main id="main-content" className="bg-white">
+        {/* Hero Section - iPhone Style */}
+        <section className="pt-32 pb-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-[980px] mx-auto px-4">
           <div className="text-center">
             <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
@@ -47,12 +49,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => window.open(atob(hiddenUrl), '_blank')}
+                aria-label="即刻体验AI创意工坊平台"
                 className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-all transform hover:scale-105"
               >
                 即刻体验
               </button>
               <button 
                 onClick={() => setShowQRModal(true)}
+                aria-label="了解更多关于AI创意工坊"
                 className="border border-gray-300 text-gray-700 px-8 py-3 rounded-full text-lg font-medium hover:border-gray-400 transition-all"
               >
                 了解更多
@@ -294,6 +298,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={() => window.open(atob(hiddenUrl), '_blank')}
+              aria-label="即刻体验AI创意工坊平台"
               className="bg-white text-indigo-600 px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-100 transition-all transform hover:scale-105"
             >
               即刻体验
@@ -302,12 +307,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer - Apple Style */}
       <footer className="bg-gray-50 py-16">
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="grid md:grid-cols-5 gap-8 mb-12">
-            <div>
+            <nav aria-label="产品链接">
               <h4 className="font-semibold text-gray-900 mb-4">产品</h4>
               <ul className="space-y-3">
                 <li><Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors">我有产品</Link></li>
@@ -315,8 +321,8 @@ export default function Home() {
                 <li><Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors">AI视频生成</Link></li>
                 <li><Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors">对标图文</Link></li>
               </ul>
-            </div>
-            <div>
+            </nav>
+            <nav aria-label="AI工具链接">
               <h4 className="font-semibold text-gray-900 mb-4">AI工具</h4>
               <ul className="space-y-3">
                 <li><Link href="/tools" className="text-gray-600 hover:text-gray-900 transition-colors">图片处理</Link></li>
@@ -324,8 +330,8 @@ export default function Home() {
                 <li><Link href="/tools" className="text-gray-600 hover:text-gray-900 transition-colors">文案创作</Link></li>
                 <li><Link href="/tools" className="text-gray-600 hover:text-gray-900 transition-colors">创意工具</Link></li>
               </ul>
-            </div>
-            <div>
+            </nav>
+            <nav aria-label="技术链接">
               <h4 className="font-semibold text-gray-900 mb-4">技术</h4>
               <ul className="space-y-3">
                 <li><Link href="/technology" className="text-gray-600 hover:text-gray-900 transition-colors">核心技术</Link></li>
@@ -333,8 +339,8 @@ export default function Home() {
                 <li><Link href="/technology" className="text-gray-600 hover:text-gray-900 transition-colors">性能指标</Link></li>
                 <li><Link href="/technology" className="text-gray-600 hover:text-gray-900 transition-colors">模型库</Link></li>
               </ul>
-            </div>
-            <div>
+            </nav>
+            <nav aria-label="支持链接">
               <h4 className="font-semibold text-gray-900 mb-4">支持</h4>
               <ul className="space-y-3">
                 <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">帮助中心</Link></li>
@@ -342,8 +348,8 @@ export default function Home() {
                 <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">用户反馈</Link></li>
                 <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">联系我们</Link></li>
               </ul>
-            </div>
-            <div>
+            </nav>
+            <nav aria-label="公司链接">
               <h4 className="font-semibold text-gray-900 mb-4">公司</h4>
               <ul className="space-y-3">
                 <li><Link href="/company" className="text-gray-600 hover:text-gray-900 transition-colors">关于我们</Link></li>
@@ -351,7 +357,7 @@ export default function Home() {
                 <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">隐私政策</Link></li>
                 <li><Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">服务条款</Link></li>
               </ul>
-            </div>
+            </nav>
           </div>
           <div className="border-t border-gray-200 pt-8 text-center text-gray-500">
             <p>&copy; 2024 AI创意工坊. 保留所有权利.</p>
@@ -361,8 +367,8 @@ export default function Home() {
 
       {/* QR Modal */}
       {showQRModal && (
-        <QRModal onClose={() => setShowQRModal(false)} />
+        <QRModal isOpen={showQRModal} onClose={() => setShowQRModal(false)} />
       )}
-    </div>
+    </>
   );
 }

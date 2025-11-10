@@ -17,18 +17,20 @@ export default function Header() {
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav aria-label="主导航" className="hidden md:flex items-center space-x-8">
             <Link href="#features" className="text-gray-700 hover:text-blue-600 transition-colors">功能特色</Link>
             <Link href="/tools" className="text-gray-700 hover:text-blue-600 transition-colors">AI工具</Link>
             <Link href="#models" className="text-gray-700 hover:text-blue-600 transition-colors">模型库</Link>
             <Link href="#pricing" className="text-gray-700 hover:text-blue-600 transition-colors">价格方案</Link>
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all">
+            <button aria-label="开始使用AI创意工坊" className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all">
               开始使用
             </button>
           </nav>
 
           {/* Mobile menu button */}
           <button 
+            aria-label={isMenuOpen ? "关闭菜单" : "打开菜单"}
+            aria-expanded={isMenuOpen}
             className="md:hidden flex items-center"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -41,12 +43,12 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t">
-            <nav className="flex flex-col space-y-4">
+            <nav aria-label="主导航" className="flex flex-col space-y-4">
               <Link href="#features" className="text-gray-700 hover:text-blue-600 transition-colors">功能特色</Link>
               <Link href="/tools" className="text-gray-700 hover:text-blue-600 transition-colors">AI工具</Link>
               <Link href="#models" className="text-gray-700 hover:text-blue-600 transition-colors">模型库</Link>
               <Link href="#pricing" className="text-gray-700 hover:text-blue-600 transition-colors">价格方案</Link>
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all w-full">
+              <button aria-label="开始使用AI创意工坊" className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all w-full">
                 开始使用
               </button>
             </nav>
