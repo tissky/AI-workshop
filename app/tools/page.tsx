@@ -1,10 +1,10 @@
 import Link from "next/link";
-import ToolsCTA from "@/components/ToolsCTA";
-import StructuredData from "@/components/StructuredData";
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
-import Card from "@/components/Card";
 import Badge from "@/components/Badge";
+import StatsGrid from "@/components/ui/StatsGrid";
+import StructuredData from "@/components/StructuredData";
+import { generateToolListSchema } from "@/lib/seo";
+import { toolCategories } from "@/lib/tools";
 import ToolsCTA from "@/components/ToolsCTA";
 import { generateToolListSchema } from "@/lib/seo";
 import StructuredData from "@/components/StructuredData";
@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 };
 
 export default function ToolsPage() {
+  const stats = [
   const hiddenUrl = "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=";
 
   const stats = [
@@ -120,14 +121,6 @@ export default function ToolsPage() {
     }
   ];
 
-  const toolListSchema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "AI工具库",
-    "description": "探索30+专业AI工具，释放无限创意",
-    "numberOfItems": 30
-  };
-  // Generate structured data for SEO
   const allTools = toolCategories.flatMap(category =>
     category.tools.map(tool => ({
       name: tool.name,
@@ -143,6 +136,19 @@ export default function ToolsPage() {
       <StructuredData data={toolListSchema} />
       
       <div className="min-h-screen bg-background">
+        {/* Hero Section */}
+        <section className="bg-muted py-20 md:py-24" aria-labelledby="hero-heading">
+          <div className="container-max">
+            <div className="text-center mb-12">
+              <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+                全方位<span className="text-accent">AI工具</span>平台
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+                从图片处理到视频编辑，从文案创作到AI模型，我们提供一站式AI创意解决方案
+              </p>
+              
+              <StatsGrid stats={stats} columns={4} variant="cards" align="center" />
+            </div>
         {/* Breadcrumb Navigation */}
         <div className="border-b border-border bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -231,6 +237,21 @@ export default function ToolsPage() {
         </section>
 
         {/* Tools Categories */}
+        <section className="py-16 md:py-20">
+          <div className="container-max">
+            <div className="space-y-16 md:space-y-20">
+              {toolCategories.map((category) => (
+                <article 
+                  key={category.id} 
+                  aria-labelledby={`category-${category.id}`}
+                >
+                  {/* Category Header */}
+                  <div className="mb-8">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                      <div className="flex items-center gap-4">
+                        <div 
+                          className="w-14 h-14 rounded-xl bg-accent text-accent-foreground flex items-center justify-center text-3xl shadow-card"
+                          aria-hidden="true"
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="space-y-16 sm:space-y-20">
             {toolCategories.map((category) => (
@@ -253,11 +274,19 @@ export default function ToolsPage() {
                           id={`category-${category.id}`}
                           className="text-2xl sm:text-3xl font-bold text-foreground"
                         >
-                          {category.name}
-                        </h2>
-                        <Badge variant="default" size="sm" className="mt-2">
-                          {category.count}
-                        </Badge>
+                          {category.icon}
+                        </div>
+                        <div>
+                          <h2 
+                            id={`category-${category.id}`}
+                            className="text-2xl sm:text-3xl font-bold text-foreground"
+                          >
+                            {category.name}
+                          </h2>
+                          <Badge variant="default" size="sm" className="mt-2">
+                            {category.count}
+                          </Badge>
+                        </div>
                       </div>
                     </div>
                     <p className="text-muted-foreground text-base sm:text-lg">
@@ -283,6 +312,8 @@ export default function ToolsPage() {
                         className="group block"
                         aria-label={`查看${tool.name}详情`}
                       >
+                        <article 
+                          className="h-full relative bg-background border border-border rounded-xl p-6 shadow-card hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer group-hover:border-accent"
                         <Card 
                           hover
                           as="article"
@@ -327,6 +358,15 @@ export default function ToolsPage() {
                               </svg>
                             </div>
                           </div>
+                        </article>
+                      </Link>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
                         </Card>
                       </Link>
                     ))}
@@ -358,6 +398,17 @@ export default function ToolsPage() {
           </section>
         </div>
         <section 
+          className="bg-accent text-accent-foreground py-16 md:py-20"
+          aria-labelledby="cta-heading"
+        >
+          <div className="container-max text-center">
+            <h2 
+              id="cta-heading"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+            >
+              需要更多功能？
+            </h2>
+            <p className="text-lg sm:text-xl mb-10 max-w-2xl mx-auto opacity-90">
           className="relative py-16 sm:py-20 lg:py-24 border-t border-border"
           aria-labelledby="cta-heading"
         >
@@ -372,7 +423,13 @@ export default function ToolsPage() {
             <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
               我们持续更新工具库，为您带来更多AI能力
             </p>
-            <ToolsCTA hiddenUrl={hiddenUrl} />
+            <Link
+              href="/"
+              className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium rounded-full bg-background text-foreground hover:bg-muted transition-colors"
+              aria-label="返回首页"
+            >
+              返回首页
+            </Link>
           </div>
         </section>
       </div>
