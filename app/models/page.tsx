@@ -3,7 +3,6 @@ import ModelsFilter from "@/components/ModelsFilter";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
-import ModelFilter from "@/components/ModelFilter";
 
 export default function ModelsPage() {
   const modelCategories = [
@@ -100,6 +99,7 @@ export default function ModelsPage() {
             </Link>
           </div>
         </div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mb-12">
@@ -121,14 +121,11 @@ export default function ModelsPage() {
               <div className="text-blue-100">在线服务</div>
             </div>
           </div>
+        </div>
 
         <ModelsFilter modelCategories={modelCategories} models={models} />
 
         {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">需要定制模型？</h2>
-        <ModelFilter categories={modelCategories} models={models} />
-
         <div className="mt-16 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             需要定制模型？
@@ -146,6 +143,6 @@ export default function ModelsPage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

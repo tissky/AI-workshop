@@ -1,15 +1,10 @@
 import Link from "next/link";
-import dynamic from "next/dynamic";
-import { useState } from "react";
 import ToolsCTA from "@/components/ToolsCTA";
+import { generateToolListSchema } from "@/lib/seo";
+import StructuredData from "@/components/StructuredData";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
-
-const QRModal = dynamic(() => import("@/components/QRModal"), {
-  ssr: false,
-  loading: () => null
-});
 
 export default function ToolsPage() {
   const hiddenUrl = "https://oooooooooooooo.xiangmuchan.cn/update-history.php";
@@ -101,6 +96,17 @@ export default function ToolsPage() {
       ]
     }
   ];
+
+  // Generate structured data for SEO
+  const allTools = toolCategories.flatMap(category =>
+    category.tools.map(tool => ({
+      name: tool.name,
+      description: tool.desc,
+      url: `https://ai-creative-workshop.com/tools/${tool.id}`,
+      category: category.name
+    }))
+  );
+  const toolListSchema = generateToolListSchema(allTools);
 
   return (
     <>
