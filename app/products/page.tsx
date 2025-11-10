@@ -1,11 +1,12 @@
-"use client";
-
 import ImageCarousel from "@/components/ImageCarousel";
 import Image from "next/image";
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
 import { generateProductListSchema } from "@/lib/seo";
 import { images } from "@/lib/media";
+
+export const revalidate = 3600;
+export const dynamic = "force-static";
 
 export default function ProductsPage() {
   const productCategories = [
