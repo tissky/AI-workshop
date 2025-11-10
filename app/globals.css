@@ -400,3 +400,50 @@ html {
   transition-duration: var(--duration-slow);
   transition-timing-function: var(--ease-apple);
 }
+
+/* Skeleton Loading - Apple-Inspired Minimal Shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    #e5e5e5 0%,
+    #f0f0f0 20%,
+    #e5e5e5 40%,
+    #e5e5e5 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      #1a1a1a 0%,
+      #2a2a2a 20%,
+      #1a1a1a 40%,
+      #1a1a1a 100%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-shimmer {
+    animation: none;
+    background: #e5e5e5;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .animate-shimmer {
+      background: #1a1a1a;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import QRModal from "@/components/QRModal";
+import QRModalWrapper from "@/components/QRModalWrapper";
 import { useState } from "react";
 
 export default function HomeContent() {
@@ -33,7 +33,7 @@ export default function HomeContent() {
       </nav>
 
       {/* Hero Section - iPhone Style */}
-      <section className="pt-32 pb-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="pt-32 pb-24 bg-gradient-to-b from-gray-50 to-white" aria-label="主要内容">
         <div className="max-w-[980px] mx-auto px-4">
           <div className="text-center">
             <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
@@ -296,15 +296,15 @@ export default function HomeContent() {
             立即体验强大的AI工具，让创意无限延伸
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
+            <button
               onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
               className="bg-white text-indigo-600 px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-100 transition-all transform hover:scale-105"
               title="即刻体验AI创意工坊"
             >
               即刻体验
             </button>
-            <QRModal />
-          </div>
+            <QRModalWrapper />
+            </div>
         </div>
       </section>
 
@@ -366,7 +366,7 @@ export default function HomeContent() {
 
       {/* QR Modal */}
       {showQRModal && (
-        <QRModal onClose={() => setShowQRModal(false)} />
+        <QRModalWrapper isOpen={showQRModal} onClose={() => setShowQRModal(false)} />
       )}
     </div>
   );
