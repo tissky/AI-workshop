@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import QRModalWrapper from "@/components/QRModalWrapper";
 import QRModal from "@/components/QRModal";
+import HomeHero from "@/components/HomeHero";
+import Button from "@/components/ui/Button";
 import { useState } from "react";
 
 export default function HomeContent() {
@@ -24,16 +27,24 @@ export default function HomeContent() {
                 onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
                 className="bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 active:bg-blue-800"
                 title="即刻体验AI创意工坊"
+              <Link href="#products" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">产品</Link>
+              <Link href="/tools" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">AI工具</Link>
+              <Link href="/models" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">模型库</Link>
+              <Button 
+                size="sm"
+                onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
+                aria-label="即刻体验AI创意工坊"
+                className="bg-accent text-white hover:opacity-90"
               >
                 即刻体验
-              </button>
+              </Button>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section - iPhone Style */}
-      <section className="pt-32 pb-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="pt-32 pb-24 bg-gradient-to-b from-gray-50 to-white" aria-label="主要内容">
         <div className="max-w-[980px] mx-auto px-4">
           <div className="text-center">
             <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
@@ -64,6 +75,8 @@ export default function HomeContent() {
           </div>
         </div>
       </section>
+      {/* Hero Section */}
+      <HomeHero hiddenUrl={hiddenUrl} />
 
       {/* Products Section - MacBook Style */}
       <section id="products" className="py-32 bg-white">
@@ -282,9 +295,13 @@ export default function HomeContent() {
             href="/models"
             className="inline-block bg-gray-800 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-900 transition-all duration-200 ease-apple transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 shadow-lg hover:shadow-xl"
             title="探索AI模型库"
+          <Button
+            onClick={() => window.location.href = '/models'}
+            aria-label="探索AI模型库"
+            className="bg-gray-800 text-white hover:bg-gray-900"
           >
             探索模型库
-          </Link>
+          </Button>
         </div>
       </section>
 
@@ -296,13 +313,20 @@ export default function HomeContent() {
             立即体验强大的AI工具，让创意无限延伸
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
+            <button
+            <Button 
+              variant="secondary"
               onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
               className="bg-white text-indigo-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 ease-apple transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 shadow-lg hover:shadow-xl"
               title="即刻体验AI创意工坊"
+              aria-label="即刻体验AI创意工坊"
+              className="bg-white text-accent hover:bg-gray-100"
             >
               即刻体验
             </button>
+            <QRModalWrapper />
+            </div>
+            </Button>
             <QRModal />
           </div>
         </div>
@@ -366,7 +390,7 @@ export default function HomeContent() {
 
       {/* QR Modal */}
       {showQRModal && (
-        <QRModal onClose={() => setShowQRModal(false)} />
+        <QRModalWrapper isOpen={showQRModal} onClose={() => setShowQRModal(false)} />
       )}
     </div>
   );
