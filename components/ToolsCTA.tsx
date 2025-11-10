@@ -17,9 +17,9 @@ export default function ToolsCTA({ hiddenUrl }: ToolsCTAProps) {
         <Button 
           variant="secondary"
           size="lg"
-          onClick={() => window.open(hiddenUrl, '_blank', 'noopener,noreferrer')}
+          onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
           aria-label="立即体验AI工具"
-          className="bg-background text-foreground hover:bg-muted border border-border shadow-card"
+          className="bg-white text-accent hover:bg-gray-100 shadow-lg"
         >
           立即体验
         </Button>

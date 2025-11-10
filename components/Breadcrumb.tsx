@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-interface BreadcrumbItem {
+export interface BreadcrumbItem {
   label: string;
   href: string;
 }
@@ -13,6 +13,23 @@ interface BreadcrumbProps {
   className?: string;
 }
 
+/**
+ * Breadcrumb Component
+ * 
+ * Accessible breadcrumb navigation with semantic HTML and ARIA attributes.
+ * Supports auto-generation or manual item specification.
+ * 
+ * @example
+ * // Auto-generate from pathname
+ * <Breadcrumb />
+ * 
+ * // Manual specification
+ * <Breadcrumb items={[
+ *   { label: "首页", href: "/" },
+ *   { label: "工具", href: "/tools" },
+ *   { label: "详情", href: "/tools/detail" }
+ * ]} />
+ */
 export default function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
   const pathname = usePathname();
 
@@ -27,18 +44,25 @@ export default function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
       aria-label="面包屑导航" 
       className={`text-sm ${className}`}
     >
-      <ol className="flex items-center gap-2 flex-wrap">
+      <ol 
+        className="flex items-center gap-2 flex-wrap"
+        role="list"
+      >
         {breadcrumbItems.map((item, index) => {
           const isLast = index === breadcrumbItems.length - 1;
           const isCurrent = pathname === item.href;
           
           return (
-            <li key={item.href} className="flex items-center gap-2">
+            <li 
+              key={item.href} 
+              className="flex items-center gap-2"
+              role="listitem"
+            >
               {!isLast ? (
                 <>
                   <Link
                     href={item.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm"
                     aria-current={isCurrent ? "page" : undefined}
                   >
                     {item.label}

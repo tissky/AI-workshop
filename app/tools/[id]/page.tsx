@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { getToolDetail, getAllToolIds } from "@/lib/tools";
 import { generateSoftwareApplicationSchema } from "@/lib/seo";
 import StructuredData from "@/components/StructuredData";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
@@ -41,14 +41,14 @@ export default async function ToolDetailPage({ params }: ToolDetailPageProps) {
     <>
       <StructuredData data={softwareAppSchema} />
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-        {/* Header */}
-        <div className="bg-white shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="flex items-center justify-between">
-              <Link href="/tools" className="text-blue-600 hover:text-blue-700 transition-colors">
-                ← 返回工具库
-              </Link>
-            </div>
+        {/* Breadcrumb */}
+        <div className="border-b border-border bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <Breadcrumb items={[
+              { label: "首页", href: "/" },
+              { label: "AI工具", href: "/tools" },
+              { label: tool.name, href: `/tools/${id}` }
+            ]} />
           </div>
         </div>
 

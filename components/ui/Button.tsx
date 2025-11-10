@@ -32,6 +32,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       primary: "bg-primary text-primary-foreground hover:opacity-90",
       secondary: "bg-secondary text-secondary-foreground hover:bg-muted",
       outline: "border-2 border-border text-foreground hover:bg-muted hover:border-muted-foreground",
+      ghost: "text-foreground bg-transparent hover:bg-muted"
       ghost: "text-foreground hover:bg-muted"
     };
 
@@ -42,7 +43,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const widthStyle = fullWidth ? "w-full" : "";
-
     const motionStyles = "transform hover:scale-[1.02] active:scale-[0.98]";
 
     return (
