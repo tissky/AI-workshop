@@ -1,14 +1,7 @@
-import { Metadata } from "next";
-import { generateMetadataWithAlternates, TECHNOLOGY_DATA } from "@/lib/metadata";
-import TechnologyPageContent from "./page-content";
+import Link from "next/link";
 
-export const metadata: Metadata = generateMetadataWithAlternates(
-  TECHNOLOGY_DATA.title,
-  TECHNOLOGY_DATA.description,
-  "/technology",
-  TECHNOLOGY_DATA.ogImage,
-  TECHNOLOGY_DATA.keywords
-);
+export const revalidate = 3600;
+export const dynamic = "force-static";
 
 export default function TechnologyPage() {
   return <TechnologyPageContent />;
