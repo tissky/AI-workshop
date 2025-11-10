@@ -3,6 +3,34 @@
 /**
  * Apple-Inspired Minimal Theme
  * 60-20-20 Layout System with Monochrome Primaries
+ * 
+ * INTERACTION STATE PATTERNS:
+ * 
+ * Button Patterns:
+ * - .btn-primary: Primary action buttons with gradient background, lift on hover, brightness filter
+ * - .btn-secondary: Secondary buttons with subtle background, lift on hover
+ * - .btn-ghost: Transparent buttons with background fill on hover
+ * - .btn-outline: Outlined buttons with border accent and background fill on hover
+ * 
+ * Card Patterns:
+ * - .card-interactive: Interactive cards with lift, shadow, and border accent on hover
+ * - .card-elevated: Elevated cards with shadow progression on hover
+ * 
+ * Link Patterns:
+ * - .link-base: Standard links with color change on hover
+ * - .link-accent: Accent-colored links with brightness change on hover
+ * 
+ * Micro-interactions:
+ * - .icon-scale: Icon scale animation on hover
+ * - .icon-slide: Icon slide animation on hover (for arrows)
+ * - .filter-btn: Filter/tab buttons with lift on hover
+ * 
+ * All interactive elements support:
+ * - Consistent focus-visible outlines (2px accent color, 2px offset)
+ * - Active states for tactile feedback
+ * - Apple-style easing (cubic-bezier(0.25, 0.1, 0.25, 1))
+ * - Standardized durations (fast: 150ms, base: 200ms, medium: 300ms, slow: 500ms)
+ * - Respect for prefers-reduced-motion (transforms disabled, faster transitions)
  */
 
 :root {
@@ -302,6 +330,51 @@ html {
   }
 }
 
+/* Motion-safe utilities */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-safe\:transition-transform {
+    transition-property: transform;
+    transition-timing-function: var(--ease-apple);
+    transition-duration: var(--duration-base);
+  }
+  
+  .motion-safe\:animate-in {
+    animation: fade-in var(--duration-slow) var(--ease-out);
+  }
+  
+  .motion-safe\:fade-in {
+    animation: fade-in var(--duration-slow) var(--ease-out);
+  }
+  
+  .motion-safe\:slide-in-from-bottom-4 {
+    animation: slide-in-from-bottom-4 var(--duration-slow) var(--ease-out);
+  }
+  
+  .motion-safe\:duration-700 {
+    animation-duration: 700ms;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-bottom-4 {
+  from {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 /* Focus Ring - Accessible & Minimal */
 .focus-ring {
   outline: 2px solid var(--accent);
@@ -399,4 +472,330 @@ html {
 .transition-slow {
   transition-duration: var(--duration-slow);
   transition-timing-function: var(--ease-apple);
+}
+
+/* Interactive Components - Consistent Hover, Focus, Active States */
+
+/* Button Styles - Primary */
+.btn-primary {
+  position: relative;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  background: linear-gradient(to right, #0071e3, #8e44ad);
+  color: var(--primary-foreground);
+  transition: transform var(--duration-base) var(--ease-apple),
+              box-shadow var(--duration-base) var(--ease-apple),
+              filter var(--duration-base) var(--ease-apple);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  filter: brightness(1.05);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+  filter: brightness(0.95);
+}
+
+/* Button Styles - Secondary */
+.btn-secondary {
+  position: relative;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  transition: background-color var(--duration-base) var(--ease-apple),
+              transform var(--duration-base) var(--ease-apple),
+              box-shadow var(--duration-base) var(--ease-apple);
+}
+
+.btn-secondary:hover {
+  background-color: var(--muted);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Button Styles - Ghost */
+.btn-ghost {
+  position: relative;
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  background: transparent;
+  color: var(--foreground);
+  transition: background-color var(--duration-fast) var(--ease-apple),
+              color var(--duration-fast) var(--ease-apple);
+}
+
+.btn-ghost:hover {
+  background-color: var(--muted);
+  color: var(--accent);
+}
+
+.btn-ghost:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.btn-ghost:active {
+  background-color: var(--border);
+}
+
+/* Button Styles - Outline */
+.btn-outline {
+  position: relative;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--foreground);
+  transition: border-color var(--duration-base) var(--ease-apple),
+              background-color var(--duration-base) var(--ease-apple),
+              transform var(--duration-base) var(--ease-apple);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-muted);
+  transform: translateY(-1px);
+}
+
+.btn-outline:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.btn-outline:active {
+  transform: translateY(0);
+}
+
+/* Card Styles - Interactive */
+.card-interactive {
+  background: var(--background);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  transition: transform var(--duration-base) var(--ease-apple),
+              box-shadow var(--duration-base) var(--ease-apple),
+              border-color var(--duration-base) var(--ease-apple);
+}
+
+.card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--accent);
+}
+
+.card-interactive:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.card-interactive:active {
+  transform: translateY(-1px);
+}
+
+/* Card Styles - Elevated */
+.card-elevated {
+  background: var(--background);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-surface);
+  transition: transform var(--duration-base) var(--ease-apple),
+              box-shadow var(--duration-base) var(--ease-apple);
+}
+
+.card-elevated:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.card-elevated:active {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-surface);
+}
+
+/* Link Styles - Base */
+.link-base {
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-apple);
+}
+
+.link-base:hover {
+  color: var(--accent);
+}
+
+.link-base:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Link Styles - Accent */
+.link-accent {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-apple),
+              filter var(--duration-fast) var(--ease-apple);
+}
+
+.link-accent:hover {
+  filter: brightness(1.1);
+}
+
+.link-accent:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.link-accent:active {
+  filter: brightness(0.9);
+}
+
+/* Icon Animation - Scale */
+.icon-scale {
+  transition: transform var(--duration-base) var(--ease-apple);
+}
+
+.icon-scale:hover {
+  transform: scale(1.1);
+}
+
+/* Icon Animation - Slide */
+.icon-slide {
+  transition: transform var(--duration-base) var(--ease-apple);
+}
+
+.icon-slide:hover {
+  transform: translateX(4px);
+}
+
+/* Filter/Tab Button States */
+.filter-btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  transition: background-color var(--duration-base) var(--ease-apple),
+              color var(--duration-base) var(--ease-apple),
+              transform var(--duration-fast) var(--ease-apple);
+}
+
+.filter-btn:hover {
+  transform: translateY(-1px);
+}
+
+.filter-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.filter-btn:active {
+  transform: translateY(0);
+}
+
+/* Respect Reduced Motion - Disable Transforms and Complex Animations */
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost,
+  .btn-outline,
+  .card-interactive,
+  .card-elevated,
+  .filter-btn {
+    transition: background-color var(--duration-fast) var(--ease-apple),
+                color var(--duration-fast) var(--ease-apple),
+                border-color var(--duration-fast) var(--ease-apple),
+                box-shadow var(--duration-fast) var(--ease-apple),
+                filter var(--duration-fast) var(--ease-apple);
+  }
+  
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-outline:hover,
+  .card-interactive:hover,
+  .card-elevated:hover,
+  .filter-btn:hover {
+    transform: none;
+  }
+  
+  .btn-primary:active,
+  .btn-secondary:active,
+  .btn-outline:active,
+  .card-interactive:active,
+  .card-elevated:active,
+  .filter-btn:active {
+    transform: none;
+  }
+  
+  .icon-scale:hover,
+  .icon-slide:hover {
+    transform: none;
+/* Skeleton Loading - Apple-Inspired Minimal Shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    #e5e5e5 0%,
+    #f0f0f0 20%,
+    #e5e5e5 40%,
+    #e5e5e5 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      #1a1a1a 0%,
+      #2a2a2a 20%,
+      #1a1a1a 40%,
+      #1a1a1a 100%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-shimmer {
+    animation: none;
+    background: #e5e5e5;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .animate-shimmer {
+      background: #1a1a1a;
+    }
+  }
 }

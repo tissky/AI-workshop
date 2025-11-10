@@ -35,7 +35,7 @@ export default function ModelsFilter({ modelCategories, models }: ModelsFilterPr
           <button
             key={category.id}
             onClick={() => setSelectedCategory(category.id)}
-            className={`px-6 py-2 rounded-full transition-all ${
+            className={`filter-btn ${
               selectedCategory === category.id
                 ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
                 : 'bg-white text-gray-700 hover:bg-gray-50'
@@ -48,9 +48,9 @@ export default function ModelsFilter({ modelCategories, models }: ModelsFilterPr
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {filteredModels.map((model) => (
-          <div key={model.id} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all group border border-gray-100">
+          <div key={model.id} className="bg-white card-elevated group border border-gray-100">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold icon-scale">
                 AI
               </div>
               <span className="text-xs text-green-600 bg-green-50 px-2 py-1 rounded-full">
@@ -58,15 +58,15 @@ export default function ModelsFilter({ modelCategories, models }: ModelsFilterPr
               </span>
             </div>
             
-            <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+            <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200 ease-apple">
               {model.name}
             </h3>
             <p className="text-gray-600 text-sm mb-4">{model.desc}</p>
             
             <div className="flex items-center justify-between text-sm">
               <span className="text-gray-500">使用量: {model.uses}</span>
-              <button className="text-blue-600 hover:text-blue-700 font-medium">
-                使用 →
+              <button className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm active:text-blue-800 inline-flex items-center gap-1">
+                使用 <span className="icon-slide">→</span>
               </button>
             </div>
           </div>

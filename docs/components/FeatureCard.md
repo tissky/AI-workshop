@@ -2,7 +2,9 @@
 
 ## Overview
 
-The FeatureCard component is a presentational card that displays a feature with an icon, title, description, and a list of items. It includes hover effects and optional gradient backgrounds for visual hierarchy.
+The FeatureCard component is a presentational card that displays a feature with an icon, title, description, and a list of items. It uses Apple's elevated card design with semantic tokens only - no gradient backgrounds.
+
+**Updated in Content Blocks Refresh**: This component now uses semantic tokens exclusively, with monochrome iconography and subtle depth instead of colorful gradients.
 
 ## Import
 
@@ -18,7 +20,6 @@ import FeatureCard from "@/components/FeatureCard";
 | `title` | `string` | ✅ Yes | - | Card heading/title |
 | `description` | `string` | ✅ Yes | - | Brief description of the feature |
 | `items` | `string[]` | ✅ Yes | - | Array of bullet points/features |
-| `gradient` | `boolean` | ❌ No | `false` | Apply gradient background effect |
 
 ## TypeScript Interface
 
@@ -28,7 +29,6 @@ interface FeatureCardProps {
   title: string;
   description: string;
   items: string[];
-  gradient?: boolean;
 }
 ```
 
@@ -54,22 +54,6 @@ export default function Features() {
     />
   );
 }
-```
-
-### With Gradient Background
-
-```tsx
-<FeatureCard
-  icon="⚡"
-  title="高效处理"
-  description="快速批量处理大量图片"
-  items={[
-    "批量编辑",
-    "自动化流程",
-    "云端处理"
-  ]}
-  gradient={true}  // Applies gradient background
-/>
 ```
 
 ### In a Grid Layout
@@ -100,7 +84,7 @@ const features = [
 
 export default function FeaturesGrid() {
   return (
-    <div className="grid md:grid-cols-3 gap-8">
+    <div className="grid md:grid-cols-3 gap-6">
       {features.map((feature, index) => (
         <FeatureCard
           key={index}
@@ -108,7 +92,6 @@ export default function FeaturesGrid() {
           title={feature.title}
           description={feature.description}
           items={feature.items}
-          gradient={index % 2 === 0}  // Alternate gradient
         />
       ))}
     </div>
@@ -151,53 +134,58 @@ export default function DynamicFeatures() {
 
 ## Features
 
-### Visual Elements
+### Design & Visual Elements
 
+- **Apple-Style Elevated Card**: Light surface with subtle border and shadow
+- **Monochrome Iconography**: Simple filled circles (no colorful gradients)
+- **Semantic Tokens**: All styling uses semantic tokens (background, foreground, border, muted-foreground)
 - **Icon Display**: Large emoji/icon at the top (text-4xl)
-- **Title**: Semibold heading in dark gray
-- **Description**: Small, lighter text for context
-- **Bullet List**: Items with gradient dot indicators
+- **Title**: Semibold heading with semantic foreground color
+- **Description**: Small text with muted foreground for hierarchy
+- **Bullet List**: Items with simple monochrome dot indicators
 - **Hover Effects**: 
-  - Shadow expansion (`shadow-lg` → `shadow-xl`)
-  - Slight upward movement (`hover:-translate-y-1`)
-- **Gradient Background**: Optional gradient from white to gray-50
+  - Shadow expansion (shadow-card → shadow-lg)
+  - Subtle upward movement (hover:-translate-y-0.5)
+  - Respects prefers-reduced-motion
 
 ### Styling Details
 
-- **Border**: Subtle gray border (`border-gray-100`)
-- **Rounded Corners**: Extra-large border radius (`rounded-xl`)
-- **Padding**: Consistent 6-unit padding
-- **Transitions**: Smooth animation for hover states
+- **Background**: `bg-background` (semantic token)
+- **Border**: `border-border` (thin, subtle)
+- **Shadow**: `shadow-card` with hover → `shadow-lg`
+- **Rounded Corners**: `rounded-xl` (16px)
+- **Padding**: `p-6` (24px)
+- **Transitions**: Smooth 300ms animations
+- **Bullet Dots**: Monochrome `bg-foreground` circles (1.5px × 1.5px)
 
 ## Accessibility
 
 ### WCAG 2.1 AA Compliance
 
-- ✅ **Color Contrast**: All text meets minimum contrast ratios
-  - Title (gray-900 on white): ~16:1 ratio
-  - Description/items (gray-600 on white): ~7:1 ratio
+- ✅ **Semantic Tokens**: Ensures proper contrast in light and dark modes
 - ✅ **Semantic HTML**: Uses proper heading hierarchy (h3)
-- ✅ **List Semantics**: Uses `<ul>` and `<li>` for items
+- ✅ **List Semantics**: Uses `<ul>` and `<li>` for items with `aria-label`
 - ✅ **Readable Text**: Minimum font size is text-sm (14px)
 - ✅ **Focus States**: Card shows focus indicators when interactive
-- ✅ **Motion**: Respects `prefers-reduced-motion` (via global CSS)
+- ✅ **Motion**: Respects `prefers-reduced-motion` via motion-safe utilities
 
 ### Accessibility Checklist
 
-- [x] Semantic HTML structure
+- [x] Semantic HTML structure (`<article>`)
 - [x] Proper heading levels (h3 for title)
-- [x] List markup for items
-- [x] Sufficient color contrast (7:1+ for body text)
+- [x] List markup with aria-label for items
+- [x] Sufficient color contrast via semantic tokens
 - [x] Readable font sizes (14px minimum)
-- [x] Icon has decorative role (emoji doesn't need alt text)
+- [x] Icon has decorative role (aria-hidden)
 - [x] Hover effects respect motion preferences
 
 ### Screen Reader Experience
 
 ```
+Article
 Heading level 3: "AI图像处理"
 Text: "强大的AI驱动图像编辑工具"
-List of 4 items:
+List "功能列表" of 4 items:
 - 智能抠图
 - 背景替换
 - 图像增强
@@ -221,14 +209,7 @@ List of 4 items:
 - ✅ Tailwind utilities for minimal CSS
 - ✅ Static rendering when possible
 - ✅ List rendering optimized with key prop
-
-### Performance Metrics
-
-```typescript
-// Component renders in < 5ms
-// Hover transition: 150ms (transition-all default)
-// No layout shift or paint issues
-```
+- ✅ Semantic tokens enable easy theme switching
 
 ## Integration Tips
 
@@ -239,8 +220,8 @@ import FeatureCard from "@/components/FeatureCard";
 
 export default function FeaturesSection() {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-20 bg-muted">
+      <div className="container-max">
         <h2 className="text-4xl font-bold text-center mb-12">
           核心功能
         </h2>
@@ -259,11 +240,13 @@ export default function FeaturesSection() {
 }
 ```
 
-### With CMS Data
+### With CMS Data (Server Component)
 
 ```tsx
 import FeatureCard from "@/components/FeatureCard";
 import { getFeatures } from "@/lib/cms";
+
+export const revalidate = 3600;
 
 export default async function CMSFeatures() {
   const features = await getFeatures();
@@ -277,7 +260,6 @@ export default async function CMSFeatures() {
           title={feature.heading}
           description={feature.subheading}
           items={feature.bulletPoints}
-          gradient={feature.highlighted}
         />
       ))}
     </div>
@@ -285,9 +267,7 @@ export default async function CMSFeatures() {
 }
 ```
 
-### As Interactive Cards
-
-To make cards clickable:
+### As Interactive Cards (with Next.js Link)
 
 ```tsx
 import Link from "next/link";
@@ -295,7 +275,7 @@ import FeatureCard from "@/components/FeatureCard";
 
 export default function InteractiveFeatures() {
   return (
-    <Link href="/features/ai-image" className="block">
+    <Link href="/features/ai-image" className="block focus:outline-none focus:ring-2 focus:ring-accent">
       <FeatureCard
         icon="🎨"
         title="AI图像处理"
@@ -307,146 +287,12 @@ export default function InteractiveFeatures() {
 }
 ```
 
-Note: Consider adding cursor-pointer class for better UX:
-
-```tsx
-<div className="... hover:cursor-pointer">
-```
-
-## Styling Customization
-
-### Card Background
-
-```tsx
-// Default (no gradient)
-className="bg-white"
-
-// With gradient
-className="bg-gradient-to-br from-white to-gray-50"
-
-// Custom gradient
-className="bg-gradient-to-br from-blue-50 to-white"
-```
-
-### Icon Size
-
-```tsx
-// Change text-4xl to adjust icon size
-<div className="text-5xl mb-4">{icon}</div>  // Larger
-<div className="text-3xl mb-4">{icon}</div>  // Smaller
-```
-
-### Hover Effects
-
-```tsx
-// Modify hover effects
-className="hover:shadow-2xl hover:-translate-y-2 hover:scale-105"
-```
-
-### Bullet Point Colors
-
-```tsx
-// Change gradient dot color
-<span className="w-2 h-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-full mr-3"></span>
-```
-
-## Browser Support
-
-- ✅ All modern browsers (Chrome, Firefox, Safari, Edge)
-- ✅ IE11 (with CSS Grid support)
-- ✅ Mobile browsers
-
-## Common Issues
-
-### Issue: Icon not displaying
-
-**Solution**: Ensure the icon prop contains a valid emoji or Unicode character. Some systems may not support all emojis.
-
-```tsx
-// Use a fallback or SVG icon if needed
-icon={emoji || "●"}
-```
-
-### Issue: Items list too long
-
-**Solution**: Limit items array or add max-height with scroll:
-
-```tsx
-<ul className="space-y-2 max-h-48 overflow-y-auto">
-  {items.map((item, index) => (
-    <li key={index}>{item}</li>
-  ))}
-</ul>
-```
-
-### Issue: Card width inconsistent in grid
-
-**Solution**: Ensure parent grid uses proper Tailwind classes:
-
-```tsx
-<div className="grid md:grid-cols-3 gap-8">
-  {/* Cards will auto-fit to grid columns */}
-</div>
-```
-
-### Issue: Gradient not showing
-
-**Solution**: Check that `gradient` prop is explicitly set to `true`:
-
-```tsx
-<FeatureCard gradient={true} {...props} />
-// Not: gradient="true" (this is a string, not boolean)
-```
-
-## Advanced Examples
-
-### With Custom Bullet Style
-
-```tsx
-// Modify component to accept bullet style prop
-interface FeatureCardProps {
-  // ... existing props
-  bulletStyle?: 'gradient' | 'solid' | 'outline';
-}
-
-// Then in component:
-{bulletStyle === 'solid' && (
-  <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-)}
-{bulletStyle === 'outline' && (
-  <span className="w-2 h-2 border-2 border-blue-600 rounded-full mr-3"></span>
-)}
-```
-
-### With Badge/Label
-
-```tsx
-<FeatureCard
-  icon="⭐"
-  title="新功能"
-  description="最新推出的AI功能"
-  items={["特性1", "特性2", "特性3"]}
-  badge="NEW"  // Would need to add this prop
-/>
-```
-
-### With Action Button
-
-```tsx
-// Modify component to add optional button
-<div className="... p-6">
-  {/* Existing content */}
-  
-  <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
-    了解更多
-  </button>
-</div>
-```
-
 ## Related Components
 
+- [StatsGrid](../sections/StatsGrid.example.md) - Display statistics in elevated cards
+- [TestimonialCard](../sections/TestimonialCard.example.md) - Display testimonials
+- [Hero](../sections/Hero.example.md) - Hero sections with CTAs
 - [ToolCard](./ToolCard.md) - Similar card for tool listings
-- [Card](./Card.md) - Generic card component (if exists)
 
 ## Data Structure Examples
 
@@ -459,7 +305,6 @@ interface Feature {
   title: string;
   description: string;
   items: string[];
-  gradient?: boolean;
 }
 
 const features: Feature[] = [
@@ -468,8 +313,7 @@ const features: Feature[] = [
     icon: "🎨",
     title: "AI图像处理",
     description: "强大的AI驱动图像编辑工具",
-    items: ["智能抠图", "背景替换", "图像增强", "风格迁移"],
-    gradient: true
+    items: ["智能抠图", "背景替换", "图像增强", "风格迁移"]
   },
   // More features...
 ];
@@ -489,17 +333,41 @@ const features: Feature[] = [
         "背景替换",
         "图像增强",
         "风格迁移"
-      ],
-      "gradient": true
+      ]
     }
   ]
 }
 ```
 
+## Migration from Legacy FeatureCard
+
+If upgrading from the previous version with gradient support:
+
+### Before (with gradient prop)
+
+```tsx
+<FeatureCard
+  icon="🎨"
+  title="Feature"
+  description="Description"
+  items={["Item 1"]}
+  gradient={true}  // ❌ No longer supported
+/>
+```
+
+### After (semantic tokens only)
+
+```tsx
+<FeatureCard
+  icon="🎨"
+  title="Feature"
+  description="Description"
+  items={["Item 1"]}
+  // ✅ gradient prop removed - uses semantic tokens automatically
+/>
+```
+
 ## Version History
 
-- Initial implementation with basic card layout
-- Added gradient background option
-- Implemented hover effects
-- Added bullet point list with gradient dots
-- Improved accessibility with semantic HTML
+- **v2.0.0** (Content Blocks Refresh): Removed gradient prop, uses semantic tokens only, monochrome bullet dots
+- **v1.0.0**: Initial release with gradient backgrounds

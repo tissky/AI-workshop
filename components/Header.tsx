@@ -43,11 +43,11 @@ export default function Header() {
           
           {/* Desktop Navigation */}
           <nav aria-label="主导航" className="hidden md:flex items-center space-x-8">
-            <Link href="#features" className="text-gray-700 hover:text-blue-600 transition-colors">功能特色</Link>
-            <Link href="/tools" className="text-gray-700 hover:text-blue-600 transition-colors">AI工具</Link>
-            <Link href="#models" className="text-gray-700 hover:text-blue-600 transition-colors">模型库</Link>
-            <Link href="#pricing" className="text-gray-700 hover:text-blue-600 transition-colors">价格方案</Link>
-            <button aria-label="开始使用AI创意工坊" className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all">
+            <Link href="#features" className="link-base">功能特色</Link>
+            <Link href="/tools" className="link-base">AI工具</Link>
+            <Link href="#models" className="link-base">模型库</Link>
+            <Link href="#pricing" className="link-base">价格方案</Link>
+            <button aria-label="开始使用AI创意工坊" className="btn-primary">
               开始使用
             </button>
           </nav>
@@ -70,11 +70,11 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t">
             <nav aria-label="主导航" className="flex flex-col space-y-4">
-              <Link href="#features" className="text-gray-700 hover:text-blue-600 transition-colors">功能特色</Link>
-              <Link href="/tools" className="text-gray-700 hover:text-blue-600 transition-colors">AI工具</Link>
-              <Link href="#models" className="text-gray-700 hover:text-blue-600 transition-colors">模型库</Link>
-              <Link href="#pricing" className="text-gray-700 hover:text-blue-600 transition-colors">价格方案</Link>
-              <button aria-label="开始使用AI创意工坊" className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all w-full">
+              <Link href="#features" className="link-base">功能特色</Link>
+              <Link href="/tools" className="link-base">AI工具</Link>
+              <Link href="#models" className="link-base">模型库</Link>
+              <Link href="#pricing" className="link-base">价格方案</Link>
+              <button aria-label="开始使用AI创意工坊" className="btn-primary w-full">
                 开始使用
               </button>
             </nav>
