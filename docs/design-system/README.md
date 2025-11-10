@@ -13,7 +13,7 @@ Welcome to the AI创意工坊 Design System documentation. This design system tr
 ### Design System Components
 _Documentation will be added as components are built_
 
-- Design Tokens _(coming soon)_
+- **[Design Tokens](./tokens.md)** ✅ - Complete token reference (colors, typography, spacing, shadows, transitions)
 - Typography System _(coming soon)_
 - Layout Components _(coming soon)_
 - UI Components _(coming soon)_

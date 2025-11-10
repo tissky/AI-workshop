@@ -171,6 +171,7 @@ git push -u origin main
 全新的Apple风格设计系统正在开发中！查看完整文档：
 
 - **[设计系统总览](./docs/design-system/README.md)** - 设计系统介绍和快速开始
+- **[设计令牌参考](./docs/design-system/tokens.md)** - 完整的设计令牌文档（颜色、字体、间距、阴影、动画）
 - **[任务清单](./docs/design-system/TASK_MANIFEST.md)** - 完整的21项任务规划，包含6个阶段
 - **[进度追踪](./docs/design-system/TASK_PROGRESS.md)** - 实时进度跟踪和状态更新
 
