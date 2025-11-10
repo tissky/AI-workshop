@@ -52,19 +52,19 @@ export default function ModelsPage() {
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold mb-2">800+</div>
-              <div className="text-blue-100">训练模型</div>
+              <div className="text-white/90">训练模型</div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">95%</div>
-              <div className="text-blue-100">平均准确率</div>
+              <div className="text-white/90">平均准确率</div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">500K+</div>
-              <div className="text-blue-100">用户使用</div>
+              <div className="text-white/90">用户使用</div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">24/7</div>
-              <div className="text-blue-100">在线服务</div>
+              <div className="text-white/90">在线服务</div>
             </div>
           </div>
         </div>

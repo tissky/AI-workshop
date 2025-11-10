@@ -211,7 +211,7 @@ export default function ToolsPage() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             需要更多功能？
           </h2>
-          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
             我们持续更新工具库，为您带来更多AI能力
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

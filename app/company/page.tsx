@@ -192,7 +192,7 @@ export default function CompanyPage() {
         <section>
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-center text-white">
             <h2 className="text-4xl font-bold mb-6">加入我们</h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               我们正在寻找优秀的AI人才加入团队，一起创造AI技术的未来
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

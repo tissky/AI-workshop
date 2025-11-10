@@ -288,7 +288,7 @@ export default function Home() {
       <section className="py-32 bg-gradient-to-r from-blue-500 to-indigo-600">
         <div className="max-w-[980px] mx-auto px-4 text-center">
           <h2 className="text-6xl font-bold text-white mb-8">准备好开始了？</h2>
-          <p className="text-2xl text-blue-100 mb-12 max-w-2xl mx-auto">
+          <p className="text-2xl text-white/90 mb-12 max-w-2xl mx-auto">
             立即体验强大的AI工具，让创意无限延伸
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
