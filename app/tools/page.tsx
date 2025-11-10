@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ToolsCTA from "@/components/ToolsCTA";
+import StatsGrid from "@/components/sections/StatsGrid";
 import { generateToolListSchema } from "@/lib/seo";
 import StructuredData from "@/components/StructuredData";
 
@@ -10,10 +11,10 @@ export default function ToolsPage() {
   const hiddenUrl = "https://oooooooooooooo.xiangmuchan.cn/update-history.php";
 
   const stats = [
-    { label: "AI工具", value: "30+", color: "text-blue-600" },
-    { label: "专业模型", value: "800+", color: "text-purple-600" },
-    { label: "服务用户", value: "100万+", color: "text-green-600" },
-    { label: "日处理量", value: "500万+", color: "text-orange-600" }
+    { label: "AI工具", value: "30+" },
+    { label: "专业模型", value: "800+" },
+    { label: "服务用户", value: "100万+" },
+    { label: "日处理量", value: "500万+" }
   ];
 
   const toolCategories = [
@@ -111,16 +112,16 @@ export default function ToolsPage() {
   return (
     <>
       <StructuredData data={toolListSchema} />
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="bg-white shadow-sm">
+      <div className="bg-background border-b border-border shadow-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">AI工具库</h1>
-              <p className="text-gray-600 mt-2">探索30+专业AI工具，释放无限创意</p>
+              <h1 className="text-3xl font-bold text-foreground">AI工具库</h1>
+              <p className="text-muted-foreground mt-2">探索30+专业AI工具，释放无限创意</p>
             </div>
-            <Link href="/" className="text-blue-600 hover:text-blue-700 transition-colors">
+            <Link href="/" className="text-accent hover:opacity-80 transition-opacity">
               ← 返回首页
             </Link>
           </div>
@@ -128,25 +129,19 @@ export default function ToolsPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
+      <section className="relative py-20 overflow-hidden bg-muted">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              全方位<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AI工具</span>平台
+            <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+              全方位<span className="text-accent">AI工具</span>平台
             </h2>
-            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
               从图片处理到视频编辑，从文案创作到AI模型，我们提供一站式AI创意解决方案
             </p>
             
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-              {stats.map((stat, index) => (
-                <div key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className={`text-4xl font-bold ${stat.color} mb-2`}>{stat.value}</div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
-                </div>
-              ))}
+            <div className="max-w-4xl mx-auto">
+              <StatsGrid stats={stats} columns={4} />
             </div>
           </div>
         </div>
@@ -158,19 +153,19 @@ export default function ToolsPage() {
           {toolCategories.map((category) => (
             <section key={category.id} className="relative">
               {/* Category Header */}
-              <div className={`${category.bgColor} rounded-3xl p-8 mb-8`}>
+              <div className="bg-muted border border-border rounded-3xl p-8 mb-8">
                 <div className="flex flex-col md:flex-row md:items-center gap-6">
-                  <div className={`w-24 h-24 rounded-2xl bg-gradient-to-r ${category.color} flex items-center justify-center text-4xl shadow-lg`}>
+                  <div className="w-24 h-24 rounded-2xl bg-background border border-border flex items-center justify-center text-4xl shadow-card">
                     {category.icon}
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-2">
-                      <h2 className="text-3xl font-bold text-gray-900">{category.name}</h2>
-                      <span className="px-4 py-1 bg-white rounded-full text-sm font-semibold text-gray-700 shadow-sm">
+                      <h2 className="text-3xl font-bold text-foreground">{category.name}</h2>
+                      <span className="px-4 py-1 bg-background border border-border rounded-full text-sm font-semibold text-foreground shadow-sm">
                         {category.count}
                       </span>
                     </div>
-                    <p className="text-gray-600 text-lg">{category.description}</p>
+                    <p className="text-muted-foreground text-lg">{category.description}</p>
                   </div>
                 </div>
               </div>
@@ -181,29 +176,26 @@ export default function ToolsPage() {
                   <Link
                     key={tool.id}
                     href={`/tools/${tool.id}`}
-                    className="group relative bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-transparent overflow-hidden"
+                    className="group relative bg-background p-6 rounded-2xl shadow-card hover:shadow-lg transition-all duration-300 border border-border overflow-hidden"
                   >
                     {/* Hot Badge */}
                     {tool.hot && (
                       <div className="absolute top-4 right-4">
-                        <span className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                        <span className="bg-error text-white px-3 py-1 rounded-full text-xs font-semibold shadow-sm">
                           🔥 热门
                         </span>
                       </div>
                     )}
                     
-                    {/* Hover Effect Background */}
-                    <div className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
-                    
                     <div className="relative">
                       <div className="flex items-start justify-between mb-4">
-                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                        <h3 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">
                           {tool.name}
                         </h3>
-                        <span className="text-gray-400 group-hover:text-blue-500 transition-colors text-xl">→</span>
+                        <span className="text-muted-foreground group-hover:text-accent transition-colors text-xl">→</span>
                       </div>
-                      <p className="text-gray-600 mb-4 leading-relaxed">{tool.desc}</p>
-                      <div className="flex items-center text-blue-600 font-medium">
+                      <p className="text-muted-foreground mb-4 leading-relaxed">{tool.desc}</p>
+                      <div className="flex items-center text-accent font-medium">
                         <span className="group-hover:translate-x-1 transition-transform">开始使用</span>
                         <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -219,13 +211,12 @@ export default function ToolsPage() {
       </div>
 
       {/* CTA Section */}
-      <section className="relative py-24 mt-20">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600"></div>
+      <section className="relative py-24 mt-20 bg-primary">
         <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
             需要更多功能？
           </h2>
-          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto">
             我们持续更新工具库，为您带来更多AI能力
           </p>
           <ToolsCTA hiddenUrl={hiddenUrl} />
