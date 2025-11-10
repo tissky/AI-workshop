@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import QRModalWrapper from "@/components/QRModalWrapper";
-import QRModal from "@/components/QRModal";
-import HomeHero from "@/components/HomeHero";
 import Button from "@/components/ui/Button";
 import { useState } from "react";
 
@@ -12,71 +10,39 @@ export default function HomeContent() {
   const hiddenUrl = "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=";
   return (
     <div className="bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-white/80 backdrop-blur-md border-b border-gray-200">
-        <div className="max-w-[980px] mx-auto h-full px-4">
-          <div className="flex items-center justify-between h-full">
-            <Link href="/" className="text-xl font-semibold text-gray-900">
+      {/* Hero Section */}
+      <section className="py-20 sm:py-32 bg-gradient-to-b from-gray-50 to-white" aria-label="主要内容">
+        <div className="max-w-[980px] mx-auto px-4">
+          <div className="text-center">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
               AI创意工坊
-            </Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="#products" className="link-base text-sm font-medium">产品</Link>
-              <Link href="/tools" className="link-base text-sm font-medium">AI工具</Link>
-              <Link href="/models" className="link-base text-sm font-medium">模型库</Link>
-              <button 
-                onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
-                className="bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 active:bg-blue-800"
-                title="即刻体验AI创意工坊"
-              <Link href="#products" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">产品</Link>
-              <Link href="/tools" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">AI工具</Link>
-              <Link href="/models" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">模型库</Link>
+            </h1>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-700 mb-8">
+              释放无限创意可能
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">
+              集成30+专业AI工具，涵盖图片处理、视频编辑、文案创作等多个领域
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                size="sm"
                 onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
+                className="text-lg"
                 aria-label="即刻体验AI创意工坊"
-                className="bg-accent text-white hover:opacity-90"
               >
                 即刻体验
+              </Button>
+              <Button 
+                variant="outline"
+                onClick={() => setShowQRModal(true)}
+                className="text-lg"
+                aria-label="了解更多关于AI创意工坊"
+              >
+                了解更多
               </Button>
             </div>
           </div>
         </div>
-      </nav>
-
-      {/* Hero Section - iPhone Style */}
-      <section className="pt-32 pb-24 bg-gradient-to-b from-gray-50 to-white" aria-label="主要内容">
-        <div className="max-w-[980px] mx-auto px-4">
-          <div className="text-center">
-            <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
-              AI创意工坊
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-medium text-gray-700 mb-8">
-              释放无限创意可能
-            </h2>
-            <p className="text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">
-              集成30+专业AI工具，涵盖图片处理、视频编辑、文案创作等多个领域
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
-                className="btn-primary text-lg"
-                title="即刻体验AI创意工坊"
-              >
-                即刻体验
-              </button>
-              <button 
-                onClick={() => setShowQRModal(true)}
-                className="btn-outline text-lg"
-                title="了解更多关于AI创意工坊"
-              >
-                了解更多
-              </button>
-            </div>
-          </div>
-        </div>
       </section>
-      {/* Hero Section */}
-      <HomeHero hiddenUrl={hiddenUrl} />
 
       {/* Products Section - MacBook Style */}
       <section id="products" className="py-32 bg-white">
@@ -291,10 +257,6 @@ export default function HomeContent() {
           <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
             涵盖图像处理、自然语言处理、音频处理、视频分析等多个领域
           </p>
-          <Link 
-            href="/models"
-            className="inline-block bg-gray-800 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-900 transition-all duration-200 ease-apple transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 shadow-lg hover:shadow-xl"
-            title="探索AI模型库"
           <Button
             onClick={() => window.location.href = '/models'}
             aria-label="探索AI模型库"
@@ -313,21 +275,15 @@ export default function HomeContent() {
             立即体验强大的AI工具，让创意无限延伸
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
             <Button 
               variant="secondary"
               onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
-              className="bg-white text-indigo-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 ease-apple transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 shadow-lg hover:shadow-xl"
-              title="即刻体验AI创意工坊"
               aria-label="即刻体验AI创意工坊"
-              className="bg-white text-accent hover:bg-gray-100"
+              className="bg-white text-accent hover:bg-gray-100 text-lg"
             >
               即刻体验
-            </button>
-            <QRModalWrapper />
-            </div>
             </Button>
-            <QRModal />
+            <QRModalWrapper />
           </div>
         </div>
       </section>

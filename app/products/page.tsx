@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import ImageCarouselWrapper from "@/components/ImageCarouselWrapper";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import Breadcrumb from "@/components/Breadcrumb";
 import { images } from "@/lib/media";
 import { generateProductListSchema } from "@/lib/seo";
 import StructuredData from "@/components/StructuredData";
@@ -162,18 +162,21 @@ export default function ProductsPage() {
     <>
       <StructuredData data={productListSchema} />
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">产品中心</h1>
-              <p className="text-gray-600 mt-2">探索我们的核心AI产品与服务</p>
-            </div>
-            <Link href="/" className="text-blue-600 hover:text-blue-700 transition-colors">
-              ← 返回首页
-            </Link>
-          </div>
+      {/* Breadcrumb */}
+      <div className="border-b border-border bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <Breadcrumb items={[
+            { label: "首页", href: "/" },
+            { label: "产品", href: "/products" }
+          ]} />
+        </div>
+      </div>
+
+      {/* Page Header */}
+      <div className="bg-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">产品中心</h1>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">探索我们的核心AI产品与服务</p>
         </div>
       </div>
 
