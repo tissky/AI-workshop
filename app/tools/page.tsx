@@ -7,10 +7,8 @@ import Card from "@/components/Card";
 import Badge from "@/components/Badge";
 import ToolsHero from "@/components/ToolsHero";
 import ToolsCTA from "@/components/ToolsCTA";
-import StatsGrid from "@/components/sections/StatsGrid";
 import { generateToolListSchema } from "@/lib/seo";
 import StructuredData from "@/components/StructuredData";
-import { toolCategories } from "@/lib/tools";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
@@ -34,10 +32,6 @@ export default function ToolsPage() {
     { label: "专业模型", value: "800+", description: "训练模型" },
     { label: "服务用户", value: "100万+", description: "活跃用户" },
     { label: "日处理量", value: "500万+", description: "任务处理" }
-    { label: "AI工具", value: "30+" },
-    { label: "专业模型", value: "800+" },
-    { label: "服务用户", value: "100万+" },
-    { label: "日处理量", value: "500万+" }
   ];
 
   const toolCategories = [
@@ -148,18 +142,6 @@ export default function ToolsPage() {
         <div className="border-b border-border bg-background">
           <div className="container-max py-4">
             <Breadcrumb />
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="bg-background border-b border-border shadow-surface">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-foreground">AI工具库</h1>
-              <p className="text-muted-foreground mt-2">探索30+专业AI工具，释放无限创意</p>
-            </div>
-            <Link href="/" className="text-accent hover:opacity-80 transition-opacity">
-              ← 返回首页
-            </Link>
           </div>
         </div>
 
@@ -199,21 +181,6 @@ export default function ToolsPage() {
                 </div>
               </Card>
             ))}
-      {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden bg-muted">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-              全方位<span className="text-accent">AI工具</span>平台
-            </h2>
-            <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-              从图片处理到视频编辑，从文案创作到AI模型，我们提供一站式AI创意解决方案
-            </p>
-            
-            {/* Stats */}
-            <div className="max-w-4xl mx-auto">
-              <StatsGrid stats={stats} columns={4} />
-            </div>
           </div>
         </ToolsHero>
 
@@ -247,25 +214,6 @@ export default function ToolsPage() {
                         </Badge>
                       </div>
                     </div>
-      {/* Tools Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="space-y-20">
-          {toolCategories.map((category) => (
-            <section key={category.id} className="relative">
-              {/* Category Header */}
-              <div className="bg-muted border border-border rounded-3xl p-8 mb-8">
-                <div className="flex flex-col md:flex-row md:items-center gap-6">
-                  <div className="w-24 h-24 rounded-2xl bg-background border border-border flex items-center justify-center text-4xl shadow-card">
-                    {category.icon}
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-4 mb-2">
-                      <h2 className="text-3xl font-bold text-foreground">{category.name}</h2>
-                      <span className="px-4 py-1 bg-background border border-border rounded-full text-sm font-semibold text-foreground shadow-sm">
-                        {category.count}
-                      </span>
-                    </div>
-                    <p className="text-muted-foreground text-lg">{category.description}</p>
                   </div>
                   <p className="text-muted-foreground text-base sm:text-lg">
                     {category.description}
@@ -336,43 +284,6 @@ export default function ToolsPage() {
               </section>
             ))}
           </div>
-              {/* Tools Grid */}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {category.tools.map((tool) => (
-                  <Link
-                    key={tool.id}
-                    href={`/tools/${tool.id}`}
-                    className="group relative bg-background p-6 rounded-2xl shadow-card hover:shadow-lg transition-all duration-300 border border-border overflow-hidden"
-                  >
-                    {/* Hot Badge */}
-                    {tool.hot && (
-                      <div className="absolute top-4 right-4">
-                        <span className="bg-error text-white px-3 py-1 rounded-full text-xs font-semibold shadow-sm">
-                          🔥 热门
-                        </span>
-                      </div>
-                    )}
-                    
-                    <div className="relative">
-                      <div className="flex items-start justify-between mb-4">
-                        <h3 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">
-                          {tool.name}
-                        </h3>
-                        <span className="text-muted-foreground group-hover:text-accent transition-colors text-xl">→</span>
-                      </div>
-                      <p className="text-muted-foreground mb-4 leading-relaxed">{tool.desc}</p>
-                      <div className="flex items-center text-accent font-medium">
-                        <span className="group-hover:translate-x-1 transition-transform">开始使用</span>
-                        <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          ))}
         </div>
 
         {/* CTA Section */}
@@ -395,19 +306,6 @@ export default function ToolsPage() {
           </div>
         </section>
       </div>
-      {/* CTA Section */}
-      <section className="relative py-24 mt-20 bg-primary">
-        <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
-            需要更多功能？
-          </h2>
-          <p className="text-xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto">
-            我们持续更新工具库，为您带来更多AI能力
-          </p>
-          <ToolsCTA hiddenUrl={hiddenUrl} />
-        </div>
-      </section>
-    </div>
     </>
   );
 }
