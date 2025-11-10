@@ -2,14 +2,9 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import Image from "next/image";
-import HomeNav from "@/components/HomeNav";
-import HomeHero from "@/components/HomeHero";
-import HomeCTA from "@/components/HomeCTA";
-import StructuredData from "@/components/StructuredData";
-import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/seo";
-
-export const revalidate = 3600;
-export const dynamic = "force-static";
+import QRModal from "@/components/QRModal";
+import { useState } from "react";
+import { images } from "@/lib/media";
 
 const QRModal = dynamic(() => import("@/components/QRModal"), {
   ssr: false,

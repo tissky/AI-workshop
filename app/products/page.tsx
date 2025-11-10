@@ -14,11 +14,7 @@ const ImageCarousel = dynamic(() => import("@/components/ImageCarousel"), {
 import ImageCarousel from "@/components/ImageCarousel";
 import Image from "next/image";
 import Link from "next/link";
-import StructuredData from "@/components/StructuredData";
-import { generateProductListSchema } from "@/lib/seo";
-
-export const revalidate = 3600;
-export const dynamic = "force-static";
+import { images } from "@/lib/media";
 
 export default function ProductsPage() {
   const productCategories = [
@@ -189,6 +185,142 @@ export default function ProductsPage() {
         </div>
       </div>
 
-export default function ProductsPage() {
-  return <ProductsPageContent />;
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Main Product Categories */}
+        <section className="mb-20">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
+            四大核心产品
+          </h2>
+          <p className="text-lg text-gray-600 mb-12 text-center max-w-3xl mx-auto">
+            专为电商、内容创作者和营销人员打造的AI工具矩阵
+          </p>
+
+          <div className="space-y-20">
+            {productCategories.map((category, categoryIndex) => (
+              <div key={category.id} className="relative">
+                <div className="flex flex-col lg:flex-row items-center gap-8">
+                  <div className="lg:w-1/2">
+                    <div className={`${categoryIndex % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                        {category.title}
+                      </h3>
+                      <p className="text-gray-600 mb-6">
+                        {category.description}
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all">
+                          即刻体验
+                        </button>
+                        <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-50 transition-all">
+                          即刻体验
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="lg:w-1/2">
+                    <ImageCarousel
+                      items={category.items}
+                      autoPlay={true}
+                      interval={4000}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Additional Features Grid */}
+        <section className="mb-20">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
+            更多强大功能
+          </h2>
+          <p className="text-lg text-gray-600 mb-12 text-center">
+            全方位的AI工具，助力您的创作之旅
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {additionalFeatures.map((feature, index) => (
+              <div
+                key={index}
+                className="group relative h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer"
+              >
+                <Image
+                  src={feature.image}
+                  alt={feature.title}
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  placeholder="blur"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-white/90 text-sm">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Social Media Platforms */}
+        <section className="mb-20">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
+            社交媒体工具
+          </h2>
+          <p className="text-lg text-gray-600 mb-12 text-center">
+            覆盖主流平台的全方位营销支持
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {socialPlatforms.map((platform, index) => (
+              <div
+                key={index}
+                className="group relative h-48 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer"
+              >
+                <Image
+                  src={platform.image}
+                  alt={platform.name}
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
+                  placeholder="blur"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <h3 className="text-lg font-bold text-white">
+                      {platform.name}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-center text-white">
+          <h2 className="text-3xl font-bold mb-4">
+            准备好体验AI创意工坊了吗？
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            立即开始使用我们的AI工具，让创意无限延伸，让效率大幅提升
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
+              即刻体验
+            </button>
+            <button className="border border-white/30 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white/10 transition-all">
+              联系销售
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
 }
