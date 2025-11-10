@@ -1,23 +1,13 @@
+"use client";
+
 import Link from "next/link";
-import Image from "next/image";
-import HomeNav from "@/components/HomeNav";
-import HomeHero from "@/components/HomeHero";
-import HomeCTA from "@/components/HomeCTA";
-import StructuredData from "@/components/StructuredData";
-import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/seo";
+import QRModal from "@/components/QRModal";
+import { useState } from "react";
 
-export const revalidate = 3600;
-export const dynamic = "force-static";
-
-export default function Home() {
+export default function HomeContent() {
+  const [showQRModal, setShowQRModal] = useState(false);
   const hiddenUrl = "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=";
-  
-  const organizationSchema = generateOrganizationSchema();
-  const websiteSchema = generateWebSiteSchema();
-  
   return (
-    <>
-      <StructuredData data={[organizationSchema, websiteSchema]} />
     <div className="bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-white/80 backdrop-blur-md border-b border-gray-200">
@@ -30,7 +20,13 @@ export default function Home() {
               <Link href="#products" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">产品</Link>
               <Link href="/tools" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">AI工具</Link>
               <Link href="/models" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">模型库</Link>
-              <HomeNav hiddenUrl={hiddenUrl} />
+              <button 
+                onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
+                className="bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors"
+                title="即刻体验AI创意工坊"
+              >
+                即刻体验
+              </button>
             </div>
           </div>
         </div>
@@ -49,7 +45,22 @@ export default function Home() {
             <p className="text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">
               集成30+专业AI工具，涵盖图片处理、视频编辑、文案创作等多个领域
             </p>
-            <HomeHero hiddenUrl={hiddenUrl} />
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
+                className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-all transform hover:scale-105"
+                title="即刻体验AI创意工坊"
+              >
+                即刻体验
+              </button>
+              <button 
+                onClick={() => setShowQRModal(true)}
+                className="border border-gray-300 text-gray-700 px-8 py-3 rounded-full text-lg font-medium hover:border-gray-400 transition-all"
+                title="了解更多关于AI创意工坊"
+              >
+                了解更多
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -67,15 +78,10 @@ export default function Home() {
               </p>
             </div>
             <div className="relative max-w-3xl mx-auto flex justify-center">
-              <Image
-                src={images.myProduct}
-                alt="我有产品"
+              <img
+                src="/images/我有产品.png"
+                alt="我有产品 - 智能产品图生成与优化"
                 className="w-2/3 h-auto"
-                width={1303}
-                height={700}
-                sizes="(max-width: 768px) 100vw, 66vw"
-                placeholder="blur"
-                priority
               />
             </div>
           </div>
@@ -90,14 +96,10 @@ export default function Home() {
               </p>
             </div>
             <div className="relative max-w-3xl mx-auto flex justify-center">
-              <Image
-                src={images.imageRefresh}
-                alt="图片焕新"
+              <img
+                src="/images/图片焕新.png"
+                alt="图片焕新 - AI图片增强与修复"
                 className="w-2/3 h-auto"
-                width={1160}
-                height={700}
-                sizes="(max-width: 768px) 100vw, 66vw"
-                placeholder="blur"
               />
             </div>
           </div>
@@ -112,14 +114,10 @@ export default function Home() {
               </p>
             </div>
             <div className="relative max-w-3xl mx-auto flex justify-center">
-              <Image
-                src={images.aiVideoGeneration}
-                alt="AI视频生成"
+              <img
+                src="/images/AI视频生成.png"
+                alt="AI视频生成 - 智能视频创作与编辑"
                 className="w-2/3 h-auto"
-                width={2025}
-                height={1150}
-                sizes="(max-width: 768px) 100vw, 66vw"
-                placeholder="blur"
               />
             </div>
           </div>
@@ -134,14 +132,10 @@ export default function Home() {
               </p>
             </div>
             <div className="relative max-w-3xl mx-auto flex justify-center">
-              <Image
-                src={images.benchmarkContent}
-                alt="对标图文"
+              <img
+                src="/images/对标图文.jpg"
+                alt="对标图文 - 竞品分析与内容对标"
                 className="w-2/3 h-auto"
-                width={800}
-                height={500}
-                sizes="(max-width: 768px) 100vw, 66vw"
-                placeholder="blur"
               />
             </div>
           </div>
@@ -287,6 +281,7 @@ export default function Home() {
           <Link 
             href="/models"
             className="inline-block bg-gray-800 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-900 transition-all transform hover:scale-105"
+            title="探索AI模型库"
           >
             探索模型库
           </Link>
@@ -297,10 +292,19 @@ export default function Home() {
       <section className="py-32 bg-gradient-to-r from-blue-500 to-indigo-600">
         <div className="max-w-[980px] mx-auto px-4 text-center">
           <h2 className="text-6xl font-bold text-white mb-8">准备好开始了？</h2>
-          <p className="text-2xl text-white/90 mb-12 max-w-2xl mx-auto">
+          <p className="text-2xl text-blue-100 mb-12 max-w-2xl mx-auto">
             立即体验强大的AI工具，让创意无限延伸
           </p>
-          <HomeCTA hiddenUrl={hiddenUrl} />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
+              className="bg-white text-indigo-600 px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-100 transition-all transform hover:scale-105"
+              title="即刻体验AI创意工坊"
+            >
+              即刻体验
+            </button>
+            <QRModal />
+          </div>
         </div>
       </section>
 
@@ -359,7 +363,11 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* QR Modal */}
+      {showQRModal && (
+        <QRModal onClose={() => setShowQRModal(false)} />
+      )}
     </div>
-    </>
   );
 }
