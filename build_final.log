@@ -1,0 +1,105 @@
+
+> ai-workshop@0.1.0 build
+> next build
+
+   ▲ Next.js 15.4.7
+
+   Creating an optimized production build ...
+Failed to compile.
+
+./app/layout.tsx
+Error:   [31mx[0m Expected '</', got 'jsx text (
+  [31m|[0m     )'
+    ,-[[36;1;4m/home/engine/project/app/layout.tsx[0m:65:1]
+ [2m62[0m |               </TransitionProvider>
+ [2m63[0m |             </main>
+ [2m64[0m |             <Footer />
+ [2m65[0m | [35;1m,[0m[35;1m-[0m[35;1m>[0m       </body>
+ [2m66[0m | [35;1m`[0m[35;1m-[0m[35;1m>[0m     </html>
+ [2m67[0m |       );
+ [2m68[0m |     }
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/layout.tsx
+
+./app/page-content.tsx
+Error:   [31mx[0m Expression expected
+     ,-[[36;1;4m/home/engine/project/app/page-content.tsx[0m:320:1]
+ [2m317[0m |           </p>
+ [2m318[0m |           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+ [2m319[0m |             <Button
+ [2m320[0m |             <Button 
+     : [35;1m            ^[0m
+ [2m321[0m |               variant="secondary"
+ [2m322[0m |               size="lg"
+ [2m323[0m |               onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
+     `----
+  [31mx[0m Expected ',', got 'variant'
+     ,-[[36;1;4m/home/engine/project/app/page-content.tsx[0m:321:1]
+ [2m318[0m |           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+ [2m319[0m |             <Button
+ [2m320[0m |             <Button 
+ [2m321[0m |               variant="secondary"
+     : [35;1m              ^^^^^^^[0m
+ [2m322[0m |               size="lg"
+ [2m323[0m |               onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
+ [2m324[0m |               aria-label="即刻体验AI创意工坊"
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/page-content.tsx
+./app/page.tsx
+
+./app/products/page.tsx
+Error:   [31mx[0m Expression expected
+     ,-[[36;1;4m/home/engine/project/app/products/page.tsx[0m:415:1]
+ [2m412[0m |           </section>
+ [2m413[0m |         </div>
+ [2m414[0m |       </div>
+ [2m415[0m |     </>
+     : [35;1m      ^[0m
+ [2m416[0m |   );
+ [2m417[0m | }
+     `----
+  [31mx[0m Expression expected
+     ,-[[36;1;4m/home/engine/project/app/products/page.tsx[0m:416:1]
+ [2m413[0m |         </div>
+ [2m414[0m |       </div>
+ [2m415[0m |     </>
+ [2m416[0m |   );
+     : [35;1m  ^[0m
+ [2m417[0m | }
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/products/page.tsx
+
+./app/tools/page.tsx
+Error:   [31mx[0m Expression expected
+    ,-[[36;1;4m/home/engine/project/app/tools/page.tsx[0m:37:1]
+ [2m34[0m | 
+ [2m35[0m | export default function ToolsPage() {
+ [2m36[0m |   const stats = [
+ [2m37[0m |   const hiddenUrl = "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=";
+    : [35;1m  ^^^^^[0m
+ [2m38[0m | 
+ [2m39[0m |   const stats = [
+ [2m40[0m |     { label: "AI工具", value: "30+" },
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/tools/page.tsx
+
