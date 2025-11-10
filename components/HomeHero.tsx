@@ -1,31 +1,49 @@
 "use client";
 
 import { useState } from "react";
+import Hero, { HeroCTA } from "./sections/Hero";
 import QRModal from "./QRModal";
 
 interface HomeHeroProps {
   hiddenUrl: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
 }
 
-export default function HomeHero({ hiddenUrl }: HomeHeroProps) {
+export default function HomeHero({ 
+  hiddenUrl,
+  title = "AI创意工坊",
+  subtitle = "释放无限创意可能",
+  description = "集成30+专业AI工具，涵盖图片处理、视频编辑、文案创作等多个领域"
+}: HomeHeroProps) {
   const [showQRModal, setShowQRModal] = useState(false);
+
+  const ctas: HeroCTA[] = [
+    {
+      label: "即刻体验",
+      onClick: () => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer'),
+      variant: "primary",
+      ariaLabel: "即刻体验AI创意工坊"
+    },
+    {
+      label: "了解更多",
+      onClick: () => setShowQRModal(true),
+      variant: "outline",
+      ariaLabel: "了解更多关于AI创意工坊"
+    }
+  ];
 
   return (
     <>
-      <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <button 
-          onClick={() => window.open(atob(hiddenUrl), '_blank')}
-          className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-all transform hover:scale-105"
-        >
-          即刻体验
-        </button>
-        <button 
-          onClick={() => setShowQRModal(true)}
-          className="border border-gray-300 text-gray-700 px-8 py-3 rounded-full text-lg font-medium hover:border-gray-400 transition-all"
-        >
-          了解更多
-        </button>
-      </div>
+      <Hero
+        title={title}
+        subtitle={subtitle}
+        description={description}
+        ctas={ctas}
+        alignment="center"
+        background="gradient"
+      />
 
       {showQRModal && (
         <QRModal onClose={() => setShowQRModal(false)} />

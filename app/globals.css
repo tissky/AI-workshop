@@ -302,6 +302,51 @@ html {
   }
 }
 
+/* Motion-safe utilities */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-safe\:transition-transform {
+    transition-property: transform;
+    transition-timing-function: var(--ease-apple);
+    transition-duration: var(--duration-base);
+  }
+  
+  .motion-safe\:animate-in {
+    animation: fade-in var(--duration-slow) var(--ease-out);
+  }
+  
+  .motion-safe\:fade-in {
+    animation: fade-in var(--duration-slow) var(--ease-out);
+  }
+  
+  .motion-safe\:slide-in-from-bottom-4 {
+    animation: slide-in-from-bottom-4 var(--duration-slow) var(--ease-out);
+  }
+  
+  .motion-safe\:duration-700 {
+    animation-duration: 700ms;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-bottom-4 {
+  from {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 /* Focus Ring - Accessible & Minimal */
 .focus-ring {
   outline: 2px solid var(--accent);
