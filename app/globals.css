@@ -93,6 +93,122 @@
   }
 }
 
+/**
+ * ============================================================================
+ * SEMANTIC DESIGN TOKENS LAYER
+ * ============================================================================
+ * 
+ * This section defines semantic tokens that map to raw design tokens.
+ * Semantic tokens provide meaningful names for specific use cases and contexts.
+ * 
+ * ACCESSIBILITY:
+ * - All color combinations meet WCAG 2.1 AA contrast requirements (4.5:1 for normal text)
+ * - Large text (≥18pt or ≥14pt bold) meets WCAG 2.1 AA (3:1 minimum)
+ * - UI components meet WCAG 2.1 AA non-text contrast (3:1 minimum)
+ * - Supports high-contrast mode via forced-colors media query
+ * - Respects prefers-reduced-motion for animations and transitions
+ * 
+ * USAGE:
+ * - In CSS: Use semantic token names (e.g., var(--color-bg-default))
+ * - In JS/TS: Import from lib/design-tokens.ts for type-safe access
+ * - In Tailwind: Use bg-*, text-*, border-* utilities that map to these tokens
+ */
+:root {
+  /* ========== Semantic Color Tokens ========== */
+  
+  /* Background Colors - Surfaces and containers */
+  --color-bg-default: var(--background);
+  --color-bg-surface: var(--background);
+  --color-bg-elevated: var(--muted);
+  --color-bg-muted: var(--muted);
+  --color-bg-overlay: rgba(0, 0, 0, 0.6);
+  --color-bg-inverse: var(--foreground);
+  
+  /* Text Colors - Content and labels */
+  --color-text-primary: var(--foreground);
+  --color-text-secondary: var(--foreground);
+  --color-text-muted: var(--muted-foreground);
+  --color-text-inverse: var(--background);
+  --color-text-accent: var(--accent);
+  --color-text-success: var(--success);
+  --color-text-warning: var(--warning);
+  --color-text-error: var(--error);
+  
+  /* Border Colors - Dividers and outlines */
+  --color-border-default: var(--border);
+  --color-border-muted: var(--muted);
+  --color-border-accent: var(--accent);
+  --color-border-inverse: var(--foreground);
+  
+  /* Interactive State Colors - Buttons and links */
+  --color-interactive-default: var(--primary);
+  --color-interactive-hover: var(--accent);
+  --color-interactive-active: var(--accent);
+  --color-interactive-disabled: var(--muted-foreground);
+  
+  /* ========== Semantic Shadow Tokens ========== */
+  
+  /* Shadow Elevations - Visual hierarchy */
+  --shadow-none: none;
+  --shadow-surface: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
+  --shadow-elevated: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-dialog: 0 8px 24px 0 rgba(0, 0, 0, 0.12);
+  --shadow-overlay: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark mode adjustments for semantic tokens */
+    --color-bg-overlay: rgba(0, 0, 0, 0.8);
+    
+    /* Shadows are lighter in dark mode for better visibility */
+    --shadow-surface: 0 2px 8px 0 rgba(255, 255, 255, 0.05);
+    --shadow-card: 0 4px 12px 0 rgba(255, 255, 255, 0.08);
+    --shadow-elevated: 0 10px 15px -3px rgba(255, 255, 255, 0.1), 0 4px 6px -4px rgba(255, 255, 255, 0.1);
+    --shadow-dialog: 0 8px 24px 0 rgba(255, 255, 255, 0.12);
+    --shadow-overlay: 0 30px 60px -15px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/**
+ * High Contrast Mode Support
+ * Ensures tokens adapt to system high-contrast preferences
+ */
+@media (forced-colors: active) {
+  :root {
+    /* Use system colors in forced-colors mode */
+    --color-bg-default: Canvas;
+    --color-bg-surface: Canvas;
+    --color-bg-elevated: Canvas;
+    --color-text-primary: CanvasText;
+    --color-text-secondary: CanvasText;
+    --color-text-muted: CanvasText;
+    --color-border-default: CanvasText;
+    --color-interactive-default: LinkText;
+    --color-interactive-hover: LinkText;
+    
+    /* Disable shadows in high-contrast mode */
+    --shadow-none: none;
+    --shadow-surface: none;
+    --shadow-card: none;
+    --shadow-elevated: none;
+    --shadow-dialog: none;
+    --shadow-overlay: none;
+  }
+}
+
+/**
+ * Reduced Motion Support
+ * Disables or reduces animations for users who prefer reduced motion
+ * Documented here for semantic token reference
+ */
+@media (prefers-reduced-motion: reduce) {
+  /* Motion preferences handled in global styles below */
+  /* Transitions are reduced to 0.01ms or removed entirely */
+  /* Transform animations are disabled */
+}
+
 @theme inline {
   /* Color Tokens */
   --color-background: var(--background);

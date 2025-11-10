@@ -146,6 +146,16 @@ export default function ToolsPage() {
         </div>
 
         {/* Hero Section */}
+        <section className="py-16 sm:py-20 bg-muted border-b border-border">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6">
+                全方位<span className="text-accent">AI工具</span>平台
+              </h1>
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
+                从图片处理到视频编辑，从文案创作到AI模型，我们提供一站式AI创意解决方案
+              </p>
+            </div>
         <ToolsHero
           title={
             <>
@@ -181,6 +191,32 @@ export default function ToolsPage() {
                 </div>
               </Card>
             ))}
+            
+            {/* Stats */}
+            <div 
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto"
+              role="list"
+              aria-label="平台统计数据"
+            >
+              {stats.map((stat, index) => (
+                <Card 
+                  key={index} 
+                  className="text-center"
+                  as="article"
+                  role="listitem"
+                >
+                  <div 
+                    className="text-3xl sm:text-4xl font-bold text-accent mb-2"
+                    aria-label={`${stat.label}: ${stat.value}`}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className="text-sm font-medium text-foreground">
+                    {stat.label}
+                  </div>
+                </Card>
+              ))}
+            </div>
           </div>
         </ToolsHero>
 
@@ -214,12 +250,40 @@ export default function ToolsPage() {
                             {category.count}
                           </Badge>
                         </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <div className="space-y-16 sm:space-y-20">
+            {toolCategories.map((category) => (
+              <section 
+                key={category.id} 
+                aria-labelledby={`category-${category.id}`}
+              >
+                {/* Category Header */}
+                <div className="mb-8">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                    <div className="flex items-center gap-4">
+                      <div 
+                        className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center text-3xl"
+                        aria-hidden="true"
+                      >
+                        {category.icon}
+                      </div>
+                      <div>
+                        <h2 
+                          id={`category-${category.id}`}
+                          className="text-2xl sm:text-3xl font-bold text-foreground"
+                        >
+                          {category.name}
+                        </h2>
+                        <Badge variant="default" size="sm" className="mt-2">
+                          {category.count}
+                        </Badge>
                       </div>
                     </div>
                     <p className="text-muted-foreground text-base sm:text-lg">
                       {category.description}
                     </p>
                   </div>
+                </div>
 
                   {/* Tools Grid */}
                   <div 
@@ -288,6 +352,27 @@ export default function ToolsPage() {
                                 </div>
                                 </section>
                                 </div>
+                              </svg>
+                            </div>
+                          </div>
+                        </Card>
+                      </Link>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+                        </Card>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            ))}
+          </div>
+        </div>
 
         {/* CTA Section */}
           <section 

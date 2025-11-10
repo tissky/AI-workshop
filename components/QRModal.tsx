@@ -179,6 +179,7 @@ export default function QRModal({ isOpen = false, onClose }: QRModalProps) {
                   className="w-full max-w-[280px] mx-auto h-auto"
                   width={280}
                   height={280}
+                  sizes="(max-width: 640px) 280px, 280px"
                   placeholder="blur"
                 />
               </div>
