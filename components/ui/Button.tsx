@@ -3,6 +3,7 @@
 import { ButtonHTMLAttributes, forwardRef } from "react";
 
 export type ButtonVariant = "primary" | "secondary" | "outline";
+export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -30,7 +31,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const variantStyles = {
       primary: "bg-primary text-primary-foreground hover:opacity-90",
       secondary: "bg-secondary text-secondary-foreground hover:bg-muted",
-      outline: "border-2 border-border text-foreground hover:bg-muted hover:border-muted-foreground"
+      outline: "border-2 border-border text-foreground hover:bg-muted hover:border-muted-foreground",
+      ghost: "text-foreground hover:bg-muted"
     };
 
     const sizeStyles = {

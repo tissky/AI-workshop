@@ -65,6 +65,12 @@ ai-workshop/
 │   ├── ToolCard.tsx       # 工具卡片
 │   ├── FeatureCard.tsx    # 功能特色卡片
 │   └── QRModal.tsx        # 二维码弹窗组件
+├── docs/                  # 项目文档
+│   ├── design-system/     # 设计系统进度追踪
+│   │   ├── EXECUTION_LOG.md    # 详细执行日志
+│   │   └── QUICK_STATUS.md     # 快速状态概览
+│   └── components/        # 组件文档
+│       └── README.md      # 组件文档索引
 ├── public/               # 静态资源
 │   └── images/           # 产品图片资源
 └── package.json          # 项目依赖配置
@@ -160,7 +166,15 @@ git push -u origin main
 
 ## 🎨 设计系统
 
-### 色彩方案
+### 📚 设计系统文档
+
+全新的Apple风格设计系统正在开发中！查看完整文档：
+
+- **[设计系统总览](./docs/design-system/README.md)** - 设计系统介绍和快速开始
+- **[任务清单](./docs/design-system/TASK_MANIFEST.md)** - 完整的21项任务规划，包含6个阶段
+- **[进度追踪](./docs/design-system/TASK_PROGRESS.md)** - 实时进度跟踪和状态更新
+
+### 当前色彩方案
 
 | 颜色 | 用途 | 色值 |
 |------|------|------|
@@ -306,6 +320,23 @@ module.exports = {
 1. 在 `components/` 下创建 `.tsx` 文件
 2. 导出函数组件
 3. 在需要的页面中导入使用
+
+---
+
+## 📚 文档
+
+### 设计系统进度追踪
+
+实时追踪21个Apple设计系统重构任务的进展情况。
+
+- **[⚡ 快速状态](./docs/design-system/QUICK_STATUS.md)** - 一目了然的进度概览
+- **[📊 执行日志](./docs/design-system/EXECUTION_LOG.md)** - 详细的任务追踪和时间线
+- **[📖 文档索引](./docs/README.md)** - 完整文档导航
+
+### 组件文档
+
+- **[🧩 组件文档库](./docs/components/README.md)** - 完整的组件使用指南
+- **[🍎 Apple设计报告](./APPLE_DESIGN_REPORT.md)** - 设计系统实施指南
 
 ---
 
