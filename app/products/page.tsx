@@ -9,9 +9,6 @@ import Card from "@/components/Card";
 import Badge from "@/components/Badge";
 import Breadcrumb from "@/components/Breadcrumb";
 import StatsGrid from "@/components/ui/StatsGrid";
-import Breadcrumb from "@/components/Breadcrumb";
-import { images } from "@/lib/media";
-import { generateProductListSchema } from "@/lib/seo";
 import StructuredData from "@/components/StructuredData";
 import ProductCTA from "@/components/ProductCTA";
 

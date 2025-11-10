@@ -4,6 +4,7 @@ import "./globals.css";
 import SkipLink from "@/components/SkipLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import QuickNav from "@/components/QuickNav";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/metadata";
 import TransitionProvider from "@/components/providers/TransitionProvider";
 
@@ -54,11 +55,13 @@ export default function RootLayout({
         <SkipLink />
         <Header />
         <main id="main-content" className="pt-16">
+        <main id="main-content">
           <TransitionProvider>
             {children}
           </TransitionProvider>
         </main>
         <Footer />
+        <QuickNav />
       </body>
     </html>
   );

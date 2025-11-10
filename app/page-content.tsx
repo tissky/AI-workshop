@@ -1,11 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import QRModalWrapper from "@/components/QRModalWrapper";
-import HomeHero from "@/components/HomeHero";
-import Button from "@/components/ui/Button";
 import { useState } from "react";
-import Hero from "@/components/ui/Hero";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import StatsGrid from "@/components/ui/StatsGrid";
@@ -53,6 +48,38 @@ export default function HomeContent() {
           </>
         }
       />
+      <section className="pt-32 pb-24 bg-gradient-to-b from-gray-50 to-white" aria-label="主要内容">
+        <div className="max-w-[980px] mx-auto px-4">
+          <div className="text-center">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
+              AI创意工坊
+            </h1>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-700 mb-8">
+              释放无限创意可能
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">
+              集成30+专业AI工具，涵盖图片处理、视频编辑、文案创作等多个领域
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
+                aria-label="即刻体验AI创意工坊"
+              >
+                即刻体验
+              </Button>
+              <Button 
+                variant="outline"
+                size="lg"
+                onClick={() => setShowQRModal(true)}
+                aria-label="了解更多关于AI创意工坊"
+              >
+                了解更多
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Products Section */}
       <section 
@@ -223,21 +250,6 @@ export default function HomeContent() {
               探索模型库
             </Button>
           </div>
-      {/* AI 800 Models - Apple Watch Style */}
-      <section className="py-32 bg-gradient-to-b from-gray-100 to-gray-200 text-gray-800">
-        <div className="max-w-[980px] mx-auto px-4 text-center">
-          <h2 className="text-6xl font-bold mb-8">800+</h2>
-          <h3 className="text-3xl font-medium mb-6">专业训练模型</h3>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-            涵盖图像处理、自然语言处理、音频处理、视频分析等多个领域
-          </p>
-          <Button
-            onClick={() => window.location.href = '/models'}
-            aria-label="探索AI模型库"
-            className="bg-gray-800 text-white hover:bg-gray-900"
-          >
-            探索模型库
-          </Button>
         </div>
       </section>
 
@@ -265,10 +277,11 @@ export default function HomeContent() {
               variant="outline"
               size="lg"
               onClick={() => setShowQRModal(true)}
-              aria-label="查看更多信息"
+              aria-label="联系我们"
               className="border-background text-background hover:bg-background hover:text-foreground"
             >
               了解更多
+              联系我们
             </Button>
           </div>
         </div>
