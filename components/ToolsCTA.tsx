@@ -19,7 +19,7 @@ export default function ToolsCTA({ hiddenUrl }: ToolsCTAProps) {
           size="lg"
           onClick={() => window.open(hiddenUrl, '_blank', 'noopener,noreferrer')}
           aria-label="立即体验AI工具"
-          className="bg-white text-accent hover:bg-gray-100 shadow-xl"
+          className="bg-background text-foreground hover:bg-muted border border-border shadow-card"
         >
           立即体验
         </Button>
@@ -28,7 +28,7 @@ export default function ToolsCTA({ hiddenUrl }: ToolsCTAProps) {
           size="lg"
           onClick={() => setShowQRModal(true)}
           aria-label="联系我们"
-          className="border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm"
+          className="border-2 border-border text-foreground hover:bg-muted"
         >
           联系我们
         </Button>
