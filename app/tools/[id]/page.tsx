@@ -2,6 +2,8 @@
 
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import StructuredData from "@/components/StructuredData";
+import { generateSoftwareApplicationSchema } from "@/lib/seo";
 
 interface ToolDetail {
   name: string;
@@ -126,7 +128,17 @@ export default function ToolDetailPage() {
     steps: ["上传文件", "选择设置", "开始处理", "下载结果"]
   };
 
+  const softwareAppSchema = generateSoftwareApplicationSchema({
+    name: tool.name,
+    description: tool.description,
+    category: tool.category,
+    features: tool.features,
+    url: `https://ai-creative-workshop.com/tools/${toolId}`
+  });
+
   return (
+    <>
+      <StructuredData data={softwareAppSchema} />
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
       <div className="bg-white shadow-sm">
@@ -227,5 +239,6 @@ export default function ToolDetailPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

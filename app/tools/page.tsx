@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import QRModal from "@/components/QRModal";
+import StructuredData from "@/components/StructuredData";
 import { useState } from "react";
+import { generateToolListSchema } from "@/lib/seo";
 
 export default function ToolsPage() {
   const [showQRModal, setShowQRModal] = useState(false);
@@ -96,7 +98,20 @@ export default function ToolsPage() {
     { label: "日处理量", value: "500万+", color: "text-orange-600" }
   ];
 
+  const allTools = toolCategories.flatMap(category =>
+    category.tools.map(tool => ({
+      name: tool.name,
+      description: tool.desc,
+      url: `https://ai-creative-workshop.com/tools/${tool.id}`,
+      category: category.name
+    }))
+  );
+
+  const toolListSchema = generateToolListSchema(allTools);
+
   return (
+    <>
+      <StructuredData data={toolListSchema} />
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
       <div className="bg-white shadow-sm">
@@ -236,5 +251,6 @@ export default function ToolsPage() {
         <QRModal onClose={() => setShowQRModal(false)} />
       )}
     </div>
+    </>
   );
 }

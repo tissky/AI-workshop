@@ -2,6 +2,8 @@
 
 import ImageCarousel from "@/components/ImageCarousel";
 import Link from "next/link";
+import StructuredData from "@/components/StructuredData";
+import { generateProductListSchema } from "@/lib/seo";
 
 export default function ProductsPage() {
   const productCategories = [
@@ -117,7 +119,38 @@ export default function ProductsPage() {
     { name: "抖抖对标", image: "/images/抖抖对标.jpg", color: "from-purple-500 to-indigo-500" }
   ];
 
+  const coreProducts = [
+    {
+      name: "我有产品",
+      description: "智能产品图生成与优化，提升转化率",
+      url: "https://ai-creative-workshop.com/products#product",
+      image: "/images/我有产品.png"
+    },
+    {
+      name: "图片焕新",
+      description: "高清修复、背景替换、细节增强",
+      url: "https://ai-creative-workshop.com/products#image-refresh",
+      image: "/images/图片焕新.png"
+    },
+    {
+      name: "AI视频生成",
+      description: "自动生成、剪辑、特效一站式解决方案",
+      url: "https://ai-creative-workshop.com/products#video-ai",
+      image: "/images/AI视频生成.png"
+    },
+    {
+      name: "对标图文",
+      description: "智能分析竞品，优化内容策略",
+      url: "https://ai-creative-workshop.com/products#benchmark",
+      image: "/images/对标图文.jpg"
+    }
+  ];
+
+  const productListSchema = generateProductListSchema(coreProducts);
+
   return (
+    <>
+      <StructuredData data={productListSchema} />
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
       <div className="bg-white shadow-sm">
@@ -265,5 +298,6 @@ export default function ProductsPage() {
         </section>
       </div>
     </div>
+    </>
   );
 }
