@@ -1,15 +1,10 @@
 import Link from "next/link";
 import { getToolDetail, getAllToolIds } from "@/lib/tools";
+import StructuredData from "@/components/StructuredData";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
 
-export default async function ToolDetailPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id: toolId } = await params;
 export async function generateStaticParams() {
   const toolIds = getAllToolIds();
   return toolIds.map((id) => ({
@@ -26,6 +21,19 @@ interface ToolDetailPageProps {
 export default async function ToolDetailPage({ params }: ToolDetailPageProps) {
   const { id } = await params;
   const tool = getToolDetail(id);
+  
+  const softwareAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": tool.name,
+    "description": tool.description,
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CNY"
+    }
+  };
 
   return (
     <>

@@ -1,5 +1,3 @@
-import { WithContext, Organization, WebSite, Product, SoftwareApplication, ItemList, Dataset } from 'schema-dts';
-
 /**
  * Site-wide configuration for structured data
  */
@@ -15,7 +13,7 @@ const SITE_CONFIG = {
 /**
  * Generate Organization JSON-LD with ContactPoint
  */
-export function generateOrganizationSchema(): WithContext<Organization> {
+export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -40,7 +38,7 @@ export function generateOrganizationSchema(): WithContext<Organization> {
 /**
  * Generate WebSite JSON-LD
  */
-export function generateWebSiteSchema(): WithContext<WebSite> {
+export function generateWebSiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -51,7 +49,7 @@ export function generateWebSiteSchema(): WithContext<WebSite> {
       '@type': 'SearchAction',
       target: `${SITE_CONFIG.url}/tools?q={search_term_string}`,
       'query-input': 'required name=search_term_string',
-    } as any, // eslint-disable-line @typescript-eslint/no-explicit-any
+    },
   };
 }
 
@@ -63,7 +61,7 @@ export function generateProductSchema(product: {
   description: string;
   image?: string;
   category?: string;
-}): WithContext<Product> {
+}) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -94,7 +92,7 @@ export function generateProductListSchema(products: Array<{
   description: string;
   url: string;
   image?: string;
-}>): WithContext<ItemList> {
+}>) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -121,7 +119,7 @@ export function generateSoftwareApplicationSchema(tool: {
   category: string;
   features?: string[];
   url?: string;
-}): WithContext<SoftwareApplication> {
+}) {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -153,7 +151,7 @@ export function generateToolListSchema(tools: Array<{
   description: string;
   url: string;
   category: string;
-}>): WithContext<ItemList> {
+}>) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -182,8 +180,8 @@ export function generateDatasetSchema(dataset: {
     description: string;
     accuracy?: string;
   }>;
-}): WithContext<Dataset> {
-  const schema: WithContext<Dataset> = {
+}) {
+  const schema = {
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: dataset.name,
@@ -206,7 +204,7 @@ export function generateModelListSchema(models: Array<{
   description: string;
   category: string;
   accuracy?: string;
-}>): WithContext<ItemList> {
+}>) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',

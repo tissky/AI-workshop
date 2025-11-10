@@ -1,4 +1,4 @@
-import Link from "next/link";
+import CompanyPageContent from "./page-content";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
