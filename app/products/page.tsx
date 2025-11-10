@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import ImageCarousel from "@/components/ImageCarousel";
+import ImageCarouselWrapper from "@/components/ImageCarouselWrapper";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { images } from "@/lib/media";
@@ -219,7 +219,7 @@ export default function ProductsPage() {
                     </div>
                   </div>
                   <div className="lg:w-1/2">
-                    <ImageCarousel
+                    <ImageCarouselWrapper
                       items={category.items}
                       autoPlay={true}
                       interval={4000}

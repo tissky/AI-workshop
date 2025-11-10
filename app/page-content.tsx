@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import QRModalWrapper from "@/components/QRModalWrapper";
 import QRModal from "@/components/QRModal";
 import HomeHero from "@/components/HomeHero";
 import Button from "@/components/ui/Button";
@@ -35,6 +36,38 @@ export default function HomeContent() {
         </div>
       </nav>
 
+      {/* Hero Section - iPhone Style */}
+      <section className="pt-32 pb-24 bg-gradient-to-b from-gray-50 to-white" aria-label="主要内容">
+        <div className="max-w-[980px] mx-auto px-4">
+          <div className="text-center">
+            <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
+              AI创意工坊
+            </h1>
+            <h2 className="text-2xl md:text-3xl font-medium text-gray-700 mb-8">
+              释放无限创意可能
+            </h2>
+            <p className="text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">
+              集成30+专业AI工具，涵盖图片处理、视频编辑、文案创作等多个领域
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
+                className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-all transform hover:scale-105"
+                title="即刻体验AI创意工坊"
+              >
+                即刻体验
+              </button>
+              <button 
+                onClick={() => setShowQRModal(true)}
+                className="border border-gray-300 text-gray-700 px-8 py-3 rounded-full text-lg font-medium hover:border-gray-400 transition-all"
+                title="了解更多关于AI创意工坊"
+              >
+                了解更多
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Hero Section */}
       <HomeHero hiddenUrl={hiddenUrl} />
 
@@ -269,6 +302,7 @@ export default function HomeContent() {
             立即体验强大的AI工具，让创意无限延伸
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
             <Button 
               variant="secondary"
               onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
@@ -276,6 +310,9 @@ export default function HomeContent() {
               className="bg-white text-accent hover:bg-gray-100"
             >
               即刻体验
+            </button>
+            <QRModalWrapper />
+            </div>
             </Button>
             <QRModal />
           </div>
@@ -340,7 +377,7 @@ export default function HomeContent() {
 
       {/* QR Modal */}
       {showQRModal && (
-        <QRModal onClose={() => setShowQRModal(false)} />
+        <QRModalWrapper isOpen={showQRModal} onClose={() => setShowQRModal(false)} />
       )}
     </div>
   );
