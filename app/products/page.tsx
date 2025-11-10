@@ -4,12 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { images } from "@/lib/media";
 import { generateProductListSchema } from "@/lib/seo";
-import ImageCarousel from "@/components/ImageCarousel";
 import ImageCarouselWrapper from "@/components/ImageCarouselWrapper";
-import Image from "next/image";
 import Button from "@/components/ui/Button";
-import { images } from "@/lib/media";
-import { generateProductListSchema } from "@/lib/seo";
 import StructuredData from "@/components/StructuredData";
 
 export default function ProductsPage() {
