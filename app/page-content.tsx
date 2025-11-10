@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import QRModalWrapper from "@/components/QRModalWrapper";
+import HomeHero from "@/components/HomeHero";
 import Button from "@/components/ui/Button";
 import { useState } from "react";
 
@@ -12,6 +13,32 @@ export default function HomeContent() {
     <div className="bg-white">
       {/* Hero Section */}
       <section className="py-20 sm:py-32 bg-gradient-to-b from-gray-50 to-white" aria-label="主要内容">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <div className="max-w-[980px] mx-auto h-full px-4">
+          <div className="flex items-center justify-between h-full">
+            <Link href="/" className="text-xl font-semibold text-gray-900">
+              AI创意工坊
+            </Link>
+            <div className="hidden md:flex items-center space-x-8">
+              <Link href="#products" className="link-base text-sm font-medium">产品</Link>
+              <Link href="/tools" className="link-base text-sm font-medium">AI工具</Link>
+              <Link href="/models" className="link-base text-sm font-medium">模型库</Link>
+              <Button 
+                size="sm"
+                onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
+                aria-label="即刻体验AI创意工坊"
+                className="bg-accent text-white hover:opacity-90"
+              >
+                即刻体验
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section - iPhone Style */}
+      <section className="pt-32 pb-24 bg-gradient-to-b from-gray-50 to-white" aria-label="主要内容">
         <div className="max-w-[980px] mx-auto px-4">
           <div className="text-center">
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
