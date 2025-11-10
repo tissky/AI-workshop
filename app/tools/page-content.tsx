@@ -1,21 +1,93 @@
+"use client";
+
 import Link from "next/link";
-import dynamic from "next/dynamic";
+import QRModal from "@/components/QRModal";
 import { useState } from "react";
-import ToolsCTA from "@/components/ToolsCTA";
-import StructuredData from "@/components/StructuredData";
-import { generateToolListSchema } from "@/lib/seo";
-import { toolCategories } from "@/lib/tools";
 
-export const revalidate = 3600;
-export const dynamic = "force-static";
-
-const QRModal = dynamic(() => import("@/components/QRModal"), {
-  ssr: false,
-  loading: () => null
-});
-
-export default function ToolsPage() {
+export default function ToolsPageContent() {
+  const [showQRModal, setShowQRModal] = useState(false);
   const hiddenUrl = "https://oooooooooooooo.xiangmuchan.cn/update-history.php";
+
+  const toolCategories = [
+    {
+      id: "image",
+      name: "图片处理",
+      description: "专业的图片处理AI工具，让每张图片都完美呈现",
+      icon: "🎨",
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-50",
+      count: "6大功能",
+      tools: [
+        { id: "background-replace", name: "背景替换", desc: "一键替换图片背景，支持多种场景", hot: true },
+        { id: "product-image", name: "产品图处理", desc: "智能优化产品展示图，提升转化率", hot: true },
+        { id: "image-enhance", name: "图片变高清", desc: "AI超分辨率技术，让图片更加清晰", hot: false },
+        { id: "remove-watermark", name: "去水印", desc: "智能去除图片水印，保持图片质量", hot: false },
+        { id: "remove-people", name: "图片去人", desc: "自动识别并移除图片中的人物", hot: false },
+        { id: "image-deduplication", name: "图片查重", desc: "检测相似图片，避免重复内容", hot: false }
+      ]
+    },
+    {
+      id: "video",
+      name: "视频处理",
+      description: "强大的视频编辑AI工具，轻松制作专业视频",
+      icon: "🎬",
+      color: "from-purple-500 to-pink-500",
+      bgColor: "bg-purple-50",
+      count: "4大功能",
+      tools: [
+        { id: "video-watermark", name: "视频去水印", desc: "专业去除视频水印，不留痕迹", hot: true },
+        { id: "video-to-image", name: "视频转图片", desc: "提取视频关键帧，生成精美图片", hot: false },
+        { id: "video-batch-watermark", name: "视频批量水印", desc: "批量为视频添加水印，保护版权", hot: false },
+        { id: "video-frame-extract", name: "视频提取转图", desc: "AI提取视频精彩瞬间", hot: false }
+      ]
+    },
+    {
+      id: "text",
+      name: "文案创作",
+      description: "AI驱动的文案生成工具，释放无限创意灵感",
+      icon: "✍️",
+      color: "from-green-500 to-emerald-500",
+      bgColor: "bg-green-50",
+      count: "4大功能",
+      tools: [
+        { id: "text-generation", name: "文案生成", desc: "为你的产品生成19种不同风格的文案", hot: true },
+        { id: "handwriting", name: "手写签名", desc: "生成逼真的手写签名图片", hot: false },
+        { id: "sop-template", name: "SOP模板", desc: "生成95%全行业SOP标准作业模板", hot: true },
+        { id: "emoji-generator", name: "表情包生成", desc: "一键生成搞笑表情包", hot: false }
+      ]
+    },
+    {
+      id: "ai-models",
+      name: "AI模型",
+      description: "800+专业训练模型，即用即取的高效工具",
+      icon: "🤖",
+      color: "from-orange-500 to-red-500",
+      bgColor: "bg-orange-50",
+      count: "800+模型",
+      tools: [
+        { id: "ai减视频", name: "AI减视频工具", desc: "智能移除视频背景，专业级效果", hot: true },
+        { id: "sketch", name: "快速手绘草图", desc: "提示词草图也能出效果", hot: false },
+        { id: "ai-product", name: "AI产品图", desc: "仅输产品图可得到同类型产品画报", hot: false },
+        { id: "trained-models", name: "800+模型库", desc: "即用即取，一次训练多次使用", hot: true }
+      ]
+    },
+    {
+      id: "creative",
+      name: "创意工具",
+      description: "激发创意的AI工具集合，让想象成为现实",
+      icon: "✨",
+      color: "from-indigo-500 to-purple-500",
+      bgColor: "bg-indigo-50",
+      count: "5大功能",
+      tools: [
+        { id: "quote-image", name: "一句话配图", desc: "一句话生成一张图，无修改图片分布元素", hot: true },
+        { id: "fashion-creative", name: "服装创意", desc: "为你的小网店发的小服装创意", hot: false },
+        { id: "privacy", name: "隐私处理", desc: "人脸图片隐私保护，隐私图像打码", hot: false },
+        { id: "local-recommend", name: "同城推荐", desc: "为同城可删掉的多记录撮合", hot: false },
+        { id: "material-creation", name: "素材制作", desc: "为你的企业制作的商务表情", hot: false }
+      ]
+    }
+  ];
 
   const stats = [
     { label: "AI工具", value: "30+", color: "text-blue-600" },
@@ -24,20 +96,7 @@ export default function ToolsPage() {
     { label: "日处理量", value: "500万+", color: "text-orange-600" }
   ];
 
-  const allTools = toolCategories.flatMap(category =>
-    category.tools.map(tool => ({
-      name: tool.name,
-      description: tool.desc,
-      url: `https://ai-creative-workshop.com/tools/${tool.id}`,
-      category: category.name
-    }))
-  );
-
-  const toolListSchema = generateToolListSchema(allTools);
-
   return (
-    <>
-      <StructuredData data={toolListSchema} />
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
       <div className="bg-white shadow-sm">
@@ -152,13 +211,30 @@ export default function ToolsPage() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             需要更多功能？
           </h2>
-          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
             我们持续更新工具库，为您带来更多AI能力
           </p>
-          <ToolsCTA hiddenUrl={hiddenUrl} />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              onClick={() => window.open(hiddenUrl, '_blank')}
+              className="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl"
+            >
+              立即体验
+            </button>
+            <button 
+              onClick={() => setShowQRModal(true)}
+              className="border-2 border-white/40 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all backdrop-blur-sm"
+            >
+              联系我们
+            </button>
+          </div>
         </div>
       </section>
+
+      {/* QR Modal */}
+      {showQRModal && (
+        <QRModal onClose={() => setShowQRModal(false)} />
+      )}
     </div>
-    </>
   );
 }
