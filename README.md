@@ -166,7 +166,15 @@ git push -u origin main
 
 ## 🎨 设计系统
 
-### 色彩方案
+### 📚 设计系统文档
+
+全新的Apple风格设计系统正在开发中！查看完整文档：
+
+- **[设计系统总览](./docs/design-system/README.md)** - 设计系统介绍和快速开始
+- **[任务清单](./docs/design-system/TASK_MANIFEST.md)** - 完整的21项任务规划，包含6个阶段
+- **[进度追踪](./docs/design-system/TASK_PROGRESS.md)** - 实时进度跟踪和状态更新
+
+### 当前色彩方案
 
 | 颜色 | 用途 | 色值 |
 |------|------|------|
