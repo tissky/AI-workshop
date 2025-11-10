@@ -2,79 +2,34 @@
 > ai-workshop@0.1.0 build
 > next build
 
-Attention: Next.js now collects completely anonymous telemetry regarding usage.
-This information is used to shape Next.js' roadmap and prioritize features.
-You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
-https://nextjs.org/telemetry
-
    ▲ Next.js 15.4.7
 
    Creating an optimized production build ...
 Failed to compile.
 
-./components/ui/Button.tsx
-Error:   [31mx[0m Expected '{', got 'interface'
-   ,-[[36;1;4m/home/engine/project/components/ui/Button.tsx[0m:5:1]
- [2m2[0m | 
- [2m3[0m | import { ButtonHTMLAttributes, forwardRef } from "react";
- [2m4[0m | 
- [2m5[0m | export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-   : [35;1m       ^^^^^^^^^[0m
- [2m6[0m |   variant?: "primary" | "secondary" | "outline" | "ghost";
- [2m7[0m |   size?: "sm" | "md" | "lg";
- [2m8[0m | export type ButtonVariant = "primary" | "secondary" | "outline";
-   `----
-
-Caused by:
-    Syntax Error
-
-Import trace for requested module:
-./components/ui/Button.tsx
-./app/products/page.tsx
-
-./app/page-content.tsx
-Error:   [31mx[0m Expression expected
-    ,-[[36;1;4m/home/engine/project/app/page-content.tsx[0m:30:1]
- [2m27[0m |                 onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
- [2m28[0m |                 className="bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 active:bg-blue-800"
- [2m29[0m |                 title="即刻体验AI创意工坊"
- [2m30[0m |               <Link href="#products" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">产品</Link>
-    : [35;1m              ^[0m
- [2m31[0m |               <Link href="/tools" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">AI工具</Link>
- [2m32[0m |               <Link href="/models" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">模型库</Link>
- [2m33[0m |               <Button 
-    `----
-  [31mx[0m Expected ',', got 'href'
-    ,-[[36;1;4m/home/engine/project/app/page-content.tsx[0m:30:1]
- [2m27[0m |                 onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
- [2m28[0m |                 className="bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 active:bg-blue-800"
- [2m29[0m |                 title="即刻体验AI创意工坊"
- [2m30[0m |               <Link href="#products" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">产品</Link>
-    : [35;1m                    ^^^^[0m
- [2m31[0m |               <Link href="/tools" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">AI工具</Link>
- [2m32[0m |               <Link href="/models" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">模型库</Link>
- [2m33[0m |               <Button 
-    `----
-
-Caused by:
-    Syntax Error
-
-Import trace for requested module:
-./app/page-content.tsx
-./app/page.tsx
-
 ./app/tools/page.tsx
-Error:   [31mx[0m Expected ',', got '{'
-    ,-[[36;1;4m/home/engine/project/app/tools/page.tsx[0m:35:1]
- [2m32[0m |     { label: "专业模型", value: "800+", description: "训练模型" },
- [2m33[0m |     { label: "服务用户", value: "100万+", description: "活跃用户" },
- [2m34[0m |     { label: "日处理量", value: "500万+", description: "任务处理" }
- [2m35[0m |     { label: "AI工具", value: "30+" },
-    : [35;1m    ^[0m
- [2m36[0m |     { label: "专业模型", value: "800+" },
- [2m37[0m |     { label: "服务用户", value: "100万+" },
- [2m38[0m |     { label: "日处理量", value: "500万+" }
-    `----
+Error:   [31mx[0m Expression expected
+     ,-[[36;1;4m/home/engine/project/app/tools/page.tsx[0m:237:1]
+ [2m234[0m |                     </p>
+ [2m235[0m |                   </div>
+ [2m236[0m |                   </div>
+ [2m237[0m |                   <p className="text-muted-foreground text-base sm:text-lg">
+     : [35;1m                  ^[0m
+ [2m238[0m |                     {category.description}
+ [2m239[0m |                   </p>
+ [2m240[0m |                 </div>
+     `----
+  [31mx[0m Expected '</', got 'className'
+     ,-[[36;1;4m/home/engine/project/app/tools/page.tsx[0m:237:1]
+ [2m234[0m |                     </p>
+ [2m235[0m |                   </div>
+ [2m236[0m |                   </div>
+ [2m237[0m |                   <p className="text-muted-foreground text-base sm:text-lg">
+     : [35;1m                     ^^^^^^^^^[0m
+ [2m238[0m |                     {category.description}
+ [2m239[0m |                   </p>
+ [2m240[0m |                 </div>
+     `----
 
 Caused by:
     Syntax Error
@@ -84,5 +39,3 @@ Import trace for requested module:
 
 
 > Build failed because of webpack errors
- ✓ Compiled successfully in 2000ms
-   Linting and checking validity of types ...
