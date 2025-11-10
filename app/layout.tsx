@@ -53,10 +53,7 @@ export default function RootLayout({
       >
         <SkipLink />
         <Header />
-        <main id="main-content">
         <main id="main-content" className="pt-16">
-          {children}
-        <main id="main-content">
           <TransitionProvider>
             {children}
           </TransitionProvider>

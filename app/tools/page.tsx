@@ -33,16 +33,9 @@ export const metadata: Metadata = {
 };
 
 export default function ToolsPage() {
-  const stats = [
   const hiddenUrl = "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=";
 
   const stats = [
-    { label: "AI工具", value: "30+" },
-    { label: "专业模型", value: "800+" },
-    { label: "服务用户", value: "100万+" },
-    { label: "日处理量", value: "500万+" }
-  ];
-
     { label: "AI工具", value: "30+", description: "专业工具" },
     { label: "专业模型", value: "800+", description: "训练模型" },
     { label: "服务用户", value: "100万+", description: "活跃用户" },
@@ -181,32 +174,6 @@ export default function ToolsPage() {
                 从图片处理到视频编辑，从文案创作到AI模型，我们提供一站式AI创意解决方案
               </p>
             </div>
-            
-            {/* Stats */}
-            <div 
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto"
-              role="list"
-              aria-label="平台统计数据"
-            >
-              {stats.map((stat, index) => (
-                <Card 
-                  key={index} 
-                  className="text-center"
-                  as="article"
-                  role="listitem"
-                >
-                  <div 
-                    className="text-3xl sm:text-4xl font-bold text-accent mb-2"
-                    aria-label={`${stat.label}: ${stat.value}`}
-                  >
-                    {stat.value}
-                  </div>
-                  <div className="text-sm font-medium text-foreground">
-                    {stat.label}
-                  </div>
-                </Card>
-              ))}
-            </div>
         <ToolsHero
           title={
             <>
@@ -243,7 +210,7 @@ export default function ToolsPage() {
               </Card>
             ))}
           </div>
-        </section>
+        </ToolsHero>
 
         {/* Tools Categories */}
         <section className="py-16 md:py-20">
