@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "./ui/Button";
 import QRModal from "./QRModal";
 
 interface HomeCTAProps {
@@ -9,12 +10,14 @@ interface HomeCTAProps {
 export default function HomeCTA({ hiddenUrl }: HomeCTAProps) {
   return (
     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-      <button 
-        onClick={() => window.open(atob(hiddenUrl), '_blank')}
-        className="bg-white text-indigo-600 px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-100 transition-all transform hover:scale-105"
+      <Button 
+        variant="secondary"
+        onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
+        aria-label="即刻体验AI创意工坊"
+        className="bg-white text-accent hover:bg-gray-100"
       >
         即刻体验
-      </button>
+      </Button>
       <QRModal />
     </div>
   );

@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import QRModalWrapper from "@/components/QRModalWrapper";
+import QRModal from "@/components/QRModal";
+import HomeHero from "@/components/HomeHero";
+import Button from "@/components/ui/Button";
 import { useState } from "react";
 
 export default function HomeContent() {
@@ -20,13 +23,14 @@ export default function HomeContent() {
               <Link href="#products" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">产品</Link>
               <Link href="/tools" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">AI工具</Link>
               <Link href="/models" className="text-sm font-medium text-gray-800 hover:text-blue-600 transition-colors">模型库</Link>
-              <button 
+              <Button 
+                size="sm"
                 onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
-                className="bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors"
-                title="即刻体验AI创意工坊"
+                aria-label="即刻体验AI创意工坊"
+                className="bg-accent text-white hover:opacity-90"
               >
                 即刻体验
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -64,6 +68,8 @@ export default function HomeContent() {
           </div>
         </div>
       </section>
+      {/* Hero Section */}
+      <HomeHero hiddenUrl={hiddenUrl} />
 
       {/* Products Section - MacBook Style */}
       <section id="products" className="py-32 bg-white">
@@ -278,13 +284,13 @@ export default function HomeContent() {
           <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
             涵盖图像处理、自然语言处理、音频处理、视频分析等多个领域
           </p>
-          <Link 
-            href="/models"
-            className="inline-block bg-gray-800 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-900 transition-all transform hover:scale-105"
-            title="探索AI模型库"
+          <Button
+            onClick={() => window.location.href = '/models'}
+            aria-label="探索AI模型库"
+            className="bg-gray-800 text-white hover:bg-gray-900"
           >
             探索模型库
-          </Link>
+          </Button>
         </div>
       </section>
 
@@ -297,14 +303,19 @@ export default function HomeContent() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
+            <Button 
+              variant="secondary"
               onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
-              className="bg-white text-indigo-600 px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-100 transition-all transform hover:scale-105"
-              title="即刻体验AI创意工坊"
+              aria-label="即刻体验AI创意工坊"
+              className="bg-white text-accent hover:bg-gray-100"
             >
               即刻体验
             </button>
             <QRModalWrapper />
             </div>
+            </Button>
+            <QRModal />
+          </div>
         </div>
       </section>
 
