@@ -54,7 +54,7 @@ export default function HomeContent() {
   ];
 
   const stats = [
-    { label: "AI工具", value: "30+", description: "专业工具集" },
+    { label: "AI工具", value: "29款", description: "专业工具集" },
     { label: "训练模型", value: "800+", description: "多领域覆盖" },
     { label: "处理速度", value: "秒级", description: "高效快捷" },
     { label: "用户满意度", value: "98%", description: "专业品质" }
@@ -66,7 +66,7 @@ export default function HomeContent() {
       <Hero
         title="AI创意工坊"
         subtitle="释放无限创意可能"
-        description="集成30+专业AI工具，涵盖图片处理、视频编辑、文案创作等多个领域"
+        description="集成29款专业AI工具，涵盖图片处理、视频编辑、文案处理等多个领域"
         variant="default"
         align="center"
         centerMobile={true}
