@@ -43,9 +43,9 @@ export default function HomeContent() {
               variant="outline"
               size="lg"
               onClick={() => setShowQRModal(true)}
-              aria-label="了解更多关于AI创意工坊"
+              aria-label="联系我们"
             >
-              了解更多
+              联系我们
             </Button>
           </>
         }
@@ -305,9 +305,7 @@ export default function HomeContent() {
       </section>
 
       {/* QR Modal */}
-      {showQRModal && (
-        <QRModalWrapper isOpen={showQRModal} onClose={() => setShowQRModal(false)} />
-      )}
+      <QRModalWrapper isOpen={showQRModal} onClose={() => setShowQRModal(false)} />
     </div>
   );
 }
