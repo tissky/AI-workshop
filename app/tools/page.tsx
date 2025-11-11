@@ -7,6 +7,7 @@ import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import ToolsHero from "@/components/ToolsHero";
 import StatsGrid from "@/components/ui/StatsGrid";
+import { toolCategories } from "@/lib/tools";
 import { generateToolListSchema } from "@/lib/seo";
 import { toolCategories } from "@/lib/tools";
 import { generateToolListSchema } from "@/lib/seo";
@@ -194,6 +195,15 @@ export default function ToolsPage() {
           description="从图片处理到视频编辑，从文案创作到AI模型，我们提供一站式AI创意解决方案"
         >
           {/* Stats Grid */}
+          <div className="max-w-4xl mx-auto">
+            <StatsGrid 
+              stats={stats}
+              columns={4}
+              variant="cards"
+              align="center"
+              role="list"
+              aria-label="平台统计数据"
+            />
           <ul 
             className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto list-none"
             aria-label="平台统计数据"
@@ -257,10 +267,24 @@ export default function ToolsPage() {
                     <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
                       <div className="flex items-center gap-4">
                         <div
+                          className="w-14 h-14 rounded-xl bg-accent/10 border border-border flex items-center justify-center text-foreground shadow-card"
                           className="w-14 h-14 rounded-xl bg-accent-muted text-accent flex items-center justify-center p-2.5 shadow-card"
                           aria-hidden="true"
                         >
-                          {category.icon}
+                          <svg
+                            className="w-8 h-8"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            />
+                          </svg>
                         </div>
                         <div>
                           <h2
@@ -278,6 +302,20 @@ export default function ToolsPage() {
                         {category.description}
                       </p>
                     </div>
+                  </div>
+
+                  {/* Tools Grid */}
+                  <div 
+                    className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+                    role="list"
+                    aria-label={`${category.name}工具列表`}
+                  >
+                    {category.tools.map((tool) => (
+                      <Link
+                        key={tool.id}
+                        href={`/tools/${tool.id}`}
+                        className="group block"
+                        aria-label={`查看${tool.name}详情`}
                   </div>
 
                   {/* Tools Grid */}
@@ -429,6 +467,7 @@ export default function ToolsPage() {
                               size="sm" 
                               className="absolute top-4 right-4"
                             >
+                              热门
                               🔥 热门
                             </Badge>
                           )}
@@ -524,6 +563,8 @@ export default function ToolsPage() {
             </div>
           </div>
         </section>
+          </div>
+        </section>
                         </div>
                       </Card>
                     </Link>
@@ -541,6 +582,15 @@ export default function ToolsPage() {
           className="relative py-16 sm:py-20 lg:py-24 mt-12 sm:mt-16"
           aria-labelledby="cta-heading"
         >
+          <div className="absolute inset-0 bg-accent" />
+          <div className="relative container-max text-center">
+            <h2 
+              id="cta-heading"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 text-balance"
+            >
+              需要更多功能？
+            </h2>
+            <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto text-pretty">
           <div className="absolute inset-0 bg-muted" />
           <div className="relative container-max text-center">
             <h2 
