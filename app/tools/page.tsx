@@ -3,12 +3,10 @@ import type { Metadata } from "next";
 import ToolsCTA from "@/components/ToolsCTA";
 import StructuredData from "@/components/StructuredData";
 import Breadcrumb from "@/components/Breadcrumb";
-import Card from "@/components/ui/Card";
-import Badge from "@/components/ui/Badge";
+import Card from "@/components/Card";
+import Badge from "@/components/Badge";
 import ToolsHero from "@/components/ToolsHero";
 import StatsGrid from "@/components/ui/StatsGrid";
-import { toolCategories } from "@/lib/tools";
-import { generateToolListSchema } from "@/lib/seo";
 import { toolCategories } from "@/lib/tools";
 
 export const revalidate = 3600;
@@ -362,6 +360,8 @@ export default function ToolsPage() {
                                 size="sm" 
                                 className="absolute top-4 right-4"
                               >
+                                🔥
+                              >
                                 🔥 热门
                               </Badge>
                             )}
@@ -496,33 +496,13 @@ export default function ToolsPage() {
                               </Badge>
                             )}
                             
-                            <div className="space-y-3">
-                              <h3 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors pr-8">
-                                {tool.name}
-                              </h3>
-                              <p className="text-muted-foreground text-sm leading-relaxed">
-                                {tool.desc}
-                              </p>
-                              <div className="flex items-center text-accent text-sm font-medium pt-2">
-                                <span className="group-hover:translate-x-1 transition-transform duration-200">
-                                  开始使用
-                                </span>
-                                <svg 
-                                  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" 
-                                  fill="none" 
-                                  stroke="currentColor" 
-                                  viewBox="0 0 24 24"
-                                  aria-hidden="true"
-                                >
-                                  <path 
-                                    strokeLinecap="round" 
-                                    strokeLinejoin="round" 
-                                    strokeWidth={2} 
-                                    d="M9 5l7 7-7 7" 
-                                  />
-                                </svg>
-                              </div>
-                            </div>
+                            <div className="text-2xl mb-3">{category.icon}</div>
+                            <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+                              {tool.name}
+                            </h3>
+                            <p className="text-muted-foreground text-sm">
+                              {tool.desc}
+                            </p>
                           </Card>
                         </Link>
                       </li>
@@ -536,6 +516,7 @@ export default function ToolsPage() {
 
         {/* CTA Section */}
         <section 
+          className="relative py-16 sm:py-20 lg:py-24 border-t border-border mt-12 sm:mt-16"
           className="relative py-16 sm:py-20 lg:py-24 mt-12 sm:mt-16"
           aria-labelledby="cta-heading"
         >
@@ -600,26 +581,9 @@ export default function ToolsPage() {
             <ToolsCTA hiddenUrl={hiddenUrl} />
           </div>
         </section>
-          <section 
-            className="relative py-16 sm:py-20 lg:py-24 mt-12 sm:mt-16 rounded-2xl overflow-hidden"
-            aria-labelledby="cta-heading"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-accent/90 to-accent" />
-            <div className="relative text-center px-4">
-              <h2 
-                id="cta-heading"
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
-              >
-                需要更多功能？
-              </h2>
-              <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-                我们持续更新工具库，为您带来更多AI能力
-              </p>
-              <ToolsCTA hiddenUrl={hiddenUrl} />
-            </div>
-          </section>
-        </div>
       </div>
+    </div>
     </>
   );
 }
+
