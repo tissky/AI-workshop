@@ -24,11 +24,11 @@ export default function Hero({
   ...props
 }: HeroProps) {
   const baseStyles = centerMobile
-    ? "min-h-[calc(100svh-4rem)] flex items-center py-8 sm:py-20 md:py-24 lg:py-32"
+    ? "min-h-[calc(100svh-4rem)] flex items-center justify-center py-8 sm:py-20 md:py-24 lg:py-32"
     : "py-16 sm:py-20 md:py-24 lg:py-32";
 
   const variantStyles = {
-    default: "bg-gradient-to-b from-gray-50 to-white",
+    default: "bg-[color:var(--color-bg-surface)]",
     gradient: "bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-600 text-white",
     dark: "bg-gray-900 text-white",
   };
@@ -47,14 +47,18 @@ export default function Hero({
 
   const classes = `${baseStyles} ${variantStyles[variant]} ${className}`;
 
-  const textColorClass = variant === "default" ? "text-gray-900" : "text-white";
-  const subtextColorClass = variant === "default" ? "text-gray-700" : "text-blue-100";
-  const descColorClass = variant === "default" ? "text-gray-500" : "text-white/90";
+  const textColorClass = variant === "default" ? "text-[color:var(--color-text-primary)]" : "text-white";
+  const subtextColorClass = variant === "default" ? "text-[color:var(--color-text-secondary)]" : "text-blue-100";
+  const descColorClass = variant === "default" ? "text-[color:var(--color-text-muted)]" : "text-white/90";
+
+  const contentAlignment = centerMobile 
+    ? `text-center sm:${alignmentStyles[align]}`
+    : alignmentStyles[align];
 
   return (
     <section className={classes} {...props}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`flex flex-col ${containerAlign[align]} ${alignmentStyles[align]}`}>
+        <div className={`flex flex-col ${containerAlign[align]} ${contentAlignment}`}>
           <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ${textColorClass} mb-4 sm:mb-6 tracking-tight`}>
             {title}
           </h1>
