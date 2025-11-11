@@ -6,6 +6,9 @@ Welcome to the AI创意工坊 (AI Creative Workshop) documentation hub.
 
 ## 🎯 Quick Navigation
 
+### 🚀 Deployment
+- **[🚀 Vercel Deployment Guide](./deployment/vercel.md)** - Complete automated deployment documentation
+
 ### 🎨 Design System
 - **[⚡ Quick Status](./design-system/QUICK_STATUS.md)** - At-a-glance progress dashboard
 - **[📊 Execution Log](./design-system/EXECUTION_LOG.md)** - Detailed task tracking and timeline
@@ -14,6 +17,33 @@ Welcome to the AI创意工坊 (AI Creative Workshop) documentation hub.
 ### 🧩 Components
 - **[📖 Component Documentation](./components/README.md)** - Complete component library guide
 - **[🏗️ Component List](./components/)** - Individual component docs
+
+---
+
+## 🚀 Deployment Documentation
+
+### Vercel Deployment
+
+Complete guide for deploying AI创意工坊 to Vercel with automated setup.
+
+#### [🚀 Vercel Deployment Guide](./deployment/vercel.md)
+Comprehensive deployment documentation:
+- **Automated setup script** - One-command project configuration
+- **Prerequisites** - Node.js, npm, Git, Vercel account requirements
+- **Setup script walkthrough** - Step-by-step automation guide
+- **Manual deployment options** - Vercel CLI, GitHub integration, Dashboard upload
+- **Environment variables** - Configuration for all environments
+- **Deployment strategies** - Preview, production, prebuilt deployments
+- **Troubleshooting** - Common issues and solutions
+- **Rollback procedures** - Version management and emergency rollback
+- **Performance monitoring** - Analytics and optimization tips
+
+**Use this when**: 
+- Setting up the project for the first time
+- Deploying to Vercel (preview or production)
+- Configuring environment variables
+- Troubleshooting deployment issues
+- Rolling back to previous versions
 
 ---
 
@@ -125,18 +155,27 @@ Located in project root:
 
 ### For Developers
 
-1. **Starting a new feature?**
+1. **Setting up the project for the first time?**
+   - Run `npm run setup` for automated configuration
+   - See [Vercel Deployment Guide](./deployment/vercel.md) for details
+
+2. **Starting a new feature?**
    - Check [Component Docs](./components/README.md) for reusable components
    - Review [Apple Design Report](../APPLE_DESIGN_REPORT.md) for design guidelines
 
-2. **Working on design system tasks?**
+3. **Working on design system tasks?**
    - Check [Quick Status](./design-system/QUICK_STATUS.md) for current state
    - Update [Execution Log](./design-system/EXECUTION_LOG.md) as you progress
    - Follow the update instructions in the execution log
 
-3. **Need to understand a component?**
+4. **Need to understand a component?**
    - Read the specific [component doc](./components/)
    - Review props, usage examples, and accessibility guidelines
+
+5. **Deploying to production?**
+   - Review [Vercel Deployment Guide](./deployment/vercel.md)
+   - Use automated setup script or manual CLI deployment
+   - Check environment variable configuration
 
 ### For Project Managers
 

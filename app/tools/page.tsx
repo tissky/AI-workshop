@@ -9,8 +9,6 @@ import ToolsHero from "@/components/ToolsHero";
 import StatsGrid from "@/components/ui/StatsGrid";
 import { generateToolListSchema } from "@/lib/seo";
 import { toolCategories } from "@/lib/tools";
-import { generateToolListSchema } from "@/lib/seo";
-import { toolCategories } from "@/lib/tools";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
@@ -62,16 +60,6 @@ export default function ToolsPage() {
             { label: "首页", href: "/" },
             { label: "AI工具", href: "/tools" }
           ]} />
-      <div className="min-h-screen bg-background">
-        {/* Breadcrumb Navigation */}
-        <div className="border-b border-border bg-background">
-          <div className="container-max py-4">
-            <Breadcrumb items={[
-              { label: "首页", href: "/" },
-              { label: "AI工具", href: "/tools" }
-            ]} />
-            <Breadcrumb />
-          </div>
         </div>
       </section>
 
@@ -94,64 +82,6 @@ export default function ToolsPage() {
               variant="default"
             />
           </ToolsHero>
-        {/* Hero Section */}
-        <ToolsHero
-          title={
-            <>
-              全方位<span className="text-accent">AI工具</span>平台
-            </>
-          }
-          description="从图片处理到视频编辑，从文案创作到AI模型，我们提供一站式AI创意解决方案"
-        >
-          {/* Stats Grid */}
-          <ul 
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto list-none"
-            aria-label="平台统计数据"
-          >
-            {stats.map((stat, index) => (
-              <li key={index}>
-                <Card 
-                  className="text-center"
-                  as="article"
-                >
-                  <div 
-                    className="text-3xl sm:text-4xl font-bold text-accent mb-2"
-                    aria-label={`${stat.label}: ${stat.value}`}
-                  >
-                    {stat.value}
-                  </div>
-                  <div className="text-sm font-medium text-foreground mb-1">
-                    {stat.label}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {stat.description}
-                  </div>
-                </Card>
-              </li>
-            ))}
-          </ul>
-              <Card 
-                key={index} 
-                className="text-center"
-                as="article"
-                role="listitem"
-              >
-                <div 
-                  className="text-3xl sm:text-4xl font-bold text-accent mb-2"
-                  aria-label={`${stat.label}: ${stat.value}`}
-                >
-                  {stat.value}
-                </div>
-                <div className="text-sm font-medium text-foreground mb-1">
-                  {stat.label}
-                </div>
-                <div className="text-xs text-muted-foreground">
-                  {stat.description}
-                </div>
-              </Card>
-            ))}
-          </div>
-        </ToolsHero>
 
         {/* Tools Categories */}
         <section className="py-16 md:py-20">
@@ -213,17 +143,14 @@ export default function ToolsPage() {
                                 variant="hot" 
                                 size="sm" 
                                 className="absolute top-4 right-4"
-          {/* Tools by Category */}
-          <div className="mt-16 space-y-16">
-            {toolCategories.map((category) => (
-              <article 
-                key={category.id}
-                aria-labelledby={`category-${category.id}`}
-              >
-                <div className="mb-8">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span 
-                      className="text-4xl" 
+                              >
+                                🔥 热门
+                              </Badge>
+                            )}
+                            
+                            <div className="flex items-center gap-3 mb-3">
+                              <span 
+                                className="text-4xl" 
                       role="img" 
                       aria-label={category.name}
                     >
