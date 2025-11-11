@@ -4,6 +4,8 @@ import Hero from "@/components/ui/Hero";
 import StatsGrid from "@/components/ui/StatsGrid";
 import Button from "@/components/ui/Button";
 import ModelsFilter from "@/components/ModelsFilter";
+import StructuredData from "@/components/StructuredData";
+import { generateModelListSchema, generateDatasetSchema } from "@/lib/seo";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
@@ -102,58 +104,84 @@ export default function ModelsPage() {
     { label: "在线服务", value: "24/7", description: "全天候支持" },
   ];
 
+  // Generate structured data for SEO
+  const modelListSchema = generateModelListSchema(
+    models.map(model => ({
+      name: model.name,
+      description: model.desc,
+      category: model.category,
+      accuracy: model.accuracy,
+    }))
+  );
+
+  const datasetSchema = generateDatasetSchema({
+    name: "AI创意工坊模型库",
+    description: "800+专业训练模型，覆盖各行各业应用场景",
+    models: models.map(model => ({
+      name: model.name,
+      description: model.desc,
+      accuracy: model.accuracy,
+    })),
+  });
+
   return (
-    <div className="min-h-screen bg-background">
-      {/* Breadcrumb */}
-      <div className="border-b border-border bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <Breadcrumb
-            items={[
-              { label: "首页", href: "/" },
-              { label: "AI模型库", href: "/models" },
-            ]}
-          />
-        </div>
-      </div>
-
-      {/* Hero Section */}
-      <Hero
-        title="AI模型库"
-        subtitle="800+专业训练模型"
-        description="覆盖各行各业应用场景，提供高质量AI解决方案"
-        variant="default"
-        align="center"
-      />
-
-      {/* Stats Section */}
-      <section className="bg-muted py-12 md:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <StatsGrid stats={stats} columns={4} variant="cards" align="center" />
-        </div>
-      </section>
-
-      {/* Models Filter and Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <ModelsFilter modelCategories={modelCategories} models={models} />
-
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            需要定制模型？
-          </h2>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            我们提供专业的模型定制服务，根据您的业务需求训练专属AI模型
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" aria-label="联系定制服务">
-              联系定制
-            </Button>
-            <Button variant="outline" size="lg" aria-label="了解更多信息">
-              了解更多
-            </Button>
+    <>
+      <StructuredData data={[modelListSchema, datasetSchema]} />
+      
+      <div className="min-h-screen bg-background">
+        {/* Breadcrumb */}
+        <div className="border-b border-border bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <Breadcrumb
+              items={[
+                { label: "首页", href: "/" },
+                { label: "AI模型库", href: "/models" },
+              ]}
+            />
           </div>
         </div>
+
+        {/* Hero Section */}
+        <Hero
+          title="AI模型库"
+          subtitle="800+专业训练模型"
+          description="覆盖各行各业应用场景，提供高质量AI解决方案"
+          variant="default"
+          align="center"
+        />
+
+        {/* Stats Section */}
+        <section className="bg-muted py-12 md:py-16" aria-labelledby="models-stats">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 id="models-stats" className="sr-only">模型库统计数据</h2>
+            <StatsGrid stats={stats} columns={4} variant="cards" align="center" />
+          </div>
+        </section>
+
+        {/* Models Filter and Grid */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-labelledby="models-catalog">
+          <h2 id="models-catalog" className="sr-only">模型分类目录</h2>
+          <ModelsFilter modelCategories={modelCategories} models={models} />
+
+          {/* Call to Action */}
+          <div className="mt-16 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+              需要定制模型？
+            </h2>
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              我们提供专业的模型定制服务，根据您的业务需求训练专属AI模型
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" aria-label="联系定制服务">
+                联系定制
+              </Button>
+              <Button variant="outline" size="lg" aria-label="了解更多信息">
+                了解更多
+              </Button>
+            </div>
+          </div>
+        </section>
       </div>
-    </div>
+    </>
   );
 }

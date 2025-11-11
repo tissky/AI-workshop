@@ -13,14 +13,14 @@ export default function Card({
   children,
   ...props
 }: CardProps) {
-  const baseStyles = "bg-white rounded-xl transition-all";
+  const baseStyles = "bg-background rounded-xl transition-all";
 
   const variantStyles = {
-    default: "shadow-md",
-    bordered: "border border-gray-200",
-    elevated: "shadow-lg hover:shadow-xl",
+    default: "shadow-card border border-border",
+    bordered: "border border-border",
+    elevated: "shadow-elevated hover:shadow-dialog",
     interactive:
-      "shadow-md hover:shadow-lg hover:-translate-y-1 cursor-pointer border border-transparent hover:border-gray-200",
+      "shadow-card hover:shadow-elevated hover:-translate-y-1 cursor-pointer border border-border hover:border-muted-foreground group",
   };
 
   const paddingStyles = {

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { productCategories, additionalFeatures, socialPlatforms } from "@/lib/products";
 import ImageCarouselWrapper from "@/components/ImageCarouselWrapper";
-import Card from "@/components/Card";
+import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 
 export default function ProductsPageContent() {
@@ -11,9 +11,8 @@ export default function ProductsPageContent() {
     <div className="space-y-20">
       {/* Main Product Categories */}
       {productCategories.map((category, categoryIndex) => (
-        <div key={category.id} id={category.id} className="scroll-mt-20">
+        <article key={category.id} id={category.id} className="scroll-mt-20">
           <Card 
-            as="article"
             className="shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 md:p-12 overflow-hidden"
           >
             <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -45,7 +44,7 @@ export default function ProductsPageContent() {
               </div>
             </div>
           </Card>
-        </div>
+        </article>
       ))}
 
       {/* Additional Features Grid */}
@@ -63,8 +62,7 @@ export default function ProductsPageContent() {
           {additionalFeatures.map((feature, index) => (
             <Card
               key={index}
-              as="article"
-              hover
+              variant="interactive"
               className="overflow-hidden group relative p-0"
               role="article"
             >
@@ -107,8 +105,7 @@ export default function ProductsPageContent() {
           {socialPlatforms.map((platform, index) => (
             <Card
               key={index}
-              as="article"
-              hover
+              variant="interactive"
               className="overflow-hidden group relative p-0"
               role="article"
             >
