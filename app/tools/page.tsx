@@ -7,7 +7,7 @@ import Card from "@/components/Card";
 import Badge from "@/components/Badge";
 import ToolsHero from "@/components/ToolsHero";
 import StatsGrid from "@/components/ui/StatsGrid";
-import { toolCategories } from "@/lib/tools";
+import { generateToolListSchema } from "@/lib/seo";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
@@ -139,17 +139,6 @@ export default function ToolsPage() {
     <>
       <StructuredData data={toolListSchema} />
       
-      {/* Breadcrumb Section */}
-      <section 
-        className="border-b border-border bg-background"
-        aria-labelledby="breadcrumb-heading"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <h2 id="breadcrumb-heading" className="sr-only">导航路径</h2>
-          <Breadcrumb items={[
-            { label: "首页", href: "/" },
-            { label: "AI工具", href: "/tools" }
-          ]} />
       <div className="min-h-screen bg-background">
         {/* Breadcrumb Navigation */}
         <div className="border-b border-border bg-background">
@@ -160,27 +149,7 @@ export default function ToolsPage() {
             ]} />
           </div>
         </div>
-      </section>
 
-      <div className="min-h-screen bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          
-          {/* Hero Section */}
-          <ToolsHero
-            title={
-              <>
-                全方位<span className="text-accent">AI工具</span>平台
-              </>
-            }
-            description="从图片处理到视频编辑，从文案创作到AI模型，我们提供一站式AI创意解决方案"
-          >
-            {/* Stats Grid */}
-            <StatsGrid 
-              stats={stats}
-              columns={4}
-              variant="default"
-            />
-          </ToolsHero>
         {/* Hero Section */}
         <ToolsHero
           title={
@@ -197,55 +166,7 @@ export default function ToolsPage() {
               columns={4}
               variant="cards"
               align="center"
-              role="list"
-              aria-label="平台统计数据"
             />
-          <ul 
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto list-none"
-            aria-label="平台统计数据"
-          >
-            {stats.map((stat, index) => (
-              <li key={index}>
-                <Card 
-                  className="text-center"
-                  as="article"
-                >
-                  <div 
-                    className="text-3xl sm:text-4xl font-bold text-accent mb-2"
-                    aria-label={`${stat.label}: ${stat.value}`}
-                  >
-                    {stat.value}
-                  </div>
-                  <div className="text-sm font-medium text-foreground mb-1">
-                    {stat.label}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {stat.description}
-                  </div>
-                </Card>
-              </li>
-            ))}
-          </ul>
-              <Card 
-                key={index} 
-                className="text-center"
-                as="article"
-                role="listitem"
-              >
-                <div 
-                  className="text-3xl sm:text-4xl font-bold text-accent mb-2"
-                  aria-label={`${stat.label}: ${stat.value}`}
-                >
-                  {stat.value}
-                </div>
-                <div className="text-sm font-medium text-foreground mb-1">
-                  {stat.label}
-                </div>
-                <div className="text-xs text-muted-foreground">
-                  {stat.description}
-                </div>
-              </Card>
-            ))}
           </div>
         </ToolsHero>
 
@@ -263,24 +184,10 @@ export default function ToolsPage() {
                     <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
                       <div className="flex items-center gap-4">
                         <div
-                          className="w-14 h-14 rounded-xl bg-accent/10 border border-border flex items-center justify-center text-foreground shadow-card"
                           className="w-14 h-14 rounded-xl bg-accent-muted text-accent flex items-center justify-center p-2.5 shadow-card"
                           aria-hidden="true"
                         >
-                          <svg
-                            className="w-8 h-8"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                            />
-                          </svg>
+                          {category.icon}
                         </div>
                         <div>
                           <h2
@@ -294,46 +201,10 @@ export default function ToolsPage() {
                           </Badge>
                         </div>
                       </div>
-                      <p className="text-muted-foreground text-base sm:text-lg">
-                        {category.description}
-                      </p>
                     </div>
-                  </div>
-
-                  {/* Tools Grid */}
-                  <div 
-                    className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
-                    role="list"
-                    aria-label={`${category.name}工具列表`}
-                  >
-                    {category.tools.map((tool) => (
-                      <Link
-                        key={tool.id}
-                        href={`/tools/${tool.id}`}
-                        className="group block"
-                        aria-label={`查看${tool.name}详情`}
-                  </div>
-
-                  {/* Tools Grid */}
-                  <div 
-                    className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
-                    role="list"
-                    aria-label={`${category.name}工具列表`}
-                  >
-                    {category.tools.map((tool) => (
-                      <Link
-                        key={tool.id}
-                        href={`/tools/${tool.id}`}
-                        className="group block"
-                        aria-label={`查看${tool.name}详情`}
-                  </div>
-
-                  {/* Tools Grid */}
-                  <div 
-                    className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
-                    role="list"
-                    aria-label={`${category.name}工具列表`}
-                  >
+                    <p className="text-muted-foreground text-base sm:text-lg">
+                      {category.description}
+                    </p>
                   </div>
 
                   {/* Tools Grid */}
@@ -360,149 +231,37 @@ export default function ToolsPage() {
                                 size="sm" 
                                 className="absolute top-4 right-4"
                               >
-                                🔥
-                              >
                                 🔥 热门
                               </Badge>
                             )}
                             
-                            <div className="flex items-center gap-3 mb-3">
-                              <span 
-                                className="text-4xl" 
-                      role="img" 
-                      aria-label={category.name}
-                    >
-                      {category.icon}
-                    </span>
-                    <h2 
-                      id={`category-${category.id}`}
-                      className="text-3xl font-bold text-foreground"
-                    >
-                      {category.name}
-                    </h2>
-                    <Badge variant="primary" size="md">
-                      {category.count}
-                    </Badge>
-                  </div>
-                  <p className="text-lg text-muted-foreground">
-                    {category.description}
-                  </p>
-                </div>
-
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {category.tools.map((tool) => (
-                    <Link 
-                      key={tool.id} 
-                      href={`/tools/${tool.id}`}
-                      className="group"
-                    >
-                      <Card 
-                        variant="interactive"
-                        padding="lg"
-                        className="h-full"
-                      >
-                        <div className="flex items-start justify-between mb-4">
-                          <h3 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors">
-                            {tool.name}
-                          </h3>
-                          {tool.hot && (
-                            <Badge variant="error" size="sm">
-                              热门
-                            </Badge>
-                          )}
-                        </div>
-                        <p className="text-muted-foreground">
-                          {tool.desc}
-                        </p>
-                        <div className="mt-4 flex items-center text-accent text-sm font-medium">
-                          立即体验
-                          <svg 
-                            className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                          >
-                            <path 
-                              strokeLinecap="round" 
-                              strokeLinejoin="round" 
-                              strokeWidth={2} 
-                              d="M9 5l7 7-7 7" 
-                            />
-                          </svg>
-                {/* Tools Grid */}
-                <div 
-                  className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
-                  role="list"
-                  aria-label={`${category.name}工具列表`}
-                >
-                  {category.tools.map((tool) => (
-                    <Link
-                      key={tool.id}
-                      href={`/tools/${tool.id}`}
-                      className="group block"
-                      aria-label={`查看${tool.name}详情`}
-                    >
-                      <Card 
-                        hover
-                        as="article"
-                        className="h-full relative group-hover:border-accent transition-colors duration-300"
-                        role="listitem"
-                      >
-                        <Card 
-                          hover
-                          as="article"
-                          className="h-full relative group-hover:border-accent transition-colors duration-300"
-                          role="listitem"
-                        >
-                          {/* Hot Badge */}
-                          {tool.hot && (
-                            <Badge 
-                              variant="hot" 
-                              size="sm" 
-                              className="absolute top-4 right-4"
-                            >
-                              热门
-                              🔥 热门
-                            </Badge>
-                          )}
-                          
-                          <div className="space-y-3">
-                            <h3 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors pr-8">
-                              {tool.name}
-                            </h3>
-                            <p className="text-muted-foreground text-sm leading-relaxed">
-                              {tool.desc}
-                            </p>
-                            <div className="flex items-center text-accent text-sm font-medium pt-2">
-                              <span className="group-hover:translate-x-1 transition-transform duration-200">
-                                开始使用
-                              </span>
-                              <svg 
-                                className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" 
-                                fill="none" 
-                                stroke="currentColor" 
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                              >
-                                <path 
-                                  strokeLinecap="round" 
-                                  strokeLinejoin="round" 
-                                  strokeWidth={2} 
-                                  d="M9 5l7 7-7 7" 
-                                />
-                              </svg>
-                                🔥 热门
-                              </Badge>
-                            )}
-                            
-                            <div className="text-2xl mb-3">{category.icon}</div>
-                            <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
-                              {tool.name}
-                            </h3>
-                            <p className="text-muted-foreground text-sm">
-                              {tool.desc}
-                            </p>
+                            <div className="space-y-3">
+                              <h3 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors pr-8">
+                                {tool.name}
+                              </h3>
+                              <p className="text-muted-foreground text-sm leading-relaxed">
+                                {tool.desc}
+                              </p>
+                              <div className="flex items-center text-accent text-sm font-medium pt-2">
+                                <span className="group-hover:translate-x-1 transition-transform duration-200">
+                                  开始使用
+                                </span>
+                                <svg 
+                                  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" 
+                                  fill="none" 
+                                  stroke="currentColor" 
+                                  viewBox="0 0 24 24"
+                                  aria-hidden="true"
+                                >
+                                  <path 
+                                    strokeLinecap="round" 
+                                    strokeLinejoin="round" 
+                                    strokeWidth={2} 
+                                    d="M9 5l7 7-7 7" 
+                                  />
+                                </svg>
+                              </div>
+                            </div>
                           </Card>
                         </Link>
                       </li>
@@ -514,45 +273,6 @@ export default function ToolsPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section 
-          className="relative py-16 sm:py-20 lg:py-24 border-t border-border mt-12 sm:mt-16"
-          className="relative py-16 sm:py-20 lg:py-24 mt-12 sm:mt-16"
-          aria-labelledby="cta-heading"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-accent/90 to-accent" />
-          <div className="relative container-max text-center">
-            <h2 
-              id="cta-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 text-balance"
-            >
-              需要更多功能？
-            </h2>
-            <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto text-pretty">
-                          </div>
-                        </Card>
-                      </Link>
-                    ))}
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-          </div>
-        </section>
-                        </div>
-                      </Card>
-                    </Link>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-          {/* CTA Section */}
         {/* CTA Section */}
         <section 
           className="relative py-16 sm:py-20 lg:py-24 mt-12 sm:mt-16"
@@ -567,23 +287,12 @@ export default function ToolsPage() {
               需要更多功能？
             </h2>
             <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto text-pretty">
-          <div className="absolute inset-0 bg-muted" />
-          <div className="relative container-max text-center">
-            <h2 
-              id="cta-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance"
-            >
-              需要更多功能？
-            </h2>
-            <p className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto text-pretty">
               我们持续更新工具库，为您带来更多AI能力
             </p>
             <ToolsCTA hiddenUrl={hiddenUrl} />
           </div>
         </section>
       </div>
-    </div>
     </>
   );
 }
-

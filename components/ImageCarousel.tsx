@@ -198,7 +198,6 @@ export default function ImageCarousel({
         {/* Dots Indicator */}
         {items.length > 1 && (
           <div 
-            className="absolute bottom-28 left-1/2 -translate-x-1/2 flex gap-2 bg-background/80 backdrop-blur-sm px-3 py-2 rounded-full z-20" 
             className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-background/80 backdrop-blur-sm px-3 py-2 rounded-full z-20" 
             role="tablist" 
             aria-label="轮播导航点"
