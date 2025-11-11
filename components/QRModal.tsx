@@ -35,6 +35,16 @@ export default function QRModal({ isOpen = false, onClose }: QRModalProps) {
 
   const shouldShow = isOpen || internalOpen;
 
+  // Sync animation state with isOpen prop
+  useEffect(() => {
+    if (isOpen) {
+      setIsAnimating(true);
+    } else if (isOpen === false) {
+      // When parent sets isOpen to false, trigger close animation
+      setIsAnimating(false);
+    }
+  }, [isOpen]);
+
   useEffect(() => {
     if (shouldShow && closeButtonRef.current) {
       setTimeout(() => {
