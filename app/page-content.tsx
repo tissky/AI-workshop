@@ -114,18 +114,17 @@ export default function HomeContent() {
                   {product.description}
                 </p>
               </div>
-              <div className="flex justify-center px-4 sm:px-6 md:px-8">
-                <div className="relative w-full max-w-[720px] aspect-[3/2] rounded-3xl overflow-hidden">
-                  <Image
-                    src={product.image}
-                    alt={product.alt}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 90vw, (max-width: 768px) 85vw, (max-width: 1200px) 80vw, 720px"
-                    placeholder="blur"
-                    priority={product.priority}
-                  />
-                </div>
+              <div className="flex justify-center">
+                <Image
+                  src={product.image}
+                  alt={product.alt}
+                  width={1200}
+                  height={800}
+                  className="w-full max-w-3xl h-auto rounded-xl shadow-card"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
+                  placeholder="blur"
+                  priority={product.priority}
+                />
               </div>
             </div>
           ))}

@@ -1,212 +1,132 @@
-# Product Imagery Alignment - Implementation Summary
+# 实施摘要 - 首页"联系我们"按钮弹窗和产品框图片更新
 
-## Ticket Requirements ✅ COMPLETE
+## 完成的修改
 
-### 1. Understand Current Layout ✅
-- **Location**: `app/page-content.tsx`
-- **Current State**: 4 product images in aspect-ratio wrappers
-- **Images**: 我有产品, 图片焕新, AI视频生成, 对标图文
-- **Reference**: `PRODUCT_REPORT.md` reviewed for intended frame treatment
+### 1. "联系我们"按钮二维码弹窗 ✅
 
-### 2. Update Image Containers ✅
-**Implemented consistent intrinsic dimensions:**
-- Container class: `relative w-full max-w-3xl aspect-video rounded-xl shadow-card overflow-hidden bg-muted`
-- Image class: `object-cover`
-- All 4 products now use identical container structure
+**状态**: 已实现并正常工作
 
-**Key changes:**
-- ✅ Uniform aspect ratio: `aspect-video` (16:9) on all containers
-- ✅ `overflow-hidden`: Applied to prevent image bleeding
-- ✅ Border radius: `rounded-xl` (--radius-xl = 16px) matches design tokens
-- ✅ Shadow: `shadow-card` (--shadow-card) on container, not image
-- ✅ Background: `bg-muted` provides fallback during loading
+**实现细节**:
+- 两个"联系我们"按钮（位于页面顶部和底部）都已经配置好，点击时会触发QR码弹窗
+- 按钮选择器: `button.inline-flex.items-center.justify-center` (使用Button组件的outline变体)
+- 位置:
+  - `app/page-content.tsx` 第 83-90 行（Hero区域）
+  - `app/page-content.tsx` 第 274-282 行（CTA区域）
+- 触发方式: `onClick={() => setShowQRModal(true)}`
+- 弹窗组件: `QRModalWrapper` 和 `QRModal`
+- QR码图片: `/public/images/qr.png` (通过 `lib/media.ts` 导入)
 
-### 3. Switch to Static Imports ✅
-**Before:** `src="/images/我有产品.png"`
-**After:** `src={images.myProduct}`
+**QRModal功能特性**:
+- 响应式设计（移动端和桌面端）
+- 键盘导航支持（Tab键、Escape关闭）
+- 焦点管理和可访问性
+- 平滑动画效果
+- 背景点击关闭
+- ARIA标签完善
 
-**Static imports from `lib/media.ts`:**
-- `images.myProduct` → `/images/我有产品.png`
-- `images.imageRefresh` → `/images/图片焕新.png`
-- `images.aiVideoGeneration` → `/images/AI视频生成.png`
-- `images.benchmarkContent` → `/images/对标图文.jpg`
+### 2. 四个产品框图片标准化 ✅
 
-**Benefits:**
-- Automatic width/height sizing data
-- Built-in blur placeholder generation
-- Better performance optimization
-- Type safety and IDE autocomplete
+**状态**: 已更新为统一格式
 
-### 4. Optimize `sizes` Attributes ✅
-**Updated from:**
-```tsx
-sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-```
+**修改文件**: `app/page-content.tsx` 第 117-128 行
 
-**To:**
-```tsx
-sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 768px"
-```
-
-**Responsive behavior:**
-- Mobile (≤768px): Full viewport width (respecting container padding)
-- Tablet (768px-1200px): 80% viewport width
-- Desktop (>1200px): Fixed 768px (matches max-w-3xl)
-- Ensures correct image variant loaded at each breakpoint
-
-### 5. Object Fit Rules ✅
-**Switched from `object-contain` to `object-cover`:**
-- ✅ Prevents extra whitespace (no letterboxing)
-- ✅ Frame hugs image without gaps
-- ✅ Slight cropping acceptable for consistent frame treatment
-- ✅ Combined with `overflow-hidden` for clean edges
-
-### 6. Validate Responsive Layout ✅
-**Desktop validation:**
-- Images display at 768px width (max-w-3xl)
-- Shadows aligned with frame edges
-- Border radius consistent (16px)
-- No gaps between image and frame
-
-**Mobile validation:**
-- Images scale responsively with viewport
-- Aspect ratio maintained at all widths
-- Touch-friendly sizing preserved
-- No horizontal scroll
-
-### 7. CLS Prevention ✅
-**Zero layout shift achieved through:**
-- Container defines explicit dimensions (`aspect-video`)
-- Static imports provide exact image dimensions to Next.js
-- Blur placeholder displays during load
-- Background color (`bg-muted`) fills space before image loads
-
-### 8. Run Lint Check ✅
-```bash
-npm run lint
-✔ No ESLint warnings or errors
-```
-
-## Code Changes
-
-### File Modified: `app/page-content.tsx`
-
-#### Added Import
-```typescript
-import { images } from "@/lib/media";
-```
-
-#### Updated Container Pattern (×4)
-```tsx
-// Before
-<div className="relative w-full max-w-3xl aspect-video">
-  <Image
-    src="/images/我有产品.png"
-    alt="..."
-    fill
-    className="object-contain rounded-xl shadow-card"
-    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-  />
+**原始结构**:
+```jsx
+<div className="flex justify-center px-4 sm:px-6 md:px-8">
+  <div className="relative w-full max-w-[720px] aspect-[3/2] rounded-3xl overflow-hidden">
+    <Image
+      src={product.image}
+      alt={product.alt}
+      fill
+      className="object-contain"
+      ...
+    />
+  </div>
 </div>
+```
 
-// After
-<div className="relative w-full max-w-3xl aspect-video rounded-xl shadow-card overflow-hidden bg-muted">
+**新结构**:
+```jsx
+<div className="flex justify-center">
   <Image
-    src={images.myProduct}
-    alt="..."
-    fill
-    className="object-cover"
-    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 768px"
+    src={product.image}
+    alt={product.alt}
+    width={1200}
+    height={800}
+    className="w-full max-w-3xl h-auto rounded-xl shadow-card"
+    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
     placeholder="blur"
-    priority
+    priority={product.priority}
   />
 </div>
 ```
 
-## Design Token Alignment
+**应用于以下四个产品**:
+1. 我有产品 (My Product) - `/public/images/我有产品.png`
+2. 图片焕新 (Image Refresh) - `/public/images/图片焕新.png`
+3. AI视频生成 (AI Video Generation) - `/public/images/AI视频生成.png`
+4. 对标图文 (Benchmark Content) - `/public/images/对标图文.jpg`
 
-| Property | Token | Value | Applied To |
-|----------|-------|-------|------------|
-| Border Radius | `--radius-xl` | 16px | Container (`rounded-xl`) |
-| Shadow | `--shadow-card` | `0 4px 12px 0 rgba(0,0,0,0.08)` | Container (`shadow-card`) |
-| Background | `--color-muted` | `#f5f5f7` (light) / `#1d1d1f` (dark) | Container (`bg-muted`) |
+**关键改进**:
+- ✅ 移除了额外的padding容器 (`px-4 sm:px-6 md:px-8`)
+- ✅ 使用统一的最大宽度 `max-w-3xl` (768px)
+- ✅ 添加了圆角效果 `rounded-xl` (12px border radius)
+- ✅ 添加了卡片阴影 `shadow-card`
+- ✅ 保持响应式设计 `w-full h-auto`
+- ✅ 优化了Next.js Image组件的使用（使用width/height替代fill模式）
+- ✅ 保留了blur占位符和优先加载功能
 
-## Performance Improvements
+### 3. 修复的预存在问题 ✅
 
-### Before
-- String paths require runtime resolution
-- No blur placeholders
-- Larger image variants may load on mobile
-- Potential for layout shift
+在实施过程中修复了以下代码错误:
 
-### After
-- Build-time optimization via static imports
-- Automatic blur placeholders (better perceived performance)
-- Correct image variants per breakpoint (bandwidth savings)
-- Zero CLS with explicit dimensions
-- Priority loading for first image (faster LCP)
+**app/products/page-content.tsx**:
+- 移除了重复的 `<Card` 开始标签（第15-16行）
+- 移除了重复的 `padding="none"` 属性（第70-71行和114-116行）
 
-## Testing Checklist
+**app/tools/page.tsx**:
+- 合并了重复的 `className` 属性（第283-284行）
 
-✅ **Build Success**: `npm run build` - No errors
-✅ **Lint Clean**: `npm run lint` - No warnings/errors
-✅ **TypeScript**: `tsc --noEmit` - No type errors
-✅ **Dev Server**: Starts successfully, no console errors
-✅ **Static Imports**: All 4 images use `lib/media.ts`
-✅ **Blur Placeholder**: All 4 images have `placeholder="blur"`
-✅ **Object Cover**: All 4 images use `object-cover`
-✅ **Overflow Hidden**: All 4 containers have `overflow-hidden`
-✅ **Consistent Styling**: All 4 containers share identical classes
+## 验收标准检查
 
-## Validation Results
+- ✅ 按钮点击弹出二维码弹窗，显示 qr.png
+- ✅ 四个产品框图片按照统一格式呈现
+- ✅ 图片等比例响应式显示（w-full max-w-3xl h-auto）
+- ✅ 图片有圆角 (rounded-xl) 和卡片阴影效果 (shadow-card)
+- ✅ 在桌面端和移动端正常显示
+- ✅ 构建成功，无错误
 
-### Visual Consistency ✅
-- All product images have identical container structure
-- Uniform border radius (16px) across all frames
-- Consistent shadow elevation
-- No gaps between images and frames
-- Clean edges with overflow-hidden
+## 技术细节
 
-### Responsive Behavior ✅
-- Desktop: Fixed 768px width, centered
-- Tablet: Scales to 80% viewport width
-- Mobile: Full width (minus padding)
-- Aspect ratio maintained at all breakpoints
+**使用的组件**:
+- `Button` - 设计系统按钮组件 (`@/components/ui/Button`)
+- `QRModal` - 二维码弹窗组件 (`@/components/QRModal`)
+- `QRModalWrapper` - 弹窗懒加载包装器 (`@/components/QRModalWrapper`)
+- Next.js `Image` - 优化的图片组件
 
-### Performance ✅
-- Static imports enable optimal image loading
-- Blur placeholders improve perceived speed
-- Responsive `sizes` attribute loads correct variants
-- Zero CLS with explicit dimensions
-- Priority flag on first image for faster LCP
+**CSS类说明**:
+- `flex justify-center` - Flexbox居中对齐
+- `w-full` - 宽度100%
+- `max-w-3xl` - 最大宽度768px
+- `h-auto` - 高度自动（保持宽高比）
+- `rounded-xl` - 边框半径12px
+- `shadow-card` - 卡片阴影效果（来自设计系统）
 
-## Files Modified
+**响应式尺寸**:
+- 移动端 (< 640px): 100vw
+- 平板端 (640px - 1024px): 90vw
+- 桌面端 (> 1024px): 最大1200px
 
-1. **`app/page-content.tsx`** - Main implementation
-   - Added static image imports
-   - Updated 4 product image containers
-   - Applied consistent styling and optimization
+## 构建结果
 
-## Files Created
+```
+✓ Compiled successfully
+✓ Linting and checking validity of types
+✓ Generating static pages (35/35)
+Route (app)              Size  First Load JS  Revalidate
+├ ○ /                    9.04 kB   114 kB     1h
+├ ○ /products            4.89 kB   113 kB     1h
+└ ...
+```
 
-1. **`PRODUCT_IMAGERY_ALIGNMENT.md`** - Detailed technical documentation
-2. **`IMPLEMENTATION_SUMMARY.md`** - This file (executive summary)
-
-## Conclusion
-
-Product imagery alignment is complete. All requirements from the ticket have been successfully implemented:
-
-✅ Image containers use consistent intrinsic dimensions
-✅ Uniform aspect ratio enforced (`aspect-video`)
-✅ `overflow-hidden` applied to all containers
-✅ Border radius and shadow use design tokens
-✅ Static imports from `lib/media.ts` with blur placeholders
-✅ Optimized `sizes` attributes per breakpoint
-✅ `object-cover` prevents whitespace, maintains frame fit
-✅ Validated on desktop and mobile (responsive)
-✅ Frames hug images without gaps
-✅ Shadows remain aligned
-✅ No CLS regressions
-✅ `npm run lint` passes with no issues
-
-The implementation follows Next.js best practices, aligns with the design system, and provides optimal performance across all device sizes.
+所有页面成功构建，ISR（增量静态再生成）配置为1小时。
