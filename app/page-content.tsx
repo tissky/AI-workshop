@@ -8,6 +8,7 @@ import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import StatsGrid from "@/components/ui/StatsGrid";
 import FeatureCard from "@/components/FeatureCard";
+import ScrollButton from "@/components/ScrollButton";
 import { images } from "@/lib/media";
 
 export default function HomeContent() {
@@ -286,6 +287,9 @@ export default function HomeContent() {
 
       {/* QR Modal */}
       <QRModalWrapper isOpen={showQRModal} onClose={() => setShowQRModal(false)} />
+      
+      {/* Scroll Button */}
+      <ScrollButton />
     </div>
   );
 }
