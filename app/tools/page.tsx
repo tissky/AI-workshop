@@ -160,31 +160,6 @@ export default function ToolsPage() {
           description="从图片处理到视频编辑，从文案创作到AI模型，我们提供一站式AI创意解决方案"
         >
           {/* Stats Grid */}
-          <div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto"
-            role="list"
-            aria-label="平台统计数据"
-          >
-            {stats.map((stat, index) => (
-              <Card 
-                key={index} 
-                className="text-center"
-                role="listitem"
-              >
-                <div 
-                  className="text-3xl sm:text-4xl font-bold text-accent mb-2"
-                  aria-label={`${stat.label}: ${stat.value}`}
-                >
-                  {stat.value}
-                </div>
-                <div className="text-sm font-medium text-foreground mb-1">
-                  {stat.label}
-                </div>
-                <div className="text-xs text-muted-foreground">
-                  {stat.description}
-                </div>
-              </Card>
-            ))}
           <div className="max-w-4xl mx-auto">
             <StatsGrid 
               stats={stats}
@@ -304,14 +279,13 @@ export default function ToolsPage() {
                           aria-label={`${tool.name} - ${tool.desc}`}
                         >
                           <Card 
-                            hover
-                            as="article"
-                            className="h-full relative group-hover:border-accent transition-colors duration-300"
+                            variant="interactive"
+                            className="h-full relative"
                           >
                             {/* Hot Badge */}
                             {tool.hot && (
                               <Badge 
-                                variant="hot" 
+                                variant="warning" 
                                 size="sm" 
                                 className="absolute top-4 right-4"
                               >

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Card from "@/components/Card";
-import Badge from "@/components/Badge";
+import Card from "@/components/ui/Card";
+import Badge from "@/components/ui/Badge";
 
 interface ModelCategory {
   id: string;
@@ -51,7 +51,7 @@ export default function ModelsFilter({ modelCategories, models }: ModelsFilterPr
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {filteredModels.map((model) => (
-          <Card key={model.id} hover className="group">
+          <Card key={model.id} variant="interactive" className="group">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 rounded-lg bg-accent-muted flex items-center justify-center text-accent font-bold">
                 AI

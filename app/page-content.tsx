@@ -14,6 +14,45 @@ export default function HomeContent() {
   const [showQRModal, setShowQRModal] = useState(false);
   const hiddenUrl = "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=";
 
+  const products = [
+    {
+      id: 'my-product',
+      title: '我有产品',
+      subtitle: '智能产品图生成与优化',
+      description: '专业电商产品图处理，一键生成完美展示，提升转化率',
+      image: images.myProduct,
+      alt: '我有产品 - 智能产品图生成与优化',
+      priority: true
+    },
+    {
+      id: 'image-refresh',
+      title: '图片焕新',
+      subtitle: 'AI图片增强与修复',
+      description: '让图片焕然一新，高清修复、背景替换、细节增强',
+      image: images.imageRefresh,
+      alt: '图片焕新 - AI图片增强与修复',
+      priority: false
+    },
+    {
+      id: 'ai-video',
+      title: 'AI视频生成',
+      subtitle: '智能视频创作与编辑',
+      description: '一站式视频制作解决方案，自动生成、剪辑、特效',
+      image: images.aiVideoGeneration,
+      alt: 'AI视频生成 - 智能视频创作与编辑',
+      priority: false
+    },
+    {
+      id: 'benchmark',
+      title: '对标图文',
+      subtitle: '竞品分析与内容对标',
+      description: '智能分析竞品，优化营销策略，洞察市场趋势',
+      image: images.benchmarkContent,
+      alt: '对标图文 - 竞品分析与内容对标',
+      priority: false
+    }
+  ];
+
   const stats = [
     { label: "AI工具", value: "30+", description: "专业工具集" },
     { label: "训练模型", value: "800+", description: "多领域覆盖" },
@@ -56,104 +95,42 @@ export default function HomeContent() {
       {/* Products Section */}
       <section 
         id="products" 
-        className="py-24 md:py-32 bg-background"
+        className="py-16 md:py-24 lg:py-32 bg-background"
         aria-labelledby="products-heading"
       >
         <div className="container-max">
           <h2 id="products-heading" className="sr-only">产品展示</h2>
           
-          {/* Product 1 - 我有产品 */}
-          <div className="mb-32 md:mb-48">
-            <div className="text-center mb-12 md:mb-16">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">我有产品</h3>
-              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6">智能产品图生成与优化</p>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-                专业电商产品图处理，一键生成完美展示，提升转化率
-              </p>
-            </div>
-            <div className="flex justify-center px-4">
-              <div className="relative w-full max-w-3xl aspect-video rounded-xl shadow-card overflow-hidden bg-muted">
-                <Image
-                  src={images.myProduct}
-                  alt="我有产品 - 智能产品图生成与优化"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 768px"
-                  placeholder="blur"
-                  priority
-                />
+          {products.map((product, index) => (
+            <div key={product.id} className={index < products.length - 1 ? "mb-24 md:mb-32 lg:mb-48" : ""}>
+              <div className="text-center mb-12 md:mb-16">
+                <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">
+                  {product.title}
+                </h3>
+                <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6">
+                  {product.subtitle}
+                </p>
+                <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
+                  {product.description}
+                </p>
+              </div>
+              <div className="flex justify-center px-4 sm:px-6 md:px-8">
+                <div className="w-full max-w-[900px] p-4 sm:p-6 md:p-8 lg:p-10 bg-[color:var(--color-bg-surface)] border border-[color:var(--color-border-default)] rounded-xl shadow-[var(--shadow-card)]">
+                  <div className="relative w-full aspect-[3/2] rounded-3xl overflow-hidden">
+                    <Image
+                      src={product.image}
+                      alt={product.alt}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 640px) 90vw, (max-width: 768px) 85vw, (max-width: 1200px) 80vw, 900px"
+                      placeholder="blur"
+                      priority={product.priority}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* Product 2 - 图片焕新 */}
-          <div className="mb-32 md:mb-48">
-            <div className="text-center mb-12 md:mb-16">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">图片焕新</h3>
-              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6">AI图片增强与修复</p>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-                让图片焕然一新，高清修复、背景替换、细节增强
-              </p>
-            </div>
-            <div className="flex justify-center px-4">
-              <div className="relative w-full max-w-3xl aspect-video rounded-xl shadow-card overflow-hidden bg-muted">
-                <Image
-                  src={images.imageRefresh}
-                  alt="图片焕新 - AI图片增强与修复"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 768px"
-                  placeholder="blur"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Product 3 - AI视频生成 */}
-          <div className="mb-32 md:mb-48">
-            <div className="text-center mb-12 md:mb-16">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">AI视频生成</h3>
-              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6">智能视频创作与编辑</p>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-                一站式视频制作解决方案，自动生成、剪辑、特效
-              </p>
-            </div>
-            <div className="flex justify-center px-4">
-              <div className="relative w-full max-w-3xl aspect-video rounded-xl shadow-card overflow-hidden bg-muted">
-                <Image
-                  src={images.aiVideoGeneration}
-                  alt="AI视频生成 - 智能视频创作与编辑"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 768px"
-                  placeholder="blur"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Product 4 - 对标图文 */}
-          <div className="mb-32 md:mb-48">
-            <div className="text-center mb-12 md:mb-16">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">对标图文</h3>
-              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6">竞品分析与内容对标</p>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-                智能分析竞品，优化营销策略，洞察市场趋势
-              </p>
-            </div>
-            <div className="flex justify-center px-4">
-              <div className="relative w-full max-w-3xl aspect-video rounded-xl shadow-card overflow-hidden bg-muted">
-                <Image
-                  src={images.benchmarkContent}
-                  alt="对标图文 - 竞品分析与内容对标"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 768px"
-                  placeholder="blur"
-                />
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
