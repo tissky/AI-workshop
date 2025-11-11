@@ -8,6 +8,14 @@ Welcome to the AI创意工坊 (AI Creative Workshop) documentation hub.
 
 ### 📍 Roadmap & Planning
 - **[🗺️ Feature Roadmap](./roadmap.md)** - Near-, mid-, and long-term feature expansion plan
+### ⚙️ Configuration
+- **[📘 Configuration Guide](./configuration/README.md)** - Complete configuration reference
+- **[🎨 Theme & Design Tokens](./configuration/theme.md)** - Tailwind v4 theme system
+- **[🧩 Component Theming](./configuration/components.md)** - Component patterns
+- **[🌍 Environment Variables](./configuration/environment.md)** - Environment setup
+- **[⚙️ Next.js Configuration](./configuration/nextjs.md)** - Images, ISR, caching
+- **[🔍 SEO & Metadata](./configuration/seo.md)** - Metadata and structured data
+- **[📂 Content Management](./configuration/content.md)** - Data sources and workflows
 
 ### 🎨 Design System
 - **[⚡ Quick Status](./design-system/QUICK_STATUS.md)** - At-a-glance progress dashboard
@@ -52,6 +60,84 @@ Comprehensive phased plan with three major phases:
 - International expansion (multi-language, regional compliance)
 
 **Use this when**: Planning features, understanding dependencies, or mapping technical requirements
+## ⚙️ Configuration Documentation
+
+### Complete Configuration Guide
+
+Comprehensive documentation for all configuration surfaces in the project.
+
+#### [📘 Configuration Overview](./configuration/README.md)
+Main configuration hub:
+- Quick start guide
+- Essential configuration files
+- Common tasks and troubleshooting
+- Links to detailed sub-sections
+
+**Use this when**: First time setup or looking for configuration overview
+
+#### [🎨 Theme & Design Tokens](./configuration/theme.md)
+Tailwind v4 theme system:
+- Token architecture (4 layers)
+- Color system (monochrome primaries, accent palette)
+- Typography scale (modular ramp)
+- Spacing system (4px base)
+- Border radius (8px/16px)
+- Shadow system (subtle elevations)
+- Transitions (Apple-style easing)
+- Accessibility features (WCAG 2.1 AA)
+- Customization guide
+
+**Use this when**: Styling components, customizing theme, adding new tokens
+
+#### [🧩 Component Theming](./configuration/components.md)
+Component patterns and theming:
+- Three-tier component architecture
+- UI primitives (Button, Card, Badge, Hero, etc.)
+- Feature components (ImageCarousel, QRModal, etc.)
+- Theming patterns (semantic colors, interactive states)
+- Animation and motion patterns
+- Helper functions for runtime token access
+
+**Use this when**: Building components, applying design system patterns
+
+#### [🌍 Environment Variables](./configuration/environment.md)
+Environment configuration:
+- Required variables (`NEXT_PUBLIC_SITE_URL`)
+- Optional variables (`ANALYZE`)
+- Public vs private variables
+- Deployment configurations (Vercel, Netlify, Docker)
+- Common tasks and troubleshooting
+
+**Use this when**: Setting up environments, deploying to platforms
+
+#### [⚙️ Next.js Configuration](./configuration/nextjs.md)
+Next.js settings and optimization:
+- Image optimization (formats, sizes, caching)
+- Cache headers (CDN-friendly)
+- ISR configuration (revalidation intervals)
+- Bundle analyzer (webpack visualization)
+- Build and deployment settings
+
+**Use this when**: Optimizing performance, configuring ISR, analyzing bundles
+
+#### [🔍 SEO & Metadata](./configuration/seo.md)
+SEO strategy and implementation:
+- Page metadata (titles, descriptions, OpenGraph)
+- Structured data (Schema.org JSON-LD)
+- Robots.txt and sitemap generation
+- SEO best practices
+- Core Web Vitals optimization
+
+**Use this when**: Improving SEO, adding metadata, validating structured data
+
+#### [📂 Content Management](./configuration/content.md)
+Content sources and workflows:
+- Data sources (`lib/tools.ts`, `lib/metadata.ts`, `lib/media.ts`)
+- Public assets (`public/images/`)
+- Update workflows (add tool, update metadata, add image)
+- Content validation and auditing
+
+**Use this when**: Adding/updating content, managing images, bulk updates
 
 ---
 
@@ -151,6 +237,12 @@ Located in project root:
 - **[METADATA_IMPLEMENTATION.md](../METADATA_IMPLEMENTATION.md)** - SEO metadata implementation
 - **[STRUCTURED_DATA_VALIDATION.md](../STRUCTURED_DATA_VALIDATION.md)** - Schema.org validation
 
+### Quality Assurance
+
+- **[quality-report.md](./quality-report.md)** - Comprehensive Lighthouse audit report (Nov 2024)
+- **[QUALITY_AUDIT_SUMMARY.md](./QUALITY_AUDIT_SUMMARY.md)** - Quick quality metrics overview
+- **[lighthouse-reports/](./lighthouse-reports/)** - Full Lighthouse JSON reports for all routes
+
 ---
 
 ## 🔍 How to Use This Documentation
@@ -159,17 +251,28 @@ Located in project root:
 
 1. **Starting a new feature?**
    - Review [Feature Roadmap](./roadmap.md) for planned features and technical dependencies
-   - Check [Component Docs](./components/README.md) for reusable components
-   - Review [Apple Design Report](../APPLE_DESIGN_REPORT.md) for design guidelines
+1. **Setting up the project?**
+   - Start with [Configuration Guide](./configuration/README.md) for quick start
+   - Set up [Environment Variables](./configuration/environment.md)
+   - Review [Next.js Configuration](./configuration/nextjs.md) for build settings
 
-2. **Working on design system tasks?**
+2. **Starting a new feature?**
+   - Check [Component Docs](./components/README.md) for reusable components
+   - Review [Theme & Design Tokens](./configuration/theme.md) for styling
+   - Follow [Component Theming](./configuration/components.md) patterns
+
+3. **Working on design system tasks?**
    - Check [Quick Status](./design-system/QUICK_STATUS.md) for current state
    - Update [Execution Log](./design-system/EXECUTION_LOG.md) as you progress
    - Follow the update instructions in the execution log
 
-3. **Need to understand a component?**
+4. **Need to understand a component?**
    - Read the specific [component doc](./components/)
    - Review props, usage examples, and accessibility guidelines
+
+5. **Adding/updating content?**
+   - Follow [Content Management](./configuration/content.md) workflows
+   - Update [SEO Metadata](./configuration/seo.md) as needed
 
 ### For Project Managers
 
@@ -190,9 +293,27 @@ Located in project root:
 ### For Designers
 
 1. **Understanding the design system?**
-   - Read [Apple Design Report](../APPLE_DESIGN_REPORT.md)
-   - Review component documentation for UI patterns
-   - Check color schemes, typography, and spacing systems
+   - Start with [Theme & Design Tokens](./configuration/theme.md)
+   - Review [Component Theming](./configuration/components.md) for UI patterns
+   - Check [Design Tokens Reference](./design-system/tokens.md) for complete token list
+   - Read [Apple Design Report](../APPLE_DESIGN_REPORT.md) for design philosophy
+
+2. **Customizing the theme?**
+   - Review color, typography, spacing systems in [Theme Guide](./configuration/theme.md)
+   - Follow customization guides for adding new tokens
+   - Ensure WCAG 2.1 AA compliance for new colors
+
+### For Content Editors
+
+1. **Adding new content?**
+   - Follow [Content Management](./configuration/content.md) workflows
+   - Update tool catalog in `lib/tools.ts`
+   - Add images following optimization guidelines
+
+2. **Improving SEO?**
+   - Review [SEO & Metadata](./configuration/seo.md) best practices
+   - Update page metadata and descriptions
+   - Validate structured data with Google tools
 
 ### For Product Team
 

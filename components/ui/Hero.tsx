@@ -21,7 +21,7 @@ export default function Hero({
   children,
   ...props
 }: HeroProps) {
-  const baseStyles = "py-24 md:py-32";
+  const baseStyles = "py-16 sm:py-20 md:py-24 lg:py-32";
 
   const variantStyles = {
     default: "bg-gradient-to-b from-gray-50 to-white",
@@ -51,21 +51,21 @@ export default function Hero({
     <section className={classes} {...props}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex flex-col ${containerAlign[align]} ${alignmentStyles[align]}`}>
-          <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold ${textColorClass} mb-6 tracking-tight`}>
+          <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ${textColorClass} mb-4 sm:mb-6 tracking-tight`}>
             {title}
           </h1>
           {subtitle && (
-            <h2 className={`text-2xl md:text-3xl font-medium ${subtextColorClass} mb-8`}>
+            <h2 className={`text-xl sm:text-2xl md:text-3xl font-medium ${subtextColorClass} mb-6 sm:mb-8`}>
               {subtitle}
             </h2>
           )}
           {description && (
-            <p className={`text-lg md:text-xl ${descColorClass} mb-12 max-w-3xl leading-relaxed`}>
+            <p className={`text-base sm:text-lg md:text-xl ${descColorClass} mb-8 sm:mb-10 md:mb-12 max-w-3xl leading-relaxed px-4 sm:px-0`}>
               {description}
             </p>
           )}
           {actions && (
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto px-4 sm:px-0">
               {actions}
             </div>
           )}

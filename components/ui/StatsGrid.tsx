@@ -35,15 +35,15 @@ export default function StatsGrid({
   };
 
   const variantContainerStyles = {
-    default: "bg-white shadow-lg rounded-2xl p-8",
-    gradient: "bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white",
+    default: "bg-white shadow-lg rounded-2xl p-6 sm:p-8",
+    gradient: "bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-6 sm:p-8 text-white",
     cards: "",
   };
 
   const variantItemStyles = {
     default: "",
     gradient: "",
-    cards: "bg-white rounded-xl p-6 shadow-lg",
+    cards: "bg-white rounded-xl p-5 sm:p-6 shadow-lg",
   };
 
   const statValueColor = {
@@ -66,25 +66,25 @@ export default function StatsGrid({
 
   return (
     <div className={`${variantContainerStyles[variant]} ${className}`} {...props}>
-      <div className={`grid ${columnStyles[columns]} gap-6 md:gap-8`}>
+      <div className={`grid ${columnStyles[columns]} gap-4 sm:gap-6 md:gap-8`}>
         {stats.map((stat, index) => (
           <div
             key={index}
             className={`${variantItemStyles[variant]} ${alignmentStyles[align]}`}
           >
             {stat.icon && (
-              <div className="mb-3 flex justify-center">
+              <div className="mb-2 sm:mb-3 flex justify-center">
                 {stat.icon}
               </div>
             )}
-            <div className={`text-3xl md:text-4xl font-bold ${statValueColor[variant]} mb-2`}>
+            <div className={`text-2xl sm:text-3xl md:text-4xl font-bold ${statValueColor[variant]} mb-1 sm:mb-2`}>
               {stat.value}
             </div>
-            <div className={`text-sm md:text-base font-medium ${statLabelColor[variant]}`}>
+            <div className={`text-xs sm:text-sm md:text-base font-medium ${statLabelColor[variant]}`}>
               {stat.label}
             </div>
             {stat.description && (
-              <div className={`text-xs md:text-sm ${statDescColor[variant]} mt-1`}>
+              <div className={`text-xs sm:text-xs md:text-sm ${statDescColor[variant]} mt-1`}>
                 {stat.description}
               </div>
             )}
