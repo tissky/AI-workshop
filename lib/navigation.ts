@@ -20,6 +20,11 @@ export interface CTAConfig {
  */
 export const primaryNavLinks: NavLink[] = [
   {
+    label: "首页",
+    href: "/",
+    ariaLabel: "返回首页",
+  },
+  {
     label: "产品",
     href: "/products",
     ariaLabel: "查看产品列表",
