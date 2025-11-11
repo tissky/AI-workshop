@@ -973,7 +973,7 @@ Closes #123
 
 ## 📞 联系我们 (Contact)
 
-- **项目地址**: [https://github.com/yourusername/ai-workshop](https://github.com/yourusername/ai-workshop)
+- **项目地址**: [https://github.com/tissky/ai-workshop](https://github.com/tissky/ai-workshop)
 - **在线演示**: [https://ai-workshops.vercel.app](https://ai-workshops.vercel.app) 
 - **问题反馈**: [GitHub Issues](https://github.com/yourusername/ai-workshop/issues)
 - **邮箱**: contact@example.com
