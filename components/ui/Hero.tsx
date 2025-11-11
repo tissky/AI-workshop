@@ -7,6 +7,7 @@ export interface HeroProps extends HTMLAttributes<HTMLElement> {
   actions?: React.ReactNode;
   variant?: "default" | "gradient" | "dark";
   align?: "left" | "center" | "right";
+  centerMobile?: boolean;
   children?: React.ReactNode;
 }
 
@@ -17,11 +18,14 @@ export default function Hero({
   actions,
   variant = "default",
   align = "center",
+  centerMobile = false,
   className = "",
   children,
   ...props
 }: HeroProps) {
-  const baseStyles = "py-16 sm:py-20 md:py-24 lg:py-32";
+  const baseStyles = centerMobile
+    ? "min-h-[calc(100svh-4rem)] flex items-center py-8 sm:py-20 md:py-24 lg:py-32"
+    : "py-16 sm:py-20 md:py-24 lg:py-32";
 
   const variantStyles = {
     default: "bg-gradient-to-b from-gray-50 to-white",

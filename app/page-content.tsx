@@ -29,6 +29,7 @@ export default function HomeContent() {
         description="集成30+专业AI工具，涵盖图片处理、视频编辑、文案创作等多个领域"
         variant="default"
         align="center"
+        centerMobile={true}
         aria-label="主要内容"
         actions={
           <>
