@@ -159,6 +159,21 @@ export default function ToolsPage() {
                       </p>
                     </div>
 
+                  {/* Tools Grid */}
+                  <ul 
+                    className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 list-none"
+                    aria-label={`${category.name}工具列表`}
+                  >
+                    {category.tools.map((tool) => (
+                      <li key={tool.id}>
+                        <Link
+                          href={`/tools/${tool.id}`}
+                          className="group block h-full"
+                          aria-label={`${tool.name} - ${tool.desc}`}
+                        >
+                          <Card 
+                            variant="interactive"
+                            className="h-full relative group-hover:border-accent transition-colors duration-300"
                     {/* Tools Grid */}
                     <ul 
                       className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 list-none"
