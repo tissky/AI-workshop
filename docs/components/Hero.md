@@ -22,6 +22,7 @@ import { Hero } from "@/components/ui";
 | `actions` | `React.ReactNode` | ❌ No | `undefined` | Call-to-action buttons |
 | `variant` | `"default"` \| `"gradient"` \| `"dark"` | ❌ No | `"default"` | Visual style variant |
 | `align` | `"left"` \| `"center"` \| `"right"` | ❌ No | `"center"` | Text alignment |
+| `centerMobile` | `boolean` | ❌ No | `false` | Enable full-height mobile layout with vertical centering |
 | `children` | `React.ReactNode` | ❌ No | `undefined` | Additional content below actions |
 | `className` | `string` | ❌ No | `""` | Additional CSS classes |
 
@@ -147,6 +148,37 @@ export default function AlignmentExamples() {
   );
 }
 ```
+
+### Mobile-Centered Hero
+
+```tsx
+import Hero from "@/components/ui/Hero";
+import Button from "@/components/ui/Button";
+
+export default function MobileCenteredHero() {
+  return (
+    <Hero
+      title="AI创意工坊"
+      subtitle="释放无限创意可能"
+      description="集成30+专业AI工具，涵盖图片处理、视频编辑、文案创作等多个领域"
+      centerMobile={true}
+      actions={
+        <>
+          <Button variant="primary" size="lg">即刻体验</Button>
+          <Button variant="outline" size="lg">了解更多</Button>
+        </>
+      }
+    />
+  );
+}
+```
+
+**Note**: When `centerMobile={true}`:
+- On mobile (≤640px): Hero uses `min-h-[calc(100svh-4rem)]` to take up full viewport height minus header
+- Content is vertically centered with flexbox utilities
+- Reduced padding (`py-8`) to prevent overflow while maintaining design tokens
+- On tablets/desktops (>640px): Reverts to standard responsive padding (`sm:py-20 md:py-24 lg:py-32`)
+- Ensures only the hero is visible on initial mobile load with no content bleeding
 
 ### With Additional Content
 

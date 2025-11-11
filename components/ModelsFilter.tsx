@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Card from "@/components/Card";
+import Badge from "@/components/Badge";
 
 interface ModelCategory {
   id: string;
@@ -35,11 +37,12 @@ export default function ModelsFilter({ modelCategories, models }: ModelsFilterPr
           <button
             key={category.id}
             onClick={() => setSelectedCategory(category.id)}
-            className={`filter-btn ${
+            className={`px-6 py-2 rounded-full transition-all ${
               selectedCategory === category.id
-                ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
-                : 'bg-white text-gray-700 hover:bg-gray-50'
+                ? 'bg-accent text-accent-foreground'
+                : 'bg-background text-foreground border border-border hover:bg-muted'
             }`}
+            aria-label={`筛选${category.name}`}
           >
             {category.name}
           </button>
@@ -48,28 +51,31 @@ export default function ModelsFilter({ modelCategories, models }: ModelsFilterPr
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {filteredModels.map((model) => (
-          <div key={model.id} className="bg-white card-elevated group border border-gray-100">
+          <Card key={model.id} hover className="group">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold icon-scale">
+              <div className="w-12 h-12 rounded-lg bg-accent-muted flex items-center justify-center text-accent font-bold">
                 AI
               </div>
-              <span className="text-xs text-green-600 bg-green-50 px-2 py-1 rounded-full">
+              <Badge variant="success" size="sm">
                 {model.accuracy}
-              </span>
+              </Badge>
             </div>
             
-            <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200 ease-apple">
+            <h3 className="font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
               {model.name}
             </h3>
-            <p className="text-gray-600 text-sm mb-4">{model.desc}</p>
+            <p className="text-muted-foreground text-sm mb-4">{model.desc}</p>
             
             <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-500">使用量: {model.uses}</span>
-              <button className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200 ease-apple focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm active:text-blue-800 inline-flex items-center gap-1">
-                使用 <span className="icon-slide">→</span>
+              <span className="text-muted-foreground">使用量: {model.uses}</span>
+              <button 
+                className="text-accent hover:text-accent-dark font-medium transition-colors inline-flex items-center gap-1"
+                aria-label={`使用${model.name}`}
+              >
+                使用 →
               </button>
             </div>
-          </div>
+          </Card>
         ))}
       </div>
     </>
