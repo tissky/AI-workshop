@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 // Site-wide constants
 export const SITE_NAME = "AI创意工坊";
 export const SITE_TAGLINE = "释放无限创意可能";
-export const SITE_DESCRIPTION = "集成30+专业AI工具，涵盖图片处理、视频编辑、文案创作等多个领域，提供一站式AI创意解决方案";
+export const SITE_DESCRIPTION = "集成29款专业AI工具，涵盖图片处理、视频编辑、文案处理等多个领域，提供一站式AI创意解决方案";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://ai-workshop.example.com";
 export const SITE_DOMAIN = "ai-workshop.example.com";
 
@@ -43,7 +43,7 @@ export const PRODUCTS_DATA = {
 // Tools metadata
 export const TOOLS_DATA = {
   title: "AI工具库 - AI创意工坊",
-  description: "30+专业AI工具，涵盖图片处理、视频编辑、文案创作、AI模型等多个领域，提供一站式创意解决方案",
+  description: "29款专业AI工具，涵盖图片处理、视频编辑、文案处理、AI模型等多个领域，提供一站式创意解决方案",
   keywords: "AI工具,图片处理,视频编辑,文案生成,背景替换,去水印,产品图优化,视频制作",
   ogImage: `${SITE_URL}/images/og-tools.jpg`,
   categories: {
@@ -104,7 +104,7 @@ export const MODELS_DATA = {
 // Company metadata
 export const COMPANY_DATA = {
   title: "关于我们 - AI创意工坊",
-  description: "AI创意工坊是专注于人工智能技术研发和应用的创新公司，拥有800+专业训练模型和30+AI工具，致力于为企业提供最先进的AI解决方案",
+  description: "AI创意工坊是专注于人工智能技术研发和应用的创新公司，拥有800+专业训练模型和29款AI工具，致力于为企业提供最先进的AI解决方案",
   keywords: "AI公司,人工智能,技术团队,AI研发,深度学习,AI解决方案",
   ogImage: `${SITE_URL}/images/og-company.jpg`
 };
