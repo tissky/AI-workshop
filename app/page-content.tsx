@@ -115,18 +115,16 @@ export default function HomeContent() {
                 </p>
               </div>
               <div className="flex justify-center px-4 sm:px-6 md:px-8">
-                <div className="w-full max-w-[900px] p-4 sm:p-6 md:p-8 lg:p-10 bg-[color:var(--color-bg-surface)] border border-[color:var(--color-border-default)] rounded-xl shadow-[var(--shadow-card)]">
-                  <div className="relative w-full aspect-[3/2] rounded-3xl overflow-hidden">
-                    <Image
-                      src={product.image}
-                      alt={product.alt}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 640px) 90vw, (max-width: 768px) 85vw, (max-width: 1200px) 80vw, 900px"
-                      placeholder="blur"
-                      priority={product.priority}
-                    />
-                  </div>
+                <div className="relative w-full max-w-[720px] aspect-[3/2] rounded-3xl overflow-hidden">
+                  <Image
+                    src={product.image}
+                    alt={product.alt}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 640px) 90vw, (max-width: 768px) 85vw, (max-width: 1200px) 80vw, 720px"
+                    placeholder="blur"
+                    priority={product.priority}
+                  />
                 </div>
               </div>
             </div>
