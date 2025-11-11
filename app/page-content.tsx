@@ -206,28 +206,8 @@ export default function HomeContent() {
           </div>
 
           {/* Additional Features Row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 px-4 sm:px-0">
-            <Card variant="bordered" padding="sm" className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3" aria-hidden="true">💡</div>
-              <h3 className="text-sm sm:text-base font-semibold text-foreground mb-1 sm:mb-2">创意工具</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">激发无限创意</p>
-            </Card>
-            <Card variant="bordered" padding="sm" className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3" aria-hidden="true">⚡</div>
-              <h3 className="text-sm sm:text-base font-semibold text-foreground mb-1 sm:mb-2">高效快速</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">秒级完成处理</p>
-            </Card>
-            <Card variant="bordered" padding="sm" className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3" aria-hidden="true">🎯</div>
-              <h3 className="text-sm sm:text-base font-semibold text-foreground mb-1 sm:mb-2">精准智能</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">AI驱动精准</p>
-            </Card>
-            <Card variant="bordered" padding="sm" className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3" aria-hidden="true">🏆</div>
-              <h3 className="text-sm sm:text-base font-semibold text-foreground mb-1 sm:mb-2">专业品质</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">专业级效果</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            <Card variant="bordered" padding="md" className="text-center bg-background hover:bg-accent-muted transition-colors">
+            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
               <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -236,7 +216,7 @@ export default function HomeContent() {
               <h3 className="font-semibold text-foreground mb-2">创意工具</h3>
               <p className="text-sm text-muted-foreground">激发无限创意</p>
             </Card>
-            <Card variant="bordered" padding="md" className="text-center bg-background hover:bg-accent-muted transition-colors">
+            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
               <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -245,7 +225,7 @@ export default function HomeContent() {
               <h3 className="font-semibold text-foreground mb-2">高效快速</h3>
               <p className="text-sm text-muted-foreground">秒级完成处理</p>
             </Card>
-            <Card variant="bordered" padding="md" className="text-center bg-background hover:bg-accent-muted transition-colors">
+            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
               <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -254,29 +234,12 @@ export default function HomeContent() {
               <h3 className="font-semibold text-foreground mb-2">精准智能</h3>
               <p className="text-sm text-muted-foreground">AI驱动精准</p>
             </Card>
-            <Card variant="bordered" padding="md" className="text-center bg-background hover:bg-accent-muted transition-colors">
+            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
               <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
               </div>
-            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="text-3xl md:text-4xl mb-3" aria-hidden="true">💡</div>
-              <h3 className="font-semibold text-foreground mb-2">创意工具</h3>
-              <p className="text-sm text-muted-foreground">激发无限创意</p>
-            </Card>
-            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="text-3xl md:text-4xl mb-3" aria-hidden="true">⚡</div>
-              <h3 className="font-semibold text-foreground mb-2">高效快速</h3>
-              <p className="text-sm text-muted-foreground">秒级完成处理</p>
-            </Card>
-            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="text-3xl md:text-4xl mb-3" aria-hidden="true">🎯</div>
-              <h3 className="font-semibold text-foreground mb-2">精准智能</h3>
-              <p className="text-sm text-muted-foreground">AI驱动精准</p>
-            </Card>
-            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="text-3xl md:text-4xl mb-3" aria-hidden="true">🏆</div>
               <h3 className="font-semibold text-foreground mb-2">专业品质</h3>
               <p className="text-sm text-muted-foreground">专业级效果</p>
             </Card>
@@ -314,9 +277,6 @@ export default function HomeContent() {
         className="py-24 md:py-32 bg-muted" 
         aria-labelledby="cta-heading"
       >
-        <div className="container-max text-center">
-          <h2 id="cta-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 md:mb-8">准备好开始了？</h2>
-          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-12 max-w-2xl mx-auto">
         <div className="container-max text-center px-4">
           <h2 id="cta-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 md:mb-8">准备好开始了？</h2>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 max-w-2xl mx-auto opacity-90">
