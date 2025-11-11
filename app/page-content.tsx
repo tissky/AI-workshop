@@ -164,25 +164,41 @@ export default function HomeContent() {
 
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
             <FeatureCard
-              icon="🎨"
+              icon={
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              }
               title="图片处理"
               description="背景替换、产品图处理、图片变高清、去水印、图片去人等"
               items={["背景替换", "产品图处理", "图片变高清", "去水印", "图片去人", "智能修复"]}
             />
             <FeatureCard
-              icon="🎬"
+              icon={
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+              }
               title="视频处理"
               description="视频去水印、视频转图片、批量水印、提取转图等"
               items={["视频去水印", "视频转图片", "批量水印", "提取转图", "智能剪辑", "格式转换"]}
             />
             <FeatureCard
-              icon="✍️"
+              icon={
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+              }
               title="文案创作"
               description="19种风格文案生成、手写签名、SOP模板、表情包生成"
               items={["19种风格文案", "手写签名", "SOP模板", "表情包生成", "智能改写", "内容优化"]}
             />
             <FeatureCard
-              icon="🤖"
+              icon={
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                </svg>
+              }
               title="AI模型"
               description="800+专业训练模型，AI减视频、快速手绘草图、产品图生成"
               items={["800+专业模型", "AI减视频", "手绘草图", "产品图生成", "风格迁移", "智能识别"]}
@@ -211,6 +227,39 @@ export default function HomeContent() {
               <h3 className="text-sm sm:text-base font-semibold text-foreground mb-1 sm:mb-2">专业品质</h3>
               <p className="text-xs sm:text-sm text-muted-foreground">专业级效果</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            <Card variant="bordered" padding="md" className="text-center bg-background hover:bg-accent-muted transition-colors">
+              <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">创意工具</h3>
+              <p className="text-sm text-muted-foreground">激发无限创意</p>
+            </Card>
+            <Card variant="bordered" padding="md" className="text-center bg-background hover:bg-accent-muted transition-colors">
+              <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">高效快速</h3>
+              <p className="text-sm text-muted-foreground">秒级完成处理</p>
+            </Card>
+            <Card variant="bordered" padding="md" className="text-center bg-background hover:bg-accent-muted transition-colors">
+              <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">精准智能</h3>
+              <p className="text-sm text-muted-foreground">AI驱动精准</p>
+            </Card>
+            <Card variant="bordered" padding="md" className="text-center bg-background hover:bg-accent-muted transition-colors">
+              <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
             <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
               <div className="text-3xl md:text-4xl mb-3" aria-hidden="true">💡</div>
               <h3 className="font-semibold text-foreground mb-2">创意工具</h3>
@@ -262,9 +311,12 @@ export default function HomeContent() {
 
       {/* CTA Section */}
       <section 
-        className="py-24 md:py-32 bg-accent text-accent-foreground" 
+        className="py-24 md:py-32 bg-muted" 
         aria-labelledby="cta-heading"
       >
+        <div className="container-max text-center">
+          <h2 id="cta-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 md:mb-8">准备好开始了？</h2>
+          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-12 max-w-2xl mx-auto">
         <div className="container-max text-center px-4">
           <h2 id="cta-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 md:mb-8">准备好开始了？</h2>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 max-w-2xl mx-auto opacity-90">
@@ -272,7 +324,6 @@ export default function HomeContent() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              variant="secondary"
               size="lg"
               onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
               aria-label="即刻体验AI创意工坊"

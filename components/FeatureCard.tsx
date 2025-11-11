@@ -1,7 +1,7 @@
 "use client";
 
 interface FeatureCardProps {
-  icon: string;
+  icon: React.ReactNode;
   title: string;
   description: string;
   items: string[];
@@ -14,6 +14,10 @@ export default function FeatureCard({
   items
 }: FeatureCardProps) {
   return (
+    <article className="bg-background border border-border rounded-xl p-6 shadow-card hover:shadow-lg transition-all duration-300 motion-safe:hover:-translate-y-0.5">
+      <div className="w-12 h-12 mb-4 text-accent" aria-hidden="true">{icon}</div>
+      <h3 className="text-xl font-semibold text-foreground mb-3">{title}</h3>
+      <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{description}</p>
     <article className="bg-background border border-border rounded-xl p-5 sm:p-6 shadow-card hover:shadow-lg transition-all duration-300 motion-safe:hover:-translate-y-0.5">
       <div className="text-3xl sm:text-4xl mb-3 sm:mb-4" aria-hidden="true">{icon}</div>
       <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2 sm:mb-3">{title}</h3>
