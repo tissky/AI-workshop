@@ -12,6 +12,16 @@ export interface NavLink {
 }
 
 /**
+ * CTA (Call-to-Action) Configuration
+ * Used across the site for the primary CTA button
+ */
+export const ctaConfig = {
+  label: "即刻体验",
+  url: "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=",
+  ariaLabel: "即刻体验AI创意工坊",
+};
+
+/**
  * Primary navigation links (5 items)
  * Last item (即刻体验) is a CTA that opens an external encoded URL in a new tab
  */
@@ -37,11 +47,11 @@ export const primaryNavLinks: NavLink[] = [
     ariaLabel: "浏览AI工具库",
   },
   {
-    label: "即刻体验",
+    label: ctaConfig.label,
     href: "#",
-    ariaLabel: "即刻体验AI创意工坊",
+    ariaLabel: ctaConfig.ariaLabel,
     isExternal: true,
-    encodedUrl: "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=",
+    encodedUrl: ctaConfig.url,
   },
 ];
 
