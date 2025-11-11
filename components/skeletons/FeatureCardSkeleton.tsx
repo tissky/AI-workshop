@@ -19,7 +19,7 @@ export default function FeatureCardSkeleton({
       role="status"
       aria-label="加载功能卡片"
     >
-      <BaseSkeleton width="w-16" height="h-16" rounded="rounded-2xl" className="mb-4" />
+      <BaseSkeleton width="w-12 sm:w-14" height="h-12 sm:h-14" rounded="rounded-2xl" className="mb-4 sm:mb-5" />
       
       <BaseSkeleton width="w-2/3" height="h-6" className="mb-3" />
       

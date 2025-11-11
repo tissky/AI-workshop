@@ -281,11 +281,12 @@ export default function ToolsPage() {
                           <Card 
                             variant="interactive"
                             className="h-full relative group-hover:border-accent transition-colors duration-300"
+                            className="h-full relative"
                           >
                             {/* Hot Badge */}
                             {tool.hot && (
                               <Badge 
-                                variant="hot" 
+                                variant="warning" 
                                 size="sm" 
                                 className="absolute top-4 right-4"
                               >

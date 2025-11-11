@@ -14,6 +14,45 @@ export default function HomeContent() {
   const [showQRModal, setShowQRModal] = useState(false);
   const hiddenUrl = "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=";
 
+  const products = [
+    {
+      id: 'my-product',
+      title: '我有产品',
+      subtitle: '智能产品图生成与优化',
+      description: '专业电商产品图处理，一键生成完美展示，提升转化率',
+      image: images.myProduct,
+      alt: '我有产品 - 智能产品图生成与优化',
+      priority: true
+    },
+    {
+      id: 'image-refresh',
+      title: '图片焕新',
+      subtitle: 'AI图片增强与修复',
+      description: '让图片焕然一新，高清修复、背景替换、细节增强',
+      image: images.imageRefresh,
+      alt: '图片焕新 - AI图片增强与修复',
+      priority: false
+    },
+    {
+      id: 'ai-video',
+      title: 'AI视频生成',
+      subtitle: '智能视频创作与编辑',
+      description: '一站式视频制作解决方案，自动生成、剪辑、特效',
+      image: images.aiVideoGeneration,
+      alt: 'AI视频生成 - 智能视频创作与编辑',
+      priority: false
+    },
+    {
+      id: 'benchmark',
+      title: '对标图文',
+      subtitle: '竞品分析与内容对标',
+      description: '智能分析竞品，优化营销策略，洞察市场趋势',
+      image: images.benchmarkContent,
+      alt: '对标图文 - 竞品分析与内容对标',
+      priority: false
+    }
+  ];
+
   const stats = [
     { label: "AI工具", value: "30+", description: "专业工具集" },
     { label: "训练模型", value: "800+", description: "多领域覆盖" },
@@ -56,104 +95,42 @@ export default function HomeContent() {
       {/* Products Section */}
       <section 
         id="products" 
-        className="py-24 md:py-32 bg-background"
+        className="py-16 md:py-24 lg:py-32 bg-background"
         aria-labelledby="products-heading"
       >
         <div className="container-max">
           <h2 id="products-heading" className="sr-only">产品展示</h2>
           
-          {/* Product 1 - 我有产品 */}
-          <div className="mb-32 md:mb-48">
-            <div className="text-center mb-12 md:mb-16">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">我有产品</h3>
-              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6">智能产品图生成与优化</p>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-                专业电商产品图处理，一键生成完美展示，提升转化率
-              </p>
-            </div>
-            <div className="flex justify-center px-4">
-              <div className="relative w-full max-w-3xl aspect-video rounded-xl shadow-card overflow-hidden bg-muted">
-                <Image
-                  src={images.myProduct}
-                  alt="我有产品 - 智能产品图生成与优化"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 768px"
-                  placeholder="blur"
-                  priority
-                />
+          {products.map((product, index) => (
+            <div key={product.id} className={index < products.length - 1 ? "mb-24 md:mb-32 lg:mb-48" : ""}>
+              <div className="text-center mb-12 md:mb-16">
+                <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">
+                  {product.title}
+                </h3>
+                <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6">
+                  {product.subtitle}
+                </p>
+                <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
+                  {product.description}
+                </p>
+              </div>
+              <div className="flex justify-center px-4 sm:px-6 md:px-8">
+                <div className="w-full max-w-[900px] p-4 sm:p-6 md:p-8 lg:p-10 bg-[color:var(--color-bg-surface)] border border-[color:var(--color-border-default)] rounded-xl shadow-[var(--shadow-card)]">
+                  <div className="relative w-full aspect-[3/2] rounded-3xl overflow-hidden">
+                    <Image
+                      src={product.image}
+                      alt={product.alt}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 640px) 90vw, (max-width: 768px) 85vw, (max-width: 1200px) 80vw, 900px"
+                      placeholder="blur"
+                      priority={product.priority}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* Product 2 - 图片焕新 */}
-          <div className="mb-32 md:mb-48">
-            <div className="text-center mb-12 md:mb-16">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">图片焕新</h3>
-              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6">AI图片增强与修复</p>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-                让图片焕然一新，高清修复、背景替换、细节增强
-              </p>
-            </div>
-            <div className="flex justify-center px-4">
-              <div className="relative w-full max-w-3xl aspect-video rounded-xl shadow-card overflow-hidden bg-muted">
-                <Image
-                  src={images.imageRefresh}
-                  alt="图片焕新 - AI图片增强与修复"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 768px"
-                  placeholder="blur"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Product 3 - AI视频生成 */}
-          <div className="mb-32 md:mb-48">
-            <div className="text-center mb-12 md:mb-16">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">AI视频生成</h3>
-              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6">智能视频创作与编辑</p>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-                一站式视频制作解决方案，自动生成、剪辑、特效
-              </p>
-            </div>
-            <div className="flex justify-center px-4">
-              <div className="relative w-full max-w-3xl aspect-video rounded-xl shadow-card overflow-hidden bg-muted">
-                <Image
-                  src={images.aiVideoGeneration}
-                  alt="AI视频生成 - 智能视频创作与编辑"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 768px"
-                  placeholder="blur"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Product 4 - 对标图文 */}
-          <div className="mb-32 md:mb-48">
-            <div className="text-center mb-12 md:mb-16">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">对标图文</h3>
-              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6">竞品分析与内容对标</p>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-                智能分析竞品，优化营销策略，洞察市场趋势
-              </p>
-            </div>
-            <div className="flex justify-center px-4">
-              <div className="relative w-full max-w-3xl aspect-video rounded-xl shadow-card overflow-hidden bg-muted">
-                <Image
-                  src={images.benchmarkContent}
-                  alt="对标图文 - 竞品分析与内容对标"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 768px"
-                  placeholder="blur"
-                />
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -171,7 +148,7 @@ export default function HomeContent() {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
             <FeatureCard
               icon={
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               }
@@ -181,7 +158,7 @@ export default function HomeContent() {
             />
             <FeatureCard
               icon={
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
               }
@@ -191,7 +168,7 @@ export default function HomeContent() {
             />
             <FeatureCard
               icon={
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
               }
@@ -201,7 +178,7 @@ export default function HomeContent() {
             />
             <FeatureCard
               icon={
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                 </svg>
               }
@@ -214,8 +191,8 @@ export default function HomeContent() {
           {/* Additional Features Row */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-[color:var(--color-bg-muted)] rounded-2xl mx-auto mb-3 text-accent" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
@@ -223,8 +200,8 @@ export default function HomeContent() {
               <p className="text-sm text-muted-foreground">激发无限创意</p>
             </Card>
             <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-[color:var(--color-bg-muted)] rounded-2xl mx-auto mb-3 text-accent" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
@@ -232,8 +209,8 @@ export default function HomeContent() {
               <p className="text-sm text-muted-foreground">秒级完成处理</p>
             </Card>
             <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-[color:var(--color-bg-muted)] rounded-2xl mx-auto mb-3 text-accent" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -241,8 +218,8 @@ export default function HomeContent() {
               <p className="text-sm text-muted-foreground">AI驱动精准</p>
             </Card>
             <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-[color:var(--color-bg-muted)] rounded-2xl mx-auto mb-3 text-accent" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
               </div>

@@ -15,7 +15,12 @@ export default function FeatureCard({
 }: FeatureCardProps) {
   return (
     <article className="bg-background border border-border rounded-xl p-5 sm:p-6 shadow-card hover:shadow-lg transition-all duration-300 motion-safe:hover:-translate-y-0.5">
-      <div className="text-3xl sm:text-4xl mb-3 sm:mb-4" aria-hidden="true">{icon}</div>
+      <div 
+        className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-[color:var(--color-bg-muted)] rounded-2xl mb-4 sm:mb-5 text-accent" 
+        aria-hidden="true"
+      >
+        {icon}
+      </div>
       <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2 sm:mb-3">{title}</h3>
       <p className="text-muted-foreground text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">{description}</p>
       <ul className="space-y-2 list-none" aria-label="功能列表">
