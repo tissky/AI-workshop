@@ -148,7 +148,7 @@ export default function HomeContent() {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
             <FeatureCard
               icon={
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               }
@@ -158,7 +158,7 @@ export default function HomeContent() {
             />
             <FeatureCard
               icon={
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
               }
@@ -168,7 +168,7 @@ export default function HomeContent() {
             />
             <FeatureCard
               icon={
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
               }
@@ -178,7 +178,7 @@ export default function HomeContent() {
             />
             <FeatureCard
               icon={
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                 </svg>
               }
@@ -191,8 +191,8 @@ export default function HomeContent() {
           {/* Additional Features Row */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-[color:var(--color-bg-muted)] rounded-2xl mx-auto mb-3 text-accent" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
@@ -200,8 +200,8 @@ export default function HomeContent() {
               <p className="text-sm text-muted-foreground">激发无限创意</p>
             </Card>
             <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-[color:var(--color-bg-muted)] rounded-2xl mx-auto mb-3 text-accent" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
@@ -209,8 +209,8 @@ export default function HomeContent() {
               <p className="text-sm text-muted-foreground">秒级完成处理</p>
             </Card>
             <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-[color:var(--color-bg-muted)] rounded-2xl mx-auto mb-3 text-accent" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -218,8 +218,8 @@ export default function HomeContent() {
               <p className="text-sm text-muted-foreground">AI驱动精准</p>
             </Card>
             <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
-              <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-[color:var(--color-bg-muted)] rounded-2xl mx-auto mb-3 text-accent" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
               </div>
