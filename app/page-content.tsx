@@ -8,6 +8,7 @@ import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import StatsGrid from "@/components/ui/StatsGrid";
 import FeatureCard from "@/components/FeatureCard";
+import { images } from "@/lib/media";
 
 export default function HomeContent() {
   const [showQRModal, setShowQRModal] = useState(false);
@@ -70,13 +71,14 @@ export default function HomeContent() {
               </p>
             </div>
             <div className="flex justify-center px-4">
-              <div className="relative w-full max-w-3xl aspect-video">
+              <div className="relative w-full max-w-3xl aspect-video rounded-xl shadow-card overflow-hidden bg-muted">
                 <Image
-                  src="/images/我有产品.png"
+                  src={images.myProduct}
                   alt="我有产品 - 智能产品图生成与优化"
                   fill
-                  className="object-contain rounded-xl shadow-card"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 768px"
+                  placeholder="blur"
                   priority
                 />
               </div>
@@ -93,13 +95,14 @@ export default function HomeContent() {
               </p>
             </div>
             <div className="flex justify-center px-4">
-              <div className="relative w-full max-w-3xl aspect-video">
+              <div className="relative w-full max-w-3xl aspect-video rounded-xl shadow-card overflow-hidden bg-muted">
                 <Image
-                  src="/images/图片焕新.png"
+                  src={images.imageRefresh}
                   alt="图片焕新 - AI图片增强与修复"
                   fill
-                  className="object-contain rounded-xl shadow-card"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 768px"
+                  placeholder="blur"
                 />
               </div>
             </div>
@@ -115,13 +118,14 @@ export default function HomeContent() {
               </p>
             </div>
             <div className="flex justify-center px-4">
-              <div className="relative w-full max-w-3xl aspect-video">
+              <div className="relative w-full max-w-3xl aspect-video rounded-xl shadow-card overflow-hidden bg-muted">
                 <Image
-                  src="/images/AI视频生成.png"
+                  src={images.aiVideoGeneration}
                   alt="AI视频生成 - 智能视频创作与编辑"
                   fill
-                  className="object-contain rounded-xl shadow-card"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 768px"
+                  placeholder="blur"
                 />
               </div>
             </div>
@@ -137,13 +141,14 @@ export default function HomeContent() {
               </p>
             </div>
             <div className="flex justify-center px-4">
-              <div className="relative w-full max-w-3xl aspect-video">
+              <div className="relative w-full max-w-3xl aspect-video rounded-xl shadow-card overflow-hidden bg-muted">
                 <Image
-                  src="/images/对标图文.jpg"
+                  src={images.benchmarkContent}
                   alt="对标图文 - 竞品分析与内容对标"
                   fill
-                  className="object-contain rounded-xl shadow-card"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 768px"
+                  placeholder="blur"
                 />
               </div>
             </div>
