@@ -191,6 +191,14 @@ export default function ToolsPage() {
                   </div>
 
                   {/* Tools Grid */}
+                  <div 
+                    className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+                    role="list"
+                    aria-label={`${category.name}工具列表`}
+                  >
+                  </div>
+
+                  {/* Tools Grid */}
                   <ul 
                     className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 list-none"
                     aria-label={`${category.name}工具列表`}
@@ -427,6 +435,8 @@ export default function ToolsPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
 
           {/* CTA Section */}
         {/* CTA Section */}
