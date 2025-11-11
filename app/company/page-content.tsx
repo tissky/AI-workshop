@@ -31,7 +31,7 @@ export default function CompanyContent() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         {/* Company Introduction */}
         <section className="mb-24 md:mb-32" aria-labelledby="company-intro">
-          <Card variant="elevated" padding="lg">
+          <Card>
             <h2 id="company-intro" className="text-3xl md:text-4xl font-bold text-foreground mb-8">
               公司简介
             </h2>
@@ -51,7 +51,7 @@ export default function CompanyContent() {
           <h2 id="mission-vision" className="sr-only">我们的使命与愿景</h2>
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             {/* Mission */}
-            <Card variant="bordered" padding="lg" className="text-center">
+            <Card className="text-center">
               <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <svg
                   className="w-12 h-12 text-accent"
@@ -77,7 +77,7 @@ export default function CompanyContent() {
             </Card>
 
             {/* Vision */}
-            <Card variant="bordered" padding="lg" className="text-center">
+            <Card className="text-center">
               <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <svg
                   className="w-12 h-12 text-accent"
@@ -112,7 +112,7 @@ export default function CompanyContent() {
 
         {/* Contact */}
         <section aria-labelledby="contact-us">
-          <Card variant="elevated" padding="lg" className="text-center">
+          <Card className="text-center">
             <h2 id="contact-us" className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               联系我们
             </h2>

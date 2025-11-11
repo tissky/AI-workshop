@@ -141,6 +141,7 @@ export default function ProductsPage() {
           {/* Additional Features Grid */}
           <section className="mb-24 md:mb-32">
             <div className="text-center mb-12 md:mb-16">
+              <Badge variant="accent" size="lg" className="mb-4">
               <Badge variant="default" size="lg" className="mb-4">
                 扩展功能
               </Badge>

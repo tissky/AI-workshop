@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import QRModalWrapper from "@/components/QRModalWrapper";
 import Hero from "@/components/ui/Hero";
 import Button from "@/components/ui/Button";
@@ -62,72 +63,89 @@ export default function HomeContent() {
           {/* Product 1 - 我有产品 */}
           <div className="mb-32 md:mb-48">
             <div className="text-center mb-12 md:mb-16">
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">我有产品</h3>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-6">智能产品图生成与优化</p>
-              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">我有产品</h3>
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6">智能产品图生成与优化</p>
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
                 专业电商产品图处理，一键生成完美展示，提升转化率
               </p>
             </div>
-            <div className="flex justify-center">
-              <img
-                src="/images/我有产品.png"
-                alt="我有产品 - 智能产品图生成与优化"
-                className="w-full max-w-3xl h-auto rounded-xl shadow-card"
-              />
+            <div className="flex justify-center px-4">
+              <div className="relative w-full max-w-3xl aspect-video">
+                <Image
+                  src="/images/我有产品.png"
+                  alt="我有产品 - 智能产品图生成与优化"
+                  fill
+                  className="object-contain rounded-xl shadow-card"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                  priority
+                />
+              </div>
             </div>
           </div>
 
           {/* Product 2 - 图片焕新 */}
           <div className="mb-32 md:mb-48">
             <div className="text-center mb-12 md:mb-16">
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">图片焕新</h3>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-6">AI图片增强与修复</p>
-              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">图片焕新</h3>
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6">AI图片增强与修复</p>
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
                 让图片焕然一新，高清修复、背景替换、细节增强
               </p>
             </div>
-            <div className="flex justify-center">
-              <img
-                src="/images/图片焕新.png"
-                alt="图片焕新 - AI图片增强与修复"
-                className="w-full max-w-3xl h-auto rounded-xl shadow-card"
-              />
+            <div className="flex justify-center px-4">
+              <div className="relative w-full max-w-3xl aspect-video">
+                <Image
+                  src="/images/图片焕新.png"
+                  alt="图片焕新 - AI图片增强与修复"
+                  fill
+                  className="object-contain rounded-xl shadow-card"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
             </div>
           </div>
 
           {/* Product 3 - AI视频生成 */}
           <div className="mb-32 md:mb-48">
             <div className="text-center mb-12 md:mb-16">
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">AI视频生成</h3>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-6">智能视频创作与编辑</p>
-              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">AI视频生成</h3>
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6">智能视频创作与编辑</p>
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
                 一站式视频制作解决方案，自动生成、剪辑、特效
               </p>
             </div>
-            <div className="flex justify-center">
-              <img
-                src="/images/AI视频生成.png"
-                alt="AI视频生成 - 智能视频创作与编辑"
-                className="w-full max-w-3xl h-auto rounded-xl shadow-card"
-              />
+            <div className="flex justify-center px-4">
+              <div className="relative w-full max-w-3xl aspect-video">
+                <Image
+                  src="/images/AI视频生成.png"
+                  alt="AI视频生成 - 智能视频创作与编辑"
+                  fill
+                  className="object-contain rounded-xl shadow-card"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
             </div>
           </div>
 
           {/* Product 4 - 对标图文 */}
           <div className="mb-32 md:mb-48">
             <div className="text-center mb-12 md:mb-16">
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">对标图文</h3>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-6">竞品分析与内容对标</p>
-              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">对标图文</h3>
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 md:mb-6">竞品分析与内容对标</p>
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
                 智能分析竞品，优化营销策略，洞察市场趋势
               </p>
             </div>
-            <div className="flex justify-center">
-              <img
-                src="/images/对标图文.jpg"
-                alt="对标图文 - 竞品分析与内容对标"
-                className="w-full max-w-3xl h-auto rounded-xl shadow-card"
-              />
+            <div className="flex justify-center px-4">
+              <div className="relative w-full max-w-3xl aspect-video">
+                <Image
+                  src="/images/对标图文.jpg"
+                  alt="对标图文 - 竞品分析与内容对标"
+                  fill
+                  className="object-contain rounded-xl shadow-card"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -139,9 +157,9 @@ export default function HomeContent() {
         aria-labelledby="features-heading"
       >
         <div className="container-max">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 id="features-heading" className="text-4xl md:text-5xl font-bold text-foreground mb-6">强大功能</h2>
-            <p className="text-lg md:text-xl text-muted-foreground">一站式解决您的所有创意需求</p>
+          <div className="text-center mb-12 md:mb-16 px-4">
+            <h2 id="features-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">强大功能</h2>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground">一站式解决您的所有创意需求</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
@@ -188,6 +206,26 @@ export default function HomeContent() {
           </div>
 
           {/* Additional Features Row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 px-4 sm:px-0">
+            <Card variant="bordered" padding="sm" className="text-center bg-background hover:bg-accent-muted transition-colors">
+              <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3" aria-hidden="true">💡</div>
+              <h3 className="text-sm sm:text-base font-semibold text-foreground mb-1 sm:mb-2">创意工具</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">激发无限创意</p>
+            </Card>
+            <Card variant="bordered" padding="sm" className="text-center bg-background hover:bg-accent-muted transition-colors">
+              <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3" aria-hidden="true">⚡</div>
+              <h3 className="text-sm sm:text-base font-semibold text-foreground mb-1 sm:mb-2">高效快速</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">秒级完成处理</p>
+            </Card>
+            <Card variant="bordered" padding="sm" className="text-center bg-background hover:bg-accent-muted transition-colors">
+              <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3" aria-hidden="true">🎯</div>
+              <h3 className="text-sm sm:text-base font-semibold text-foreground mb-1 sm:mb-2">精准智能</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">AI驱动精准</p>
+            </Card>
+            <Card variant="bordered" padding="sm" className="text-center bg-background hover:bg-accent-muted transition-colors">
+              <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3" aria-hidden="true">🏆</div>
+              <h3 className="text-sm sm:text-base font-semibold text-foreground mb-1 sm:mb-2">专业品质</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">专业级效果</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             <Card variant="bordered" padding="md" className="text-center bg-background hover:bg-accent-muted transition-colors">
               <div className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 text-accent" aria-hidden="true">
@@ -222,6 +260,23 @@ export default function HomeContent() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
               </div>
+            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
+              <div className="text-3xl md:text-4xl mb-3" aria-hidden="true">💡</div>
+              <h3 className="font-semibold text-foreground mb-2">创意工具</h3>
+              <p className="text-sm text-muted-foreground">激发无限创意</p>
+            </Card>
+            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
+              <div className="text-3xl md:text-4xl mb-3" aria-hidden="true">⚡</div>
+              <h3 className="font-semibold text-foreground mb-2">高效快速</h3>
+              <p className="text-sm text-muted-foreground">秒级完成处理</p>
+            </Card>
+            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
+              <div className="text-3xl md:text-4xl mb-3" aria-hidden="true">🎯</div>
+              <h3 className="font-semibold text-foreground mb-2">精准智能</h3>
+              <p className="text-sm text-muted-foreground">AI驱动精准</p>
+            </Card>
+            <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
+              <div className="text-3xl md:text-4xl mb-3" aria-hidden="true">🏆</div>
               <h3 className="font-semibold text-foreground mb-2">专业品质</h3>
               <p className="text-sm text-muted-foreground">专业级效果</p>
             </Card>
@@ -235,9 +290,9 @@ export default function HomeContent() {
         aria-labelledby="stats-heading"
       >
         <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 id="stats-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">平台数据</h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-12 px-4">
+            <h2 id="stats-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">平台数据</h2>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               涵盖图像处理、自然语言处理、音频处理、视频分析等多个领域
             </p>
           </div>
@@ -262,6 +317,9 @@ export default function HomeContent() {
         <div className="container-max text-center">
           <h2 id="cta-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 md:mb-8">准备好开始了？</h2>
           <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-12 max-w-2xl mx-auto">
+        <div className="container-max text-center px-4">
+          <h2 id="cta-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 md:mb-8">准备好开始了？</h2>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 max-w-2xl mx-auto opacity-90">
             立即体验强大的AI工具，让创意无限延伸
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -269,6 +327,7 @@ export default function HomeContent() {
               size="lg"
               onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
               aria-label="即刻体验AI创意工坊"
+              className="bg-background text-foreground hover:bg-muted min-h-[44px]"
             >
               即刻体验
             </Button>
@@ -277,6 +336,7 @@ export default function HomeContent() {
               size="lg"
               onClick={() => setShowQRModal(true)}
               aria-label="联系我们"
+              className="border-background text-background hover:bg-background hover:text-foreground min-h-[44px]"
             >
               联系我们
             </Button>
