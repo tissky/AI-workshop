@@ -4,7 +4,7 @@ import "./globals.css";
 import SkipLink from "@/components/SkipLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import QuickNav from "@/components/QuickNav";
+import PageScrollButton from "@/components/PageScrollButton";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/metadata";
 import TransitionProvider from "@/components/providers/TransitionProvider";
 
@@ -67,7 +67,7 @@ export default function RootLayout({
           </TransitionProvider>
         </main>
         <Footer />
-        <QuickNav />
+        <PageScrollButton />
       </body>
     </html>
   );

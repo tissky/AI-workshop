@@ -8,7 +8,6 @@ import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import StatsGrid from "@/components/ui/StatsGrid";
 import FeatureCard from "@/components/FeatureCard";
-import ScrollButton from "@/components/ScrollButton";
 import { images } from "@/lib/media";
 
 export default function HomeContent() {
@@ -137,13 +136,13 @@ export default function HomeContent() {
         className="py-12 sm:py-16 md:py-24 bg-muted" 
         aria-labelledby="features-heading"
       >
-        <div className="container-max">
-          <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4">
+        <div className="container-max px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 id="features-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">强大功能</h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground">一站式解决您的所有创意需求</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 max-w-6xl mx-auto">
             <FeatureCard
               icon={
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
@@ -187,7 +186,7 @@ export default function HomeContent() {
           </div>
 
           {/* Additional Features Row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-6xl mx-auto">
             <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
               <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-[color:var(--color-bg-muted)] rounded-2xl mx-auto mb-3 text-accent" aria-hidden="true">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
@@ -287,9 +286,6 @@ export default function HomeContent() {
 
       {/* QR Modal */}
       <QRModalWrapper isOpen={showQRModal} onClose={() => setShowQRModal(false)} />
-      
-      {/* Scroll Button */}
-      <ScrollButton />
     </div>
   );
 }
