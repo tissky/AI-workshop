@@ -6,6 +6,8 @@ Welcome to the AI创意工坊 (AI Creative Workshop) documentation hub.
 
 ## 🎯 Quick Navigation
 
+### 📍 Roadmap & Planning
+- **[🗺️ Feature Roadmap](./roadmap.md)** - Near-, mid-, and long-term feature expansion plan
 ### ⚙️ Configuration
 - **[📘 Configuration Guide](./configuration/README.md)** - Complete configuration reference
 - **[🎨 Theme & Design Tokens](./configuration/theme.md)** - Tailwind v4 theme system
@@ -26,6 +28,38 @@ Welcome to the AI创意工坊 (AI Creative Workshop) documentation hub.
 
 ---
 
+## 📍 Roadmap & Planning
+
+### Feature Expansion Roadmap
+
+Strategic planning document for evolving AI创意工坊 from marketing site to full-featured platform.
+
+#### [🗺️ Feature Roadmap](./roadmap.md)
+Comprehensive phased plan with three major phases:
+
+**Near-Term (0-6 Months)**: Foundation & Core Functionality
+- Authentication & user management
+- File upload & storage
+- Core tool integration (image processing)
+- User dashboard & credits system
+- Payment & subscription system
+- Admin dashboard
+
+**Mid-Term (6-12 Months)**: Enhanced Features & Growth
+- Video & text tool integration
+- AI models & creative tools (800+ models)
+- Collaboration & sharing features
+- Analytics & insights dashboard
+- API access & webhooks
+
+**Long-Term (12-24 Months)**: Enterprise & Expansion
+- Enterprise features (SSO, compliance, SLA)
+- Mobile applications (iOS, Android, PWA)
+- Marketplace & plugins ecosystem
+- Advanced AI capabilities
+- International expansion (multi-language, regional compliance)
+
+**Use this when**: Planning features, understanding dependencies, or mapping technical requirements
 ## ⚙️ Configuration Documentation
 
 ### Complete Configuration Guide
@@ -215,6 +249,8 @@ Located in project root:
 
 ### For Developers
 
+1. **Starting a new feature?**
+   - Review [Feature Roadmap](./roadmap.md) for planned features and technical dependencies
 1. **Setting up the project?**
    - Start with [Configuration Guide](./configuration/README.md) for quick start
    - Set up [Environment Variables](./configuration/environment.md)
@@ -240,11 +276,16 @@ Located in project root:
 
 ### For Project Managers
 
-1. **Checking project progress?**
+1. **Planning roadmap and priorities?**
+   - Review [Feature Roadmap](./roadmap.md) for phased implementation plan
+   - Check dependencies and prerequisites for each phase
+   - Review measurable outcomes and success metrics
+
+2. **Checking project progress?**
    - View [Quick Status](./design-system/QUICK_STATUS.md) for overview
    - Review [Execution Log](./design-system/EXECUTION_LOG.md) for details
 
-2. **Planning next tasks?**
+3. **Planning next tasks?**
    - Check dependency chains in execution log
    - Review estimated time remaining
    - Check for blockers in issues section
@@ -273,6 +314,13 @@ Located in project root:
    - Review [SEO & Metadata](./configuration/seo.md) best practices
    - Update page metadata and descriptions
    - Validate structured data with Google tools
+
+### For Product Team
+
+1. **Planning features?**
+   - Review [Feature Roadmap](./roadmap.md) for strategic vision
+   - Check component and data impacts for each phase
+   - Review backend dependencies and infrastructure needs
 
 ---
 
