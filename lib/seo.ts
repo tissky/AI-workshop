@@ -4,7 +4,7 @@
 const SITE_CONFIG = {
   name: 'AI创意工坊',
   url: 'https://ai-creative-workshop.com',
-  description: '集成30+专业AI工具，涵盖图片处理、视频编辑、文案创作等多个领域',
+  description: '集成29款专业AI工具，涵盖图片处理、视频编辑、文案处理等多个领域',
   logo: 'https://ai-creative-workshop.com/logo.png',
   contactEmail: 'contact@ai-creative-workshop.com',
   contactPhone: '+86-10-12345678',
