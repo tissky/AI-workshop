@@ -131,7 +131,7 @@ export default function TechnologyPageContent() {
 
           <div className="grid md:grid-cols-3 gap-8 md:gap-10">
             {/* Deep Learning */}
-            <Card variant="elevated" padding="lg">
+            <Card>
               <div className="w-16 h-16 bg-accent-muted rounded-xl flex items-center justify-center mb-6">
                 <svg
                   className="w-8 h-8 text-accent"
@@ -157,7 +157,7 @@ export default function TechnologyPageContent() {
             </Card>
 
             {/* High Performance Computing */}
-            <Card variant="elevated" padding="lg">
+            <Card>
               <div className="w-16 h-16 bg-accent-muted rounded-xl flex items-center justify-center mb-6">
                 <svg
                   className="w-8 h-8 text-accent"
@@ -183,7 +183,7 @@ export default function TechnologyPageContent() {
             </Card>
 
             {/* Data Security */}
-            <Card variant="elevated" padding="lg">
+            <Card>
               <div className="w-16 h-16 bg-accent-muted rounded-xl flex items-center justify-center mb-6">
                 <svg
                   className="w-8 h-8 text-accent"
@@ -212,7 +212,7 @@ export default function TechnologyPageContent() {
 
         {/* Technical Advantages */}
         <section className="mb-24 md:mb-32" aria-labelledby="tech-advantages">
-          <Card variant="elevated" padding="lg">
+          <Card>
             <h2 id="tech-advantages" className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
               技术优势
             </h2>
@@ -262,7 +262,7 @@ export default function TechnologyPageContent() {
 
         {/* Technology Stack */}
         <section aria-labelledby="tech-stack">
-          <Card variant="elevated" padding="lg">
+          <Card>
             <h2 id="tech-stack" className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
               技术栈
             </h2>

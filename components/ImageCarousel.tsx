@@ -110,12 +110,6 @@ export default function ImageCarousel({
         aria-live="polite"
         aria-atomic="true"
       >
-        {/* Masked edges overlay */}
-        <div className="absolute inset-0 pointer-events-none z-10" style={{
-          maskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)'
-        }} />
-
         {items.map((item, index) => (
           <div
             key={item.id}
@@ -157,7 +151,7 @@ export default function ImageCarousel({
           <>
             <button
               onClick={goToPrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-background/90 hover:bg-background rounded-full flex items-center justify-center shadow-card transition-all duration-200 ease-apple opacity-0 group-hover:opacity-100 focus:opacity-100 text-foreground hover:scale-110 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-background/90 hover:bg-background rounded-full flex items-center justify-center shadow-card transition-all duration-200 ease-apple opacity-0 group-hover:opacity-100 focus:opacity-100 text-foreground hover:scale-110 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 z-20"
               aria-label="上一张图片"
               type="button"
             >
@@ -179,7 +173,7 @@ export default function ImageCarousel({
             
             <button
               onClick={goToNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-background/90 hover:bg-background rounded-full flex items-center justify-center shadow-card transition-all duration-200 ease-apple opacity-0 group-hover:opacity-100 focus:opacity-100 text-foreground hover:scale-110 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-background/90 hover:bg-background rounded-full flex items-center justify-center shadow-card transition-all duration-200 ease-apple opacity-0 group-hover:opacity-100 focus:opacity-100 text-foreground hover:scale-110 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 z-20"
               aria-label="下一张图片"
               type="button"
             >
@@ -204,7 +198,8 @@ export default function ImageCarousel({
         {/* Dots Indicator */}
         {items.length > 1 && (
           <div 
-            className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-background/80 backdrop-blur-sm px-3 py-2 rounded-full" 
+            className="absolute bottom-28 left-1/2 -translate-x-1/2 flex gap-2 bg-background/80 backdrop-blur-sm px-3 py-2 rounded-full z-20" 
+            className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-background/80 backdrop-blur-sm px-3 py-2 rounded-full z-20" 
             role="tablist" 
             aria-label="轮播导航点"
           >
