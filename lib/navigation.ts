@@ -6,23 +6,25 @@
 export interface NavLink {
   label: string;
   href: string;
-  ariaLabel?: string;
-}
-
-export interface CTAConfig {
-  label: string;
-  url: string;
   ariaLabel: string;
+  isExternal?: boolean;
+  encodedUrl?: string;
 }
 
 /**
- * Primary navigation links
+ * Primary navigation links (5 items)
+ * Last item (即刻体验) is a CTA that opens an external encoded URL in a new tab
  */
 export const primaryNavLinks: NavLink[] = [
   {
     label: "首页",
     href: "/",
     ariaLabel: "返回首页",
+  },
+  {
+    label: "定价",
+    href: "/pricing",
+    ariaLabel: "查看产品定价",
   },
   {
     label: "产品",
@@ -35,31 +37,13 @@ export const primaryNavLinks: NavLink[] = [
     ariaLabel: "浏览AI工具库",
   },
   {
-    label: "模型库",
-    href: "/models",
-    ariaLabel: "探索AI模型库",
-  },
-  {
-    label: "技术",
-    href: "/technology",
-    ariaLabel: "了解核心技术",
-  },
-  {
-    label: "公司",
-    href: "/company",
-    ariaLabel: "关于我们",
+    label: "即刻体验",
+    href: "#",
+    ariaLabel: "即刻体验AI创意工坊",
+    isExternal: true,
+    encodedUrl: "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=",
   },
 ];
-
-/**
- * CTA button configuration
- * Note: The actual URL is encoded and should be decoded at runtime
- */
-export const ctaConfig: CTAConfig = {
-  label: "即刻体验",
-  url: "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=",
-  ariaLabel: "即刻体验AI创意工坊",
-};
 
 /**
  * Brand configuration

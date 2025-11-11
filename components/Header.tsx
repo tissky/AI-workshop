@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { primaryNavLinks, ctaConfig, brandConfig } from "@/lib/navigation";
+import { primaryNavLinks, brandConfig } from "@/lib/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement>(null);
-  const firstFocusableRef = useRef<HTMLAnchorElement>(null);
+  const firstFocusableRef = useRef<HTMLElement>(null);
   const lastFocusableRef = useRef<HTMLButtonElement>(null);
 
   // Close menu on route change
@@ -74,8 +74,11 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleCTAClick = () => {
-    window.open(atob(ctaConfig.url), '_blank', 'noopener,noreferrer');
+  const handleNavClick = (link: typeof primaryNavLinks[number], e: React.MouseEvent<HTMLButtonElement>) => {
+    if (link.isExternal && link.encodedUrl) {
+      e.preventDefault();
+      window.open(atob(link.encodedUrl), '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (
@@ -95,24 +98,32 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav aria-label="主导航" className="hidden lg:flex items-center gap-8">
-            {primaryNavLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-foreground hover:text-accent transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm"
-                aria-label={link.ariaLabel}
-                aria-current={pathname === link.href ? "page" : undefined}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <button
-              onClick={handleCTAClick}
-              className="btn-primary px-4 py-2 text-sm font-medium"
-              aria-label={ctaConfig.ariaLabel}
-            >
-              {ctaConfig.label}
-            </button>
+            {primaryNavLinks.map((link) => {
+              if (link.isExternal) {
+                return (
+                  <button
+                    key={link.label}
+                    onClick={(e) => handleNavClick(link, e)}
+                    className="btn-primary px-4 py-2 text-sm font-medium"
+                    aria-label={link.ariaLabel}
+                  >
+                    {link.label}
+                  </button>
+                );
+              }
+              
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm font-medium text-foreground hover:text-accent transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 focus-visible:rounded-sm"
+                  aria-label={link.ariaLabel}
+                  aria-current={pathname === link.href ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -157,27 +168,36 @@ export default function Header() {
           >
             <nav className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-6" aria-label="主导航">
               <div className="flex flex-col gap-1">
-                {primaryNavLinks.map((link, index) => (
-                  <Link
-                    key={link.href}
-                    ref={index === 0 ? firstFocusableRef : undefined}
-                    href={link.href}
-                    className="px-4 py-3 text-base font-medium text-foreground hover:text-accent hover:bg-muted rounded-lg transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
-                    aria-label={link.ariaLabel}
-                    aria-current={pathname === link.href ? "page" : undefined}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-
-                {/* CTA Button */}
-                <button
-                  onClick={handleCTAClick}
-                  className="mt-4 btn-primary px-4 py-3 text-base font-medium w-full"
-                  aria-label={ctaConfig.ariaLabel}
-                >
-                  {ctaConfig.label}
-                </button>
+                {primaryNavLinks.map((link, index) => {
+                  const isFirst = index === 0;
+                  
+                  if (link.isExternal) {
+                    return (
+                      <button
+                        key={link.label}
+                        ref={isFirst ? (firstFocusableRef as React.RefObject<HTMLButtonElement>) : undefined}
+                        onClick={(e) => handleNavClick(link, e)}
+                        className="px-4 py-3 text-base font-medium btn-primary w-full"
+                        aria-label={link.ariaLabel}
+                      >
+                        {link.label}
+                      </button>
+                    );
+                  }
+                  
+                  return (
+                    <Link
+                      key={link.href}
+                      ref={isFirst ? (firstFocusableRef as React.RefObject<HTMLAnchorElement>) : undefined}
+                      href={link.href}
+                      className="px-4 py-3 text-base font-medium text-foreground hover:text-accent hover:bg-muted rounded-lg transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+                      aria-label={link.ariaLabel}
+                      aria-current={pathname === link.href ? "page" : undefined}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
 
                 {/* Close Button */}
                 <button
