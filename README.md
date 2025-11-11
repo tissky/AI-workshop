@@ -293,6 +293,36 @@ components/
 ## 💻 开发工作流 (Development Workflow)
 
 ### 1. 环境要求
+### 方法一：自动化设置（推荐）⚡
+
+使用我们的自动化设置脚本，一键完成所有配置！
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/yourusername/ai-workshop.git
+cd ai-workshop
+
+# 2. 运行自动化设置脚本
+npm run setup
+
+# 3. 按照向导提示完成配置
+# 脚本会自动：
+# ✓ 验证 Node.js/npm 版本
+# ✓ 安装项目依赖
+# ✓ 检查/安装 Vercel CLI（可选）
+# ✓ 配置环境变量（.env.local）
+# ✓ 运行构建测试（可选）
+# ✓ 部署到 Vercel（可选）
+
+# 4. 启动开发服务器
+npm run dev
+```
+
+> 💡 **提示：** 查看 [SETUP.md](./SETUP.md) 了解设置脚本的详细说明和故障排除
+
+### 方法二：手动安装
+
+#### 环境要求
 
 - **Node.js**: `>=18.0.0` (推荐使用LTS版本 18.x 或 20.x)
 - **npm**: `>=9.0.0` (随Node.js安装)
@@ -301,6 +331,7 @@ components/
 - **编辑器**: VS Code (推荐), WebStorm, Cursor
 
 ### 2. 快速开始
+#### 安装步骤
 
 ```bash
 # 1. 克隆仓库
@@ -439,6 +470,16 @@ const HeavyChart = dynamic(() => import("./HeavyChart"), {
 
 #### 4.4 测试流程
 
+3. **配置环境变量**
+```bash
+# 复制环境变量模板
+cp .env.example .env.local
+
+# 编辑 .env.local 文件，设置必要的环境变量
+# NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+4. **启动开发服务器**
 ```bash
 # 1. 代码质量检查
 npm run lint
@@ -460,6 +501,8 @@ npm start
 ```
 
 ---
+5. **访问网站**
+打开浏览器访问 [http://localhost:3000](http://localhost:3000)
 
 ## 🚀 部署指南 (Deployment)
 
@@ -500,6 +543,20 @@ npm run build:analyze
 3. 设置自动部署 (git push触发)
 
 #### 方法二: Vercel CLI
+### 方法一：自动化设置脚本（最简单）⚡
+
+使用自动化设置脚本，包含 Vercel 部署选项：
+
+```bash
+npm run setup
+# 按照向导选择部署选项
+# 脚本会自动检查/安装 Vercel CLI
+# 提供预览部署和生产部署选项
+```
+
+📚 **详细部署指南：** [docs/deployment/vercel.md](./docs/deployment/vercel.md)
+
+### 方法二：使用Vercel CLI部署
 
 ```bash
 # 1. 安装Vercel CLI
@@ -516,6 +573,7 @@ vercel --prod
 ```
 
 #### 方法三: GitHub集成 (推荐生产环境)
+### 方法三：使用GitHub + Vercel（推荐）
 
 ```bash
 # 1. 推送代码到GitHub
@@ -719,6 +777,9 @@ git push -u origin main
 - [ ] 支付系统集成 (订阅制)
 
 ### 📋 计划中功能 (v0.3.0+)
+> 📍 **完整功能规划**: 查看 [功能路线图](./docs/roadmap.md) 了解详细的分阶段实施计划
+
+---
 
 - [ ] 后台管理系统 (CMS)
 - [ ] 多语言支持 (i18n: 中文/英文)
@@ -775,6 +836,19 @@ A: 编辑 `app/globals.css` 中的CSS变量定义，例如:
   --color-accent: #007AFF;  /* 修改强调色 */
 }
 ```
+### 部署指南
+
+- **[🚀 Vercel部署指南](./docs/deployment/vercel.md)** - 完整的自动化部署文档
+  - 自动化设置脚本使用说明
+  - 手动部署流程（CLI、GitHub集成、Dashboard）
+  - 环境变量配置详解
+  - 常见问题与故障排除
+  - 回滚与版本管理
+### 产品路线图
+
+- **[🗺️ 功能路线图](./docs/roadmap.md)** - 完整的功能扩展规划（近期、中期、长期）
+
+### 设计系统进度追踪
 
 ### 部署相关
 

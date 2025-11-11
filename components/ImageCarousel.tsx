@@ -110,12 +110,6 @@ export default function ImageCarousel({
         aria-live="polite"
         aria-atomic="true"
       >
-        {/* Masked edges overlay */}
-        <div className="absolute inset-0 pointer-events-none z-10" style={{
-          maskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)'
-        }} />
-
         {items.map((item, index) => (
           <div
             key={item.id}
@@ -204,6 +198,7 @@ export default function ImageCarousel({
         {/* Dots Indicator */}
         {items.length > 1 && (
           <div 
+            className="absolute bottom-28 left-1/2 -translate-x-1/2 flex gap-2 bg-background/80 backdrop-blur-sm px-3 py-2 rounded-full z-20" 
             className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-background/80 backdrop-blur-sm px-3 py-2 rounded-full z-20" 
             role="tablist" 
             aria-label="轮播导航点"
