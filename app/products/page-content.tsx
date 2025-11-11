@@ -12,7 +12,6 @@ export default function ProductsPageContent() {
       {/* Main Product Categories */}
       {productCategories.map((category, categoryIndex) => (
         <article key={category.id} id={category.id} className="scroll-mt-20">
-          <Card 
           <Card
             className="shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 md:p-12 overflow-hidden"
             variant="elevated"
@@ -68,7 +67,6 @@ export default function ProductsPageContent() {
               variant="interactive"
               padding="none"
               className="overflow-hidden group relative"
-              padding="none"
               role="article"
             >
               <div className="relative h-64">
@@ -113,7 +111,6 @@ export default function ProductsPageContent() {
               variant="interactive"
               padding="none"
               className="overflow-hidden group relative"
-              padding="none"
               role="article"
             >
               <div className="relative h-48">
