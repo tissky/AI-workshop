@@ -243,10 +243,10 @@ export default function HomeContent() {
           <div className="text-center mt-8 sm:mt-12">
             <Button 
               size="lg"
-              onClick={() => window.location.href = '/models'}
-              aria-label="探索AI模型库"
+              onClick={() => window.location.href = '/tools'}
+              aria-label="探索AI工具库"
             >
-              探索模型库
+              探索AI工具
             </Button>
           </div>
         </div>
