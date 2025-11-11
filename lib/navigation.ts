@@ -59,5 +59,13 @@ export const brandConfig = {
 export const ctaConfig = {
   label: "即刻体验",
   url: "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=",
+ * CTA (Call-to-Action) Configuration
+ * Centralized CTA button configuration for consistent use across pages
+ */
+export const ctaConfig = {
+  url: "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=",
+  text: "即刻体验",
+  label: "即刻体验",
+  target: "_blank" as const,
   ariaLabel: "即刻体验AI创意工坊",
 };
