@@ -95,15 +95,15 @@ export default function HomeContent() {
       {/* Products Section */}
       <section 
         id="products" 
-        className="py-16 md:py-24 lg:py-32 bg-background"
+        className="py-12 sm:py-16 md:py-24 lg:py-32 bg-background"
         aria-labelledby="products-heading"
       >
         <div className="container-max">
           <h2 id="products-heading" className="sr-only">产品展示</h2>
           
           {products.map((product, index) => (
-            <div key={product.id} className={index < products.length - 1 ? "mb-24 md:mb-32 lg:mb-48" : ""}>
-              <div className="text-center mb-12 md:mb-16">
+            <div key={product.id} className={index < products.length - 1 ? "mb-16 sm:mb-24 md:mb-32 lg:mb-48" : ""}>
+              <div className="text-center mb-8 sm:mb-12 md:mb-16">
                 <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">
                   {product.title}
                 </h3>
@@ -136,16 +136,16 @@ export default function HomeContent() {
 
       {/* Features Grid Section */}
       <section 
-        className="py-20 md:py-24 bg-muted" 
+        className="py-12 sm:py-16 md:py-24 bg-muted" 
         aria-labelledby="features-heading"
       >
         <div className="container-max">
-          <div className="text-center mb-12 md:mb-16 px-4">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4">
             <h2 id="features-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">强大功能</h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground">一站式解决您的所有创意需求</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
             <FeatureCard
               icon={
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
@@ -189,7 +189,7 @@ export default function HomeContent() {
           </div>
 
           {/* Additional Features Row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             <Card className="text-center bg-background hover:bg-accent-muted transition-colors">
               <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-[color:var(--color-bg-muted)] rounded-2xl mx-auto mb-3 text-accent" aria-hidden="true">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-2/3 h-2/3">
@@ -232,18 +232,18 @@ export default function HomeContent() {
 
       {/* Stats Section */}
       <section 
-        className="py-20 md:py-24 bg-background" 
+        className="py-12 sm:py-16 md:py-24 bg-background" 
         aria-labelledby="stats-heading"
       >
         <div className="container-max">
-          <div className="text-center mb-12 px-4">
+          <div className="text-center mb-8 sm:mb-12 px-4">
             <h2 id="stats-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">平台数据</h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               涵盖图像处理、自然语言处理、音频处理、视频分析等多个领域
             </p>
           </div>
           <StatsGrid stats={stats} columns={4} variant="cards" align="center" />
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12">
             <Button 
               size="lg"
               onClick={() => window.location.href = '/models'}
@@ -257,15 +257,15 @@ export default function HomeContent() {
 
       {/* CTA Section */}
       <section 
-        className="py-24 md:py-32 bg-muted" 
+        className="py-16 sm:py-20 md:py-32 bg-muted" 
         aria-labelledby="cta-heading"
       >
         <div className="container-max text-center px-4">
           <h2 id="cta-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 md:mb-8">准备好开始了？</h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 max-w-2xl mx-auto opacity-90">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 md:mb-12 max-w-2xl mx-auto opacity-90">
             立即体验强大的AI工具，让创意无限延伸
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
             <Button 
               size="lg"
               onClick={() => window.open(atob(hiddenUrl), '_blank', 'noopener,noreferrer')}
