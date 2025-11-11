@@ -229,6 +229,43 @@ export function generateModelListSchema(models: Array<{
 }
 
 /**
+ * Generate OfferCatalog JSON-LD for pricing plans
+ */
+export function generatePricingSchema(plans: Array<{
+  name: string;
+  description: string;
+  price: number;
+  duration: string;
+}>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    name: `${SITE_CONFIG.name} - 定价方案`,
+    description: '提供多种灵活的会员套餐，满足不同用户需求',
+    itemListElement: plans.map((plan, index) => ({
+      '@type': 'Offer',
+      position: index + 1,
+      name: plan.name,
+      description: plan.description,
+      price: plan.price.toString(),
+      priceCurrency: 'CNY',
+      availability: 'https://schema.org/InStock',
+      validFrom: new Date().toISOString(),
+      priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(),
+      itemOffered: {
+        '@type': 'Service',
+        name: `${SITE_CONFIG.name} ${plan.name}`,
+        description: plan.description,
+        provider: {
+          '@type': 'Organization',
+          name: SITE_CONFIG.name,
+        },
+      },
+    })),
+  };
+}
+
+/**
  * Helper to convert structured data to JSON-LD script props
  */
 export function structuredDataToScriptProps(data: unknown) {
