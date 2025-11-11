@@ -11,7 +11,10 @@
     "build": "next build",
     "build:analyze": "ANALYZE=true next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cleanup:dry-run": "node scripts/cleanup-deletable.js --dry-run",
+    "cleanup:execute": "node scripts/cleanup-deletable.js",
+    "cleanup:list": "node scripts/cleanup-deletable.js --list"
   },
   "dependencies": {
     "next": "15.4.7",

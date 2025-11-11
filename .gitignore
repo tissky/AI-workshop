@@ -31,6 +31,9 @@ yarn-error.log*
 .pnpm-debug.log*
 dev-server.log
 
+# cleanup audit logs
+cleanup-audit.log
+
 # env files (can opt-in for committing if needed)
 .env*
 !.env.example
