@@ -52,3 +52,12 @@ export const brandConfig = {
   name: "AI创意工坊",
   homeUrl: "/",
 };
+
+/**
+ * CTA configuration (extracted from primaryNavLinks for convenience)
+ */
+export const ctaConfig = {
+  label: "即刻体验",
+  url: "aHR0cHM6Ly9vb29vb29vb29vb29vby54aWFuZ211Y2hhbi5jbi91cGRhdGUtaGlzdG9yeS5waHA=",
+  ariaLabel: "即刻体验AI创意工坊",
+};

@@ -208,65 +208,6 @@ export default function ToolsPage() {
                   </div>
 
                   {/* Tools Grid */}
-                  <div 
-                    className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
-                    role="list"
-                    aria-label={`${category.name}工具列表`}
-                  >
-                    {category.tools.map((tool) => (
-                      <Link
-                        key={tool.id}
-                        href={`/tools/${tool.id}`}
-                        className="group block"
-                        aria-label={`查看${tool.name}详情`}
-                      >
-                        <Card 
-                          variant="interactive"
-                          className="h-full relative"
-                          role="listitem"
-                        >
-                          {/* Hot Badge */}
-                          {tool.hot && (
-                            <Badge
-                              variant="error"
-                              size="sm"
-                              className="absolute top-4 right-4"
-                            >
-                              🔥 热门
-                            </Badge>
-                          )}
-                          
-                          <div className="space-y-3">
-                            <h3 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors pr-8">
-                              {tool.name}
-                            </h3>
-                            <p className="text-muted-foreground text-sm leading-relaxed">
-                              {tool.desc}
-                            </p>
-                            <div className="flex items-center text-accent text-sm font-medium pt-2">
-                              <span className="group-hover:translate-x-1 transition-transform duration-200">
-                                开始使用
-                              </span>
-                              <svg 
-                                className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" 
-                                fill="none" 
-                                stroke="currentColor" 
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                              >
-                                <path 
-                                  strokeLinecap="round" 
-                                  strokeLinejoin="round" 
-                                  strokeWidth={2} 
-                                  d="M9 5l7 7-7 7" 
-                                />
-                              </svg>
-                            </div>
-                          </div>
-                        </Card>
-                      </Link>
-                    ))}
-                  </div>
                   <ul 
                     className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 list-none"
                     aria-label={`${category.name}工具列表`}
