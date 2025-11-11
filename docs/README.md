@@ -6,6 +6,8 @@ Welcome to the AI创意工坊 (AI Creative Workshop) documentation hub.
 
 ## 🎯 Quick Navigation
 
+### 🚀 Deployment
+- **[🚀 Vercel Deployment Guide](./deployment/vercel.md)** - Complete automated deployment documentation
 ### 📍 Roadmap & Planning
 - **[🗺️ Feature Roadmap](./roadmap.md)** - Near-, mid-, and long-term feature expansion plan
 ### ⚙️ Configuration
@@ -28,6 +30,30 @@ Welcome to the AI创意工坊 (AI Creative Workshop) documentation hub.
 
 ---
 
+## 🚀 Deployment Documentation
+
+### Vercel Deployment
+
+Complete guide for deploying AI创意工坊 to Vercel with automated setup.
+
+#### [🚀 Vercel Deployment Guide](./deployment/vercel.md)
+Comprehensive deployment documentation:
+- **Automated setup script** - One-command project configuration
+- **Prerequisites** - Node.js, npm, Git, Vercel account requirements
+- **Setup script walkthrough** - Step-by-step automation guide
+- **Manual deployment options** - Vercel CLI, GitHub integration, Dashboard upload
+- **Environment variables** - Configuration for all environments
+- **Deployment strategies** - Preview, production, prebuilt deployments
+- **Troubleshooting** - Common issues and solutions
+- **Rollback procedures** - Version management and emergency rollback
+- **Performance monitoring** - Analytics and optimization tips
+
+**Use this when**: 
+- Setting up the project for the first time
+- Deploying to Vercel (preview or production)
+- Configuring environment variables
+- Troubleshooting deployment issues
+- Rolling back to previous versions
 ## 📍 Roadmap & Planning
 
 ### Feature Expansion Roadmap
@@ -249,6 +275,9 @@ Located in project root:
 
 ### For Developers
 
+1. **Setting up the project for the first time?**
+   - Run `npm run setup` for automated configuration
+   - See [Vercel Deployment Guide](./deployment/vercel.md) for details
 1. **Starting a new feature?**
    - Review [Feature Roadmap](./roadmap.md) for planned features and technical dependencies
 1. **Setting up the project?**
@@ -270,6 +299,10 @@ Located in project root:
    - Read the specific [component doc](./components/)
    - Review props, usage examples, and accessibility guidelines
 
+5. **Deploying to production?**
+   - Review [Vercel Deployment Guide](./deployment/vercel.md)
+   - Use automated setup script or manual CLI deployment
+   - Check environment variable configuration
 5. **Adding/updating content?**
    - Follow [Content Management](./configuration/content.md) workflows
    - Update [SEO Metadata](./configuration/seo.md) as needed

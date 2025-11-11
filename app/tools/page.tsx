@@ -10,8 +10,6 @@ import StatsGrid from "@/components/ui/StatsGrid";
 import { toolCategories } from "@/lib/tools";
 import { generateToolListSchema } from "@/lib/seo";
 import { toolCategories } from "@/lib/tools";
-import { generateToolListSchema } from "@/lib/seo";
-import { toolCategories } from "@/lib/tools";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
@@ -363,17 +361,14 @@ export default function ToolsPage() {
                                 variant="hot" 
                                 size="sm" 
                                 className="absolute top-4 right-4"
-          {/* Tools by Category */}
-          <div className="mt-16 space-y-16">
-            {toolCategories.map((category) => (
-              <article 
-                key={category.id}
-                aria-labelledby={`category-${category.id}`}
-              >
-                <div className="mb-8">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span 
-                      className="text-4xl" 
+                              >
+                                🔥 热门
+                              </Badge>
+                            )}
+                            
+                            <div className="flex items-center gap-3 mb-3">
+                              <span 
+                                className="text-4xl" 
                       role="img" 
                       aria-label={category.name}
                     >
