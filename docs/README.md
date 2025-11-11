@@ -9,6 +9,7 @@ Welcome to the AI创意工坊 (AI Creative Workshop) documentation hub.
 ### 🎨 Design System
 - **[⚡ Quick Status](./design-system/QUICK_STATUS.md)** - At-a-glance progress dashboard
 - **[📊 Execution Log](./design-system/EXECUTION_LOG.md)** - Detailed task tracking and timeline
+- **[🎨 Design Tokens](./design-system/tokens.md)** - Complete token reference guide
 
 ### 🧩 Components
 - **[📖 Component Documentation](./components/README.md)** - Complete component library guide
@@ -21,6 +22,21 @@ Welcome to the AI创意工坊 (AI Creative Workshop) documentation hub.
 ### Apple Design System Refactoring
 
 Real-time tracking system for the 21-task Apple design system implementation.
+
+#### [🎨 Design Tokens Reference](./design-system/tokens.md)
+Complete design token documentation:
+- Color palette (light/dark mode with WCAG AA compliance)
+- Typography scale (fonts, sizes, line heights)
+- Spacing system (4px modular ramp)
+- Border radius (8px/16px system)
+- Shadow presets (subtle elevation)
+- Transitions & animations (durations, easing)
+- Layout utilities (60/20/20 grid system)
+- Semantic token usage guidelines
+- Accessibility considerations (reduced motion)
+- Code examples (CSS/TypeScript)
+
+**Use this when**: Building components or implementing designs with design tokens
 
 #### [⚡ Quick Status Dashboard](./design-system/QUICK_STATUS.md)
 Fast, scannable status overview:
