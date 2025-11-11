@@ -113,6 +113,12 @@ Located in project root:
 - **[METADATA_IMPLEMENTATION.md](../METADATA_IMPLEMENTATION.md)** - SEO metadata implementation
 - **[STRUCTURED_DATA_VALIDATION.md](../STRUCTURED_DATA_VALIDATION.md)** - Schema.org validation
 
+### Quality Assurance
+
+- **[quality-report.md](./quality-report.md)** - Comprehensive Lighthouse audit report (Nov 2024)
+- **[QUALITY_AUDIT_SUMMARY.md](./QUALITY_AUDIT_SUMMARY.md)** - Quick quality metrics overview
+- **[lighthouse-reports/](./lighthouse-reports/)** - Full Lighthouse JSON reports for all routes
+
 ---
 
 ## 🔍 How to Use This Documentation
